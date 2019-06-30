@@ -1,20 +1,14 @@
 pragma solidity >=0.4.21 <0.6.0;
+import "./accessControl/ContributorRole.sol";
+import "./accessControl/ReaderRole.sol";
+import "./accessControl/ValidatorRole.sol";
 
-contract Honestmedia  {
+contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole  {
 
 	address owner;
 
 	//check if contract operational
     bool private operational = true; 
-
-	//TODO: updated based on a role name
-	mapping(address => Journalist) journalists;
-
-	//TODO: updated based on a role name
-	mapping(address => Reader) readers;
-
-	//TODO: updated based on a role name
-	mapping(address => Validator) Validator;
 
 	constructor() public {
         owner = msg.sender;
@@ -26,7 +20,7 @@ contract Honestmedia  {
     }
 
     modifier requireContractOwner() {
-        require(isAdmin(msg.sender), "Caller is not admin");
+        require((msg.sender == owner), "Caller is not admin");
         _;
     }
 
@@ -47,20 +41,16 @@ contract Honestmedia  {
     }
 
     //seting ranking
-    //TODO: update based on roles
-    function setJournalistRanking(address _address, uint rank) external {
-    	Journalist journalist = journalists[_address];
-    	journalist.setRanking(rank);
+    function setContributorRating(address _address, uint rank) external {
+    	ContributorRole.setRating(_address, rank);
     }
 
-    function setReaderRanking(address _address, uint rank) external {
-    	Reader reader = readers[_address];
-    	reader.setRanking(rank);
+    function setReaderRating(address _address, uint rank) external {
+    	ReaderRole.setRating(_address, rank);
     }
 
-    function setValidatorRanking(address _address, uint rank) external {
-    	Validator validator = validators[_address];
-    	validator.setRanking(rank);
+    function setValidatorRating(address _address, uint rank) external {
+    	ValidatorRole.setRating(_address, rank);
     }
 
     //TODO: based on article role

@@ -56,6 +56,12 @@ contract ReaderRole {
     allReaders[msg.sender].numOfChallenges = allReaders[msg.sender].numOfChallenges.add(1);
   }
 
+  //set ranking of contributor
+  function setRating(address account, uint ranking) public {
+    readerInfo memory reader = allReaders[account];
+    reader.rating = ranking;
+  }
+
   // Define an internal function '_addReader' to add this role, called by 'addReader'
   function _addReader(address account, uint funds) internal {
     readers.add(account);
