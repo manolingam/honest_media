@@ -2,7 +2,7 @@ pragma solidity >=0.4.21 <0.6.0;
 
 import "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
 
-contract HonestToken is ERC20, ERC20Detailed  {
+contract HonestToken is ERC20 {
  
 	string public name = "HonestToken";
 	string public symbol = "HT";
