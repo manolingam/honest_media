@@ -62,6 +62,12 @@ contract ContributorRole {
     allContributors[msg.sender].challengesLost = allContributors[msg.sender].challengesLost.add(1);
   }
 
+  //set ranking of contributor
+  function setRating(address account, uint ranking) public {
+    contributorInfo memory contributor = allContributors[account];
+    contributor.rating = ranking;
+  }
+
   // Define an internal function '_addContributor' to add this role, called by 'addContributor'
   function _addContributor(address account, uint fund) internal {
     contributors.add(account);

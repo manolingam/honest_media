@@ -62,6 +62,12 @@ contract ValidatorRole {
     allValidators[msg.sender].numOfChallenges = allValidators[msg.sender].numOfChallenges.add(1);
   }
 
+  //set ranking of contributor
+  function setRating(address account, uint ranking) public {
+    validatorInfo memory validator = allValidators[account];
+    validator.rating = ranking;
+  }
+
   // Define an internal function '_addValidator' to add this role, called by 'addValidator'
   function _addValidator(address account, uint funds) internal {
     validators.add(account);
