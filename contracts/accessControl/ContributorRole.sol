@@ -22,6 +22,7 @@ contract ContributorRole {
       uint balance;
       uint articlesPublished;
       uint challengesLost;
+      uint[] articles; //to store Ids of articles published
   }
   //Define a mapping to map contributor address and contributor info
   mapping(address => contributorInfo) allContributors;
@@ -66,6 +67,11 @@ contract ContributorRole {
   function setRating(address account, uint ranking) public {
     contributorInfo memory contributor = allContributors[account];
     contributor.rating = ranking;
+  }
+
+  //Add articleId to articles array
+  function addArticle(uint articleId) public {
+    allContributors[msg.sender].articles.push(articleId);
   }
 
   // Define an internal function '_addContributor' to add this role, called by 'addContributor'
