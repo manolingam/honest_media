@@ -46,6 +46,28 @@ contract Honestmedia  {
         operational = mode;
     }
 
+    //seting ranking
+    //TODO: update based on roles
+    function setJournalistRanking(address _address, uint rank) external {
+    	Journalist journalist = journalists[_address];
+    	journalist.setRanking(rank);
+    }
+
+    function setReaderRanking(address _address, uint rank) external {
+    	Reader reader = readers[_address];
+    	reader.setRanking(rank);
+    }
+
+    function setValidatorRanking(address _address, uint rank) external {
+    	Validator validator = validators[_address];
+    	validator.setRanking(rank);
+    }
+
+    //TODO: based on article role
+    //function challengeArticle(address _address) {}
+
+    //TODO: store the article etc
+
 
 
 
