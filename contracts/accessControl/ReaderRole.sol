@@ -69,7 +69,7 @@ contract ReaderRole {
   }
 
   //Define a function to increase number of challenges
-  function challenge(bytes32 proofHash, uint stake) external {
+  function challenge(bytes32 proofHash, uint stake) external onlyReader {
     totalChallenges = totalChallenges.add(1);
     allChallenges[totalChallenges] = challengeInfo({reader: msg.sender, proofHash: proofHash, stake: stake, success: false});
     allReaders[msg.sender].numOfChallenges = allReaders[msg.sender].numOfChallenges.add(1);
