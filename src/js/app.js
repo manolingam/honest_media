@@ -30,8 +30,14 @@ App = {
       App.contracts.Honestmedia.setProvider(App.web3Provider);
 
       // Use our contract to retieve and mark the adopted pets.
-      return App.showOperational();
+      //return App.showOperational();
+      return App.bindEvents();
     });
+  },
+
+  bindEvents: function () {
+    App.showOperational();
+    $('#button-register').on('click', App.registerAccount);
   },
 
   showOperational: function(){
@@ -57,6 +63,80 @@ App = {
         console.log(err.message);
       });
     });
+
+  },
+
+  registerAccount: function (event) {
+    event.preventDefault();
+
+    //read address
+    var addr = $('#txt-registerAddress').val();
+
+    //read account type value
+    const accountType = $("#accountType :selected").text();
+
+    var honestmediaInstance;
+
+    if(accountType === 'Contributor') {
+      web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+
+        return honestmediaInstance.registerContributor(addr);
+      }).then(function(result) {
+        console.log(result);
+        console.log("successfully added contributor");
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
+
+    }
+
+    if(accountType === 'Reader') {
+      web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+
+        return honestmediaInstance.registerReader(addr);
+      }).then(function(result) {
+        console.log(result);
+        console.log("successfully added reader");
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
+      
+    }
+
+    if(accountType === 'Validator') {
+      web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+
+        return honestmediaInstance.registerValidator(addr);
+      }).then(function(result) {
+        console.log(result);
+        console.log("successfully added validator");
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
+      
+    }
+
 
   }
 
