@@ -24,6 +24,7 @@ contract Article {
       bytes32 ipfsReferenceHash;
       string title;
       uint datePublished;
+      address validator;
       bool approved;
       bool challenged;
       bool removed;
@@ -48,7 +49,7 @@ contract Article {
     totalArticles = totalArticles.add(1);
     allArticles[totalArticles] = articleInfo({contributor: _contributor, ipfsArticleHash: _ipfsArticleHash,
                                              ipfsReferenceHash: _ipfsReferenceHash, title: _title, datePublished: _datePublished,
-                                            approved: false, challenged:false, removed: false, upVotes: 0, downVotes: 0, stake: _stake});
+                                            validator: address(0), approved: false, challenged:false, removed: false, upVotes: 0, downVotes: 0, stake: _stake});
     emit ArticleAdded(totalArticles);
     return totalArticles;
   }
