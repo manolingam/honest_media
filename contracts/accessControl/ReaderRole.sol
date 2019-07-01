@@ -12,6 +12,7 @@ contract ReaderRole {
   // Define 2 events, one for Adding, and other for Removing
   event ReaderAdded(address indexed account);
   event ReaderRemoved(address indexed account);
+  event ChallengeAdded(address account, uint challengeId);
 
   // Define a struct 'Readers' by inheriting from 'Roles' library, struct Role
   Roles.Role private readers;
@@ -21,11 +22,27 @@ contract ReaderRole {
       uint rating;
       uint balance;
       uint numOfChallenges;
+      uint[] challenges; //array of challenge ids raised by the reader
   }
+
   //Define a mapping to map reader address and reader info
   mapping(address => readerInfo) allReaders;
 
-  // In the constructor make the address that deploys this contract the 1st Reader
+  //Struct for challenges
+  struct challengeInfo {
+    address reader;
+    bytes32 proofHash;
+    uint stake;
+    bool success;
+    }
+
+  //Save number of total challenges
+  uint public totalChallenges;
+
+  //Mapping for saving all challenges
+  mapping(uint => challengeInfo) allChallenges;
+
+ // In the constructor make the address that deploys this contract the 1st Reader
   constructor() public {
     _addReader(msg.sender, 0);
   }
@@ -52,8 +69,12 @@ contract ReaderRole {
   }
 
   //Define a function to increase number of challenges
-  function challenge() external {
-    allReaders[msg.sender].numOfChallenges = allReaders[msg.sender].numOfChallenges.add(1);
+  function challenge(bytes32 proofHash, uint stake, address account) public {
+    totalChallenges = totalChallenges.add(1);
+    allChallenges[totalChallenges] = challengeInfo({reader: account, proofHash: proofHash, stake: stake, success: false});
+    allReaders[account].numOfChallenges = allReaders[account].numOfChallenges.add(1);
+    allReaders[account].challenges.push(totalChallenges);
+    emit ChallengeAdded(account, totalChallenges);
   }
 
   //set ranking of contributor

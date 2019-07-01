@@ -26,6 +26,12 @@ contract ValidatorRole {
   //Define a mapping to map validator address and validator info
   mapping(address => validatorInfo) allValidators;
 
+  //Define a variable to store total number of validators
+  uint public totalValidators;
+
+  //Define a mapping to store validator Ids
+  mapping(uint => address) public validatorIds;
+
   // In the constructor make the address that deploys this contract the 1st Validator
   constructor() public {
     _addValidator(msg.sender, 0);
@@ -72,6 +78,8 @@ contract ValidatorRole {
   function _addValidator(address account, uint funds) internal {
     validators.add(account);
     allValidators[account].balance = funds;
+    totalValidators = totalValidators.add(1);
+    validatorIds[totalValidators] = account;
     emit ValidatorAdded(account);
   }
 
