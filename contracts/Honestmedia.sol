@@ -83,24 +83,26 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
 
     //Function to store the article etc
     function addArticle(bytes32 _ipfsArticleHash, bytes32 _ipfsReferenceHash, string memory _title,
-                        uint _datePublished, uint _stake, address _contributor) public onlyContributor
+                        uint _datePublished, uint _stake) public onlyContributor
     {
         //Check if Amount staked is greater than balance of contributor
         require(_stake <= ContributorRole.allContributors[msg.sender].balance,
                          "Insufficient funds to publish article. Amount staked should be less than account balance.");
         uint articleNum = Article.addArticle(msg.sender, _ipfsArticleHash, _ipfsReferenceHash, _title, _datePublished, _stake);
-        ContributorRole.allContributors[_contributor].articles.push(articleNum);
+        ContributorRole.allContributors[msg.sender].articles.push(articleNum);
         //Assign validator to approve article
     }
 
     //Function to update rating for Contributors
     function updateContributorRating(bool vote, bool challengeLost, address _contributor, uint articleId) public {
+        //change rating after challenge lost
         if(challengeLost == true){
             if(ContributorRole.allContributors[_contributor].rating > 0){
                 ContributorRole.allContributors[_contributor].rating = ContributorRole.allContributors[_contributor].rating.sub(1);
             }
             ContributorRole.allContributors[_contributor].challengesLost = ContributorRole.allContributors[_contributor].challengesLost.add(1);
         }else {
+        //change rating after reader vote
             if(vote == true){
                 Article.allArticles[articleId].upVotes = Article.allArticles[articleId].upVotes.add(1);
             }else {
@@ -153,7 +155,7 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
     }
 
     //function to register validator votes on challenge. Will also check if 2 of 3 consensus is reached
-    function voteOnChallenge(uint rulingId, bool vote, uint challengeId) external {
+    function voteOnChallenge(uint rulingId, bool vote, uint challengeId) external onlyValidator {
         uint numOfYesVotes;
         for(uint i = 0; i < 3; i++){
             if (allRulings[rulingId].validators[i] == msg.sender) {
