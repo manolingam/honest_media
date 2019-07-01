@@ -19,6 +19,7 @@ contract Article {
 
   //Define a struct to store contributor information
   struct articleInfo {
+      address contributor;
       bytes32 ipfsArticleHash;
       bytes32 ipfsReferenceHash;
       string title;
@@ -42,9 +43,11 @@ contract Article {
  //   }
 
   // Define a function 'addArticle' that adds the article
-  function addArticle(bytes32 _ipfsArticleHash, bytes32 _ipfsReferenceHash, string memory _title, uint _datePublished, uint _stake) public returns(uint){
+  function addArticle(address _contributor, bytes32 _ipfsArticleHash, bytes32 _ipfsReferenceHash,
+                        string memory _title, uint _datePublished, uint _stake) public returns(uint){
     totalArticles = totalArticles.add(1);
-    allArticles[totalArticles] = articleInfo({ipfsArticleHash: _ipfsArticleHash, ipfsReferenceHash: _ipfsReferenceHash, title: _title, datePublished: _datePublished,
+    allArticles[totalArticles] = articleInfo({contributor: _contributor, ipfsArticleHash: _ipfsArticleHash,
+                                             ipfsReferenceHash: _ipfsReferenceHash, title: _title, datePublished: _datePublished,
                                             approved: false, challenged:false, removed: false, upVotes: 0, downVotes: 0, stake: _stake});
     emit ArticleAdded(totalArticles);
     return totalArticles;

@@ -25,6 +25,8 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
 
     //Struct to store ruling
     struct ruling {
+        uint articleId;
+        uint challengeId;
         address[3] validators;
         bool[3] votes;
         uint voted;
@@ -86,7 +88,7 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
         //Check if Amount staked is greater than balance of contributor
         require(_stake <= ContributorRole.allContributors[msg.sender].balance,
                          "Insufficient funds to publish article. Amount staked should be less than account balance.");
-        uint articleNum = Article.addArticle(_ipfsArticleHash, _ipfsReferenceHash, _title, _datePublished, _stake);
+        uint articleNum = Article.addArticle(msg.sender, _ipfsArticleHash, _ipfsReferenceHash, _title, _datePublished, _stake);
         ContributorRole.allContributors[_contributor].articles.push(articleNum);
         //Assign validator to approve article
     }
@@ -122,13 +124,14 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
     }
 
     //Function to challenge an article
-    function challengeArticle(bytes32 proofHash, uint stake) external onlyReader {
-        ReaderRole.challenge(proofHash, stake, msg.sender);
-        assignValidators();
+    function challengeArticle(bytes32 proofHash, uint stake, uint articleId) external onlyReader {
+        address contributor = Article.allArticles[articleId].contributor;
+        ReaderRole.challenge(articleId, contributor, proofHash, stake, msg.sender);
+        assignValidators(articleId, ReaderRole.totalChallenges);
     }
 
     //function to find random validators to vote on challenge
-    function assignValidators() internal {
+    function assignValidators(uint _articleId, uint _challengeId) internal {
         totalRulings = totalRulings.add(1);
         address[3] memory validators;
         for(uint i = 1; i < 4; i++)
@@ -136,6 +139,8 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
             validators[i-1] = ValidatorRole.validatorIds[random(i)];
         }
         allRulings[totalRulings].validators = validators;
+        allRulings[totalRulings].articleId = _articleId;
+        allRulings[totalRulings].challengeId = _challengeId;
     }
 
     //Random number generator
@@ -161,6 +166,8 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
         if(numOfYesVotes >= 2){
             ReaderRole.allChallenges[challengeId].success = true;
             // update contributor's challenges lost
+            address contributor = ReaderRole.allChallenges[challengeId].contributor;
+            ContributorRole.allContributors[contributor].challengesLost = ContributorRole.allContributors[contributor].challengesLost.add(1);
             // Distribute Amount staked by contributor to reader and validators
         }else
         {
