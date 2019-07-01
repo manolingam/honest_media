@@ -40,11 +40,12 @@ contract Article {
  //   }
 
   // Define a function 'addArticle' that adds the article
-  function addArticle(bytes32 _ipfsArticleHash, bytes32 _ipfsReferenceHash, uint _stake) public {
+  function addArticle(bytes32 _ipfsArticleHash, bytes32 _ipfsReferenceHash, uint _stake) public returns(uint){
     totalArticles = totalArticles.add(1);
     allArticles[totalArticles] = articleInfo({ipfsArticleHash: _ipfsArticleHash, ipfsReferenceHash: _ipfsReferenceHash,
                                             approved: false, challenged:false, removed: false, upVotes: 0, downVotes: 0, stake: _stake});
     emit ArticleAdded(totalArticles);
+    return totalArticles;
   }
 
   // Define a function 'approved' that updates the approved flag
