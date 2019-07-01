@@ -81,6 +81,8 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
 
     //Function to store the article etc
     function addArticle(bytes32 _ipfsArticleHash, bytes32 _ipfsReferenceHash, uint _stake, address _contributor) public onlyContributor {
+        //Check if Amount staked is greater than balance of contributor
+        require(_stake <= ContributorRole.allContributors[msg.sender].balance, "Insufficient funds to publish article. Amount staked should be less than account balance.");
         uint articleNum = Article.addArticle(_ipfsArticleHash, _ipfsReferenceHash, _stake);
         ContributorRole.allContributors[_contributor].articles.push(articleNum);
         //Assign validator to approve article

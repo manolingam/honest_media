@@ -157,14 +157,14 @@
     "absolutePath": "/C/Users/avant/Desktop/honest_media/contracts/accessControl/ValidatorRole.sol",
     "exportedSymbols": {
       "ValidatorRole": [
-        1288
+        1300
       ]
     },
-    "id": 1289,
+    "id": 1301,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1075,
+        "id": 1087,
         "literals": [
           "solidity",
           ">=",
@@ -180,10 +180,10 @@
       {
         "absolutePath": "/C/Users/avant/Desktop/honest_media/node_modules/openzeppelin-solidity/contracts/access/Roles.sol",
         "file": "../../node_modules/openzeppelin-solidity/contracts/access/Roles.sol",
-        "id": 1076,
+        "id": 1088,
         "nodeType": "ImportDirective",
-        "scope": 1289,
-        "sourceUnit": 1370,
+        "scope": 1301,
+        "sourceUnit": 1382,
         "src": "80:77:5",
         "symbolAliases": [],
         "unitAlias": ""
@@ -191,10 +191,10 @@
       {
         "absolutePath": "/C/Users/avant/Desktop/honest_media/node_modules/openzeppelin-solidity/contracts/math/SafeMath.sol",
         "file": "../../node_modules/openzeppelin-solidity/contracts/math/SafeMath.sol",
-        "id": 1077,
+        "id": 1089,
         "nodeType": "ImportDirective",
-        "scope": 1289,
-        "sourceUnit": 1503,
+        "scope": 1301,
+        "sourceUnit": 1515,
         "src": "159:78:5",
         "symbolAliases": [],
         "unitAlias": ""
@@ -205,24 +205,24 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1288,
+        "id": 1300,
         "linearizedBaseContracts": [
-          1288
+          1300
         ],
         "name": "ValidatorRole",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "id": 1080,
+            "id": 1092,
             "libraryName": {
               "contractScope": null,
-              "id": 1078,
+              "id": 1090,
               "name": "Roles",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1369,
+              "referencedDeclaration": 1381,
               "src": "354:5:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Roles_$1369",
+                "typeIdentifier": "t_contract$_Roles_$1381",
                 "typeString": "library Roles"
               }
             },
@@ -230,35 +230,35 @@
             "src": "348:27:5",
             "typeName": {
               "contractScope": null,
-              "id": 1079,
+              "id": 1091,
               "name": "Roles.Role",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1295,
+              "referencedDeclaration": 1307,
               "src": "364:10:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_Role_$1295_storage_ptr",
+                "typeIdentifier": "t_struct$_Role_$1307_storage_ptr",
                 "typeString": "struct Roles.Role"
               }
             }
           },
           {
-            "id": 1083,
+            "id": 1095,
             "libraryName": {
               "contractScope": null,
-              "id": 1081,
+              "id": 1093,
               "name": "SafeMath",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1502,
+              "referencedDeclaration": 1514,
               "src": "385:8:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SafeMath_$1502",
+                "typeIdentifier": "t_contract$_SafeMath_$1514",
                 "typeString": "library SafeMath"
               }
             },
             "nodeType": "UsingForDirective",
             "src": "379:24:5",
             "typeName": {
-              "id": 1082,
+              "id": 1094,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
               "src": "398:4:5",
@@ -271,20 +271,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 1087,
+            "id": 1099,
             "name": "ValidatorAdded",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1086,
+              "id": 1098,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1085,
+                  "id": 1097,
                   "indexed": true,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1087,
+                  "scope": 1099,
                   "src": "492:23:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -293,7 +293,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1084,
+                    "id": 1096,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "492:7:5",
@@ -314,20 +314,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 1091,
+            "id": 1103,
             "name": "ValidatorRemoved",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1090,
+              "id": 1102,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1089,
+                  "id": 1101,
                   "indexed": true,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1091,
+                  "scope": 1103,
                   "src": "544:23:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -336,7 +336,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1088,
+                    "id": 1100,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "544:7:5",
@@ -356,26 +356,26 @@
           },
           {
             "constant": false,
-            "id": 1093,
+            "id": 1105,
             "name": "validators",
             "nodeType": "VariableDeclaration",
-            "scope": 1288,
+            "scope": 1300,
             "src": "658:29:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_struct$_Role_$1295_storage",
+              "typeIdentifier": "t_struct$_Role_$1307_storage",
               "typeString": "struct Roles.Role"
             },
             "typeName": {
               "contractScope": null,
-              "id": 1092,
+              "id": 1104,
               "name": "Roles.Role",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1295,
+              "referencedDeclaration": 1307,
               "src": "658:10:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_Role_$1295_storage_ptr",
+                "typeIdentifier": "t_struct$_Role_$1307_storage_ptr",
                 "typeString": "struct Roles.Role"
               }
             },
@@ -384,14 +384,14 @@
           },
           {
             "canonicalName": "ValidatorRole.validatorInfo",
-            "id": 1102,
+            "id": 1114,
             "members": [
               {
                 "constant": false,
-                "id": 1095,
+                "id": 1107,
                 "name": "rating",
                 "nodeType": "VariableDeclaration",
-                "scope": 1102,
+                "scope": 1114,
                 "src": "776:11:5",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -400,7 +400,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1094,
+                  "id": 1106,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "776:4:5",
@@ -414,10 +414,10 @@
               },
               {
                 "constant": false,
-                "id": 1097,
+                "id": 1109,
                 "name": "balance",
                 "nodeType": "VariableDeclaration",
-                "scope": 1102,
+                "scope": 1114,
                 "src": "796:12:5",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -426,7 +426,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1096,
+                  "id": 1108,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "796:4:5",
@@ -440,10 +440,10 @@
               },
               {
                 "constant": false,
-                "id": 1099,
+                "id": 1111,
                 "name": "numOfApprovals",
                 "nodeType": "VariableDeclaration",
-                "scope": 1102,
+                "scope": 1114,
                 "src": "817:19:5",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -452,7 +452,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1098,
+                  "id": 1110,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "817:4:5",
@@ -466,10 +466,10 @@
               },
               {
                 "constant": false,
-                "id": 1101,
+                "id": 1113,
                 "name": "numOfChallenges",
                 "nodeType": "VariableDeclaration",
-                "scope": 1102,
+                "scope": 1114,
                 "src": "845:20:5",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -478,7 +478,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1100,
+                  "id": 1112,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "845:4:5",
@@ -493,27 +493,27 @@
             ],
             "name": "validatorInfo",
             "nodeType": "StructDefinition",
-            "scope": 1288,
+            "scope": 1300,
             "src": "746:125:5",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 1106,
+            "id": 1118,
             "name": "allValidators",
             "nodeType": "VariableDeclaration",
-            "scope": 1288,
+            "scope": 1300,
             "src": "941:47:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1102_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1114_storage_$",
               "typeString": "mapping(address => struct ValidatorRole.validatorInfo)"
             },
             "typeName": {
-              "id": 1105,
+              "id": 1117,
               "keyType": {
-                "id": 1103,
+                "id": 1115,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "949:7:5",
@@ -525,18 +525,18 @@
               "nodeType": "Mapping",
               "src": "941:33:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1102_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1114_storage_$",
                 "typeString": "mapping(address => struct ValidatorRole.validatorInfo)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 1104,
+                "id": 1116,
                 "name": "validatorInfo",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 1102,
+                "referencedDeclaration": 1114,
                 "src": "960:13:5",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_validatorInfo_$1102_storage_ptr",
+                  "typeIdentifier": "t_struct$_validatorInfo_$1114_storage_ptr",
                   "typeString": "struct ValidatorRole.validatorInfo"
                 }
               }
@@ -546,10 +546,10 @@
           },
           {
             "constant": false,
-            "id": 1108,
+            "id": 1120,
             "name": "totalValidators",
             "nodeType": "VariableDeclaration",
-            "scope": 1288,
+            "scope": 1300,
             "src": "1054:27:5",
             "stateVariable": true,
             "storageLocation": "default",
@@ -558,7 +558,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 1107,
+              "id": 1119,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
               "src": "1054:4:5",
@@ -572,10 +572,10 @@
           },
           {
             "constant": false,
-            "id": 1112,
+            "id": 1124,
             "name": "validatorIds",
             "nodeType": "VariableDeclaration",
-            "scope": 1288,
+            "scope": 1300,
             "src": "1133:44:5",
             "stateVariable": true,
             "storageLocation": "default",
@@ -584,9 +584,9 @@
               "typeString": "mapping(uint256 => address)"
             },
             "typeName": {
-              "id": 1111,
+              "id": 1123,
               "keyType": {
-                "id": 1109,
+                "id": 1121,
                 "name": "uint",
                 "nodeType": "ElementaryTypeName",
                 "src": "1141:4:5",
@@ -602,7 +602,7 @@
                 "typeString": "mapping(uint256 => address)"
               },
               "valueType": {
-                "id": 1110,
+                "id": 1122,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "1149:7:5",
@@ -618,7 +618,7 @@
           },
           {
             "body": {
-              "id": 1121,
+              "id": 1133,
               "nodeType": "Block",
               "src": "1292:41:5",
               "statements": [
@@ -630,18 +630,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1116,
+                          "id": 1128,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1517,
+                          "referencedDeclaration": 1529,
                           "src": "1313:3:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 1117,
+                        "id": 1129,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -658,7 +658,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "30",
-                        "id": 1118,
+                        "id": 1130,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -685,18 +685,18 @@
                           "typeString": "int_const 0"
                         }
                       ],
-                      "id": 1115,
+                      "id": 1127,
                       "name": "_addValidator",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1271,
+                      "referencedDeclaration": 1283,
                       "src": "1299:13:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
                         "typeString": "function (address,uint256)"
                       }
                     },
-                    "id": 1119,
+                    "id": 1131,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -710,32 +710,32 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1120,
+                  "id": 1132,
                   "nodeType": "ExpressionStatement",
                   "src": "1299:28:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1122,
+            "id": 1134,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1113,
+              "id": 1125,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1282:2:5"
             },
             "returnParameters": {
-              "id": 1114,
+              "id": 1126,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1292:0:5"
             },
-            "scope": 1288,
+            "scope": 1300,
             "src": "1271:62:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -743,7 +743,7 @@
           },
           {
             "body": {
-              "id": 1133,
+              "id": 1145,
               "nodeType": "Block",
               "src": "1446:82:5",
               "statements": [
@@ -758,18 +758,18 @@
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 1126,
+                              "id": 1138,
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1517,
+                              "referencedDeclaration": 1529,
                               "src": "1473:3:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
                                 "typeString": "msg"
                               }
                             },
-                            "id": 1127,
+                            "id": 1139,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -791,18 +791,18 @@
                               "typeString": "address payable"
                             }
                           ],
-                          "id": 1125,
+                          "id": 1137,
                           "name": "isValidator",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1147,
+                          "referencedDeclaration": 1159,
                           "src": "1461:11:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_bool_$",
                             "typeString": "function (address) view returns (bool)"
                           }
                         },
-                        "id": 1128,
+                        "id": 1140,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -819,7 +819,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "43616c6c6572206973206e6f7420612056616c696461746f72",
-                        "id": 1129,
+                        "id": 1141,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -846,21 +846,21 @@
                           "typeString": "literal_string \"Caller is not a Validator\""
                         }
                       ],
-                      "id": 1124,
+                      "id": 1136,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1520,
-                        1521
+                        1532,
+                        1533
                       ],
-                      "referencedDeclaration": 1521,
+                      "referencedDeclaration": 1533,
                       "src": "1453:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 1130,
+                    "id": 1142,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -874,23 +874,23 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1131,
+                  "id": 1143,
                   "nodeType": "ExpressionStatement",
                   "src": "1453:61:5"
                 },
                 {
-                  "id": 1132,
+                  "id": 1144,
                   "nodeType": "PlaceholderStatement",
                   "src": "1521:1:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1134,
+            "id": 1146,
             "name": "onlyValidator",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 1123,
+              "id": 1135,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1443:2:5"
@@ -900,7 +900,7 @@
           },
           {
             "body": {
-              "id": 1146,
+              "id": 1158,
               "nodeType": "Block",
               "src": "1656:43:5",
               "statements": [
@@ -910,11 +910,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1143,
+                        "id": 1155,
                         "name": "account",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1136,
+                        "referencedDeclaration": 1148,
                         "src": "1685:7:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -931,32 +931,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1141,
+                        "id": 1153,
                         "name": "validators",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1093,
+                        "referencedDeclaration": 1105,
                         "src": "1670:10:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Role_$1295_storage",
+                          "typeIdentifier": "t_struct$_Role_$1307_storage",
                           "typeString": "struct Roles.Role storage ref"
                         }
                       },
-                      "id": 1142,
+                      "id": 1154,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "has",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1368,
+                      "referencedDeclaration": 1380,
                       "src": "1670:14:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_view$_t_struct$_Role_$1295_storage_ptr_$_t_address_$returns$_t_bool_$bound_to$_t_struct$_Role_$1295_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_view$_t_struct$_Role_$1307_storage_ptr_$_t_address_$returns$_t_bool_$bound_to$_t_struct$_Role_$1307_storage_ptr_$",
                         "typeString": "function (struct Roles.Role storage pointer,address) view returns (bool)"
                       }
                     },
-                    "id": 1144,
+                    "id": 1156,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -970,30 +970,30 @@
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 1140,
-                  "id": 1145,
+                  "functionReturnParameters": 1152,
+                  "id": 1157,
                   "nodeType": "Return",
                   "src": "1663:30:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1147,
+            "id": 1159,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "isValidator",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1137,
+              "id": 1149,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1136,
+                  "id": 1148,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1147,
+                  "scope": 1159,
                   "src": "1612:15:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1002,7 +1002,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1135,
+                    "id": 1147,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1612:7:5",
@@ -1019,15 +1019,15 @@
               "src": "1611:17:5"
             },
             "returnParameters": {
-              "id": 1140,
+              "id": 1152,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1139,
+                  "id": 1151,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1147,
+                  "scope": 1159,
                   "src": "1650:4:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1036,7 +1036,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 1138,
+                    "id": 1150,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "1650:4:5",
@@ -1051,7 +1051,7 @@
               ],
               "src": "1649:6:5"
             },
-            "scope": 1288,
+            "scope": 1300,
             "src": "1591:108:5",
             "stateMutability": "view",
             "superFunction": null,
@@ -1059,7 +1059,7 @@
           },
           {
             "body": {
-              "id": 1161,
+              "id": 1173,
               "nodeType": "Block",
               "src": "1836:42:5",
               "statements": [
@@ -1069,11 +1069,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1157,
+                        "id": 1169,
                         "name": "account",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1149,
+                        "referencedDeclaration": 1161,
                         "src": "1857:7:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -1082,11 +1082,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1158,
+                        "id": 1170,
                         "name": "funds",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1151,
+                        "referencedDeclaration": 1163,
                         "src": "1866:5:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1105,18 +1105,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 1156,
+                      "id": 1168,
                       "name": "_addValidator",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1271,
+                      "referencedDeclaration": 1283,
                       "src": "1843:13:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
                         "typeString": "function (address,uint256)"
                       }
                     },
-                    "id": 1159,
+                    "id": 1171,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1130,27 +1130,27 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1160,
+                  "id": 1172,
                   "nodeType": "ExpressionStatement",
                   "src": "1843:29:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1162,
+            "id": 1174,
             "implemented": true,
             "kind": "function",
             "modifiers": [
               {
                 "arguments": null,
-                "id": 1154,
+                "id": 1166,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 1153,
+                  "id": 1165,
                   "name": "onlyValidator",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1134,
+                  "referencedDeclaration": 1146,
                   "src": "1822:13:5",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -1164,15 +1164,15 @@
             "name": "addValidator",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1152,
+              "id": 1164,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1149,
+                  "id": 1161,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1162,
+                  "scope": 1174,
                   "src": "1786:15:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1181,7 +1181,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1148,
+                    "id": 1160,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1786:7:5",
@@ -1196,10 +1196,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1151,
+                  "id": 1163,
                   "name": "funds",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1162,
+                  "scope": 1174,
                   "src": "1803:10:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1208,7 +1208,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1150,
+                    "id": 1162,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1803:4:5",
@@ -1224,12 +1224,12 @@
               "src": "1785:29:5"
             },
             "returnParameters": {
-              "id": 1155,
+              "id": 1167,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1836:0:5"
             },
-            "scope": 1288,
+            "scope": 1300,
             "src": "1764:114:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1237,7 +1237,7 @@
           },
           {
             "body": {
-              "id": 1170,
+              "id": 1182,
               "nodeType": "Block",
               "src": "1986:41:5",
               "statements": [
@@ -1249,18 +1249,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1166,
+                          "id": 1178,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1517,
+                          "referencedDeclaration": 1529,
                           "src": "2010:3:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 1167,
+                        "id": 1179,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1282,18 +1282,18 @@
                           "typeString": "address payable"
                         }
                       ],
-                      "id": 1165,
+                      "id": 1177,
                       "name": "_removeValidator",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1287,
+                      "referencedDeclaration": 1299,
                       "src": "1993:16:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$__$",
                         "typeString": "function (address)"
                       }
                     },
-                    "id": 1168,
+                    "id": 1180,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1307,32 +1307,32 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1169,
+                  "id": 1181,
                   "nodeType": "ExpressionStatement",
                   "src": "1993:28:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1171,
+            "id": 1183,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "renounceValidator",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1163,
+              "id": 1175,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1976:2:5"
             },
             "returnParameters": {
-              "id": 1164,
+              "id": 1176,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1986:0:5"
             },
-            "scope": 1288,
+            "scope": 1300,
             "src": "1950:77:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1340,14 +1340,14 @@
           },
           {
             "body": {
-              "id": 1191,
+              "id": 1203,
               "nodeType": "Block",
               "src": "2129:103:5",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1189,
+                    "id": 1201,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1358,34 +1358,34 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 1176,
+                          "id": 1188,
                           "name": "allValidators",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1106,
+                          "referencedDeclaration": 1118,
                           "src": "2136:13:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1102_storage_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1114_storage_$",
                             "typeString": "mapping(address => struct ValidatorRole.validatorInfo storage ref)"
                           }
                         },
-                        "id": 1179,
+                        "id": 1191,
                         "indexExpression": {
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 1177,
+                            "id": 1189,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1517,
+                            "referencedDeclaration": 1529,
                             "src": "2150:3:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 1178,
+                          "id": 1190,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1406,18 +1406,18 @@
                         "nodeType": "IndexAccess",
                         "src": "2136:25:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_validatorInfo_$1102_storage",
+                          "typeIdentifier": "t_struct$_validatorInfo_$1114_storage",
                           "typeString": "struct ValidatorRole.validatorInfo storage ref"
                         }
                       },
-                      "id": 1180,
+                      "id": 1192,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "numOfApprovals",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1099,
+                      "referencedDeclaration": 1111,
                       "src": "2136:40:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1432,7 +1432,7 @@
                         {
                           "argumentTypes": null,
                           "hexValue": "31",
-                          "id": 1187,
+                          "id": 1199,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1461,34 +1461,34 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 1181,
+                              "id": 1193,
                               "name": "allValidators",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1106,
+                              "referencedDeclaration": 1118,
                               "src": "2179:13:5",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1102_storage_$",
+                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1114_storage_$",
                                 "typeString": "mapping(address => struct ValidatorRole.validatorInfo storage ref)"
                               }
                             },
-                            "id": 1184,
+                            "id": 1196,
                             "indexExpression": {
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1182,
+                                "id": 1194,
                                 "name": "msg",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1517,
+                                "referencedDeclaration": 1529,
                                 "src": "2193:3:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_message",
                                   "typeString": "msg"
                                 }
                               },
-                              "id": 1183,
+                              "id": 1195,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -1509,39 +1509,39 @@
                             "nodeType": "IndexAccess",
                             "src": "2179:25:5",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_validatorInfo_$1102_storage",
+                              "typeIdentifier": "t_struct$_validatorInfo_$1114_storage",
                               "typeString": "struct ValidatorRole.validatorInfo storage ref"
                             }
                           },
-                          "id": 1185,
+                          "id": 1197,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "numOfApprovals",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 1099,
+                          "referencedDeclaration": 1111,
                           "src": "2179:40:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
-                        "id": 1186,
+                        "id": 1198,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "add",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 1396,
+                        "referencedDeclaration": 1408,
                         "src": "2179:44:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
                           "typeString": "function (uint256,uint256) pure returns (uint256)"
                         }
                       },
-                      "id": 1188,
+                      "id": 1200,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1561,27 +1561,27 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1190,
+                  "id": 1202,
                   "nodeType": "ExpressionStatement",
                   "src": "2136:90:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1192,
+            "id": 1204,
             "implemented": true,
             "kind": "function",
             "modifiers": [
               {
                 "arguments": null,
-                "id": 1174,
+                "id": 1186,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 1173,
+                  "id": 1185,
                   "name": "onlyValidator",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1134,
+                  "referencedDeclaration": 1146,
                   "src": "2116:13:5",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -1595,18 +1595,18 @@
             "name": "approve",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1172,
+              "id": 1184,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2104:2:5"
             },
             "returnParameters": {
-              "id": 1175,
+              "id": 1187,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2129:0:5"
             },
-            "scope": 1288,
+            "scope": 1300,
             "src": "2088:144:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1614,14 +1614,14 @@
           },
           {
             "body": {
-              "id": 1212,
+              "id": 1224,
               "nodeType": "Block",
               "src": "2343:105:5",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1210,
+                    "id": 1222,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1632,34 +1632,34 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 1197,
+                          "id": 1209,
                           "name": "allValidators",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1106,
+                          "referencedDeclaration": 1118,
                           "src": "2350:13:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1102_storage_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1114_storage_$",
                             "typeString": "mapping(address => struct ValidatorRole.validatorInfo storage ref)"
                           }
                         },
-                        "id": 1200,
+                        "id": 1212,
                         "indexExpression": {
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 1198,
+                            "id": 1210,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1517,
+                            "referencedDeclaration": 1529,
                             "src": "2364:3:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 1199,
+                          "id": 1211,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1680,18 +1680,18 @@
                         "nodeType": "IndexAccess",
                         "src": "2350:25:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_validatorInfo_$1102_storage",
+                          "typeIdentifier": "t_struct$_validatorInfo_$1114_storage",
                           "typeString": "struct ValidatorRole.validatorInfo storage ref"
                         }
                       },
-                      "id": 1201,
+                      "id": 1213,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "numOfChallenges",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1101,
+                      "referencedDeclaration": 1113,
                       "src": "2350:41:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1706,7 +1706,7 @@
                         {
                           "argumentTypes": null,
                           "hexValue": "31",
-                          "id": 1208,
+                          "id": 1220,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1735,34 +1735,34 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 1202,
+                              "id": 1214,
                               "name": "allValidators",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1106,
+                              "referencedDeclaration": 1118,
                               "src": "2394:13:5",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1102_storage_$",
+                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1114_storage_$",
                                 "typeString": "mapping(address => struct ValidatorRole.validatorInfo storage ref)"
                               }
                             },
-                            "id": 1205,
+                            "id": 1217,
                             "indexExpression": {
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1203,
+                                "id": 1215,
                                 "name": "msg",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1517,
+                                "referencedDeclaration": 1529,
                                 "src": "2408:3:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_message",
                                   "typeString": "msg"
                                 }
                               },
-                              "id": 1204,
+                              "id": 1216,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -1783,39 +1783,39 @@
                             "nodeType": "IndexAccess",
                             "src": "2394:25:5",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_validatorInfo_$1102_storage",
+                              "typeIdentifier": "t_struct$_validatorInfo_$1114_storage",
                               "typeString": "struct ValidatorRole.validatorInfo storage ref"
                             }
                           },
-                          "id": 1206,
+                          "id": 1218,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "numOfChallenges",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 1101,
+                          "referencedDeclaration": 1113,
                           "src": "2394:41:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
-                        "id": 1207,
+                        "id": 1219,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "add",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 1396,
+                        "referencedDeclaration": 1408,
                         "src": "2394:45:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
                           "typeString": "function (uint256,uint256) pure returns (uint256)"
                         }
                       },
-                      "id": 1209,
+                      "id": 1221,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1835,27 +1835,27 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1211,
+                  "id": 1223,
                   "nodeType": "ExpressionStatement",
                   "src": "2350:92:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1213,
+            "id": 1225,
             "implemented": true,
             "kind": "function",
             "modifiers": [
               {
                 "arguments": null,
-                "id": 1195,
+                "id": 1207,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 1194,
+                  "id": 1206,
                   "name": "onlyValidator",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1134,
+                  "referencedDeclaration": 1146,
                   "src": "2330:13:5",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -1869,18 +1869,18 @@
             "name": "ruleOnChallenge",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1193,
+              "id": 1205,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2318:2:5"
             },
             "returnParameters": {
-              "id": 1196,
+              "id": 1208,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2343:0:5"
             },
-            "scope": 1288,
+            "scope": 1300,
             "src": "2294:154:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1888,37 +1888,37 @@
           },
           {
             "body": {
-              "id": 1232,
+              "id": 1244,
               "nodeType": "Block",
               "src": "2543:101:5",
               "statements": [
                 {
                   "assignments": [
-                    1221
+                    1233
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1221,
+                      "id": 1233,
                       "name": "validator",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1232,
+                      "scope": 1244,
                       "src": "2550:30:5",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_validatorInfo_$1102_memory_ptr",
+                        "typeIdentifier": "t_struct$_validatorInfo_$1114_memory_ptr",
                         "typeString": "struct ValidatorRole.validatorInfo"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 1220,
+                        "id": 1232,
                         "name": "validatorInfo",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 1102,
+                        "referencedDeclaration": 1114,
                         "src": "2550:13:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_validatorInfo_$1102_storage_ptr",
+                          "typeIdentifier": "t_struct$_validatorInfo_$1114_storage_ptr",
                           "typeString": "struct ValidatorRole.validatorInfo"
                         }
                       },
@@ -1926,30 +1926,30 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1225,
+                  "id": 1237,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 1222,
+                      "id": 1234,
                       "name": "allValidators",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1106,
+                      "referencedDeclaration": 1118,
                       "src": "2583:13:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1102_storage_$",
+                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1114_storage_$",
                         "typeString": "mapping(address => struct ValidatorRole.validatorInfo storage ref)"
                       }
                     },
-                    "id": 1224,
+                    "id": 1236,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 1223,
+                      "id": 1235,
                       "name": "account",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1215,
+                      "referencedDeclaration": 1227,
                       "src": "2597:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -1963,7 +1963,7 @@
                     "nodeType": "IndexAccess",
                     "src": "2583:22:5",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_validatorInfo_$1102_storage",
+                      "typeIdentifier": "t_struct$_validatorInfo_$1114_storage",
                       "typeString": "struct ValidatorRole.validatorInfo storage ref"
                     }
                   },
@@ -1973,7 +1973,7 @@
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1230,
+                    "id": 1242,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1982,25 +1982,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1226,
+                        "id": 1238,
                         "name": "validator",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1221,
+                        "referencedDeclaration": 1233,
                         "src": "2612:9:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_validatorInfo_$1102_memory_ptr",
+                          "typeIdentifier": "t_struct$_validatorInfo_$1114_memory_ptr",
                           "typeString": "struct ValidatorRole.validatorInfo memory"
                         }
                       },
-                      "id": 1228,
+                      "id": 1240,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "rating",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1095,
+                      "referencedDeclaration": 1107,
                       "src": "2612:16:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2011,11 +2011,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1229,
+                      "id": 1241,
                       "name": "ranking",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1217,
+                      "referencedDeclaration": 1229,
                       "src": "2631:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2028,29 +2028,29 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1231,
+                  "id": 1243,
                   "nodeType": "ExpressionStatement",
                   "src": "2612:26:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1233,
+            "id": 1245,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "setRating",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1218,
+              "id": 1230,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1215,
+                  "id": 1227,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1233,
+                  "scope": 1245,
                   "src": "2505:15:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2059,7 +2059,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1214,
+                    "id": 1226,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2505:7:5",
@@ -2074,10 +2074,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1217,
+                  "id": 1229,
                   "name": "ranking",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1233,
+                  "scope": 1245,
                   "src": "2522:12:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2086,7 +2086,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1216,
+                    "id": 1228,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "2522:4:5",
@@ -2102,20 +2102,20 @@
               "src": "2504:31:5"
             },
             "returnParameters": {
-              "id": 1219,
+              "id": 1231,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2543:0:5"
             },
-            "scope": 1288,
+            "scope": 1300,
             "src": "2486:158:5",
             "stateMutability": "nonpayable",
-            "superFunction": 1031,
+            "superFunction": 1043,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 1270,
+              "id": 1282,
               "nodeType": "Block",
               "src": "2804:209:5",
               "statements": [
@@ -2125,11 +2125,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1243,
+                        "id": 1255,
                         "name": "account",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1235,
+                        "referencedDeclaration": 1247,
                         "src": "2826:7:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2146,32 +2146,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1240,
+                        "id": 1252,
                         "name": "validators",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1093,
+                        "referencedDeclaration": 1105,
                         "src": "2811:10:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Role_$1295_storage",
+                          "typeIdentifier": "t_struct$_Role_$1307_storage",
                           "typeString": "struct Roles.Role storage ref"
                         }
                       },
-                      "id": 1242,
+                      "id": 1254,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "add",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1320,
+                      "referencedDeclaration": 1332,
                       "src": "2811:14:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Role_$1295_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_Role_$1295_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Role_$1307_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_Role_$1307_storage_ptr_$",
                         "typeString": "function (struct Roles.Role storage pointer,address)"
                       }
                     },
-                    "id": 1244,
+                    "id": 1256,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2185,14 +2185,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1245,
+                  "id": 1257,
                   "nodeType": "ExpressionStatement",
                   "src": "2811:23:5"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1251,
+                    "id": 1263,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2203,25 +2203,25 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 1246,
+                          "id": 1258,
                           "name": "allValidators",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1106,
+                          "referencedDeclaration": 1118,
                           "src": "2841:13:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1102_storage_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1114_storage_$",
                             "typeString": "mapping(address => struct ValidatorRole.validatorInfo storage ref)"
                           }
                         },
-                        "id": 1248,
+                        "id": 1260,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 1247,
+                          "id": 1259,
                           "name": "account",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1235,
+                          "referencedDeclaration": 1247,
                           "src": "2855:7:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -2235,18 +2235,18 @@
                         "nodeType": "IndexAccess",
                         "src": "2841:22:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_validatorInfo_$1102_storage",
+                          "typeIdentifier": "t_struct$_validatorInfo_$1114_storage",
                           "typeString": "struct ValidatorRole.validatorInfo storage ref"
                         }
                       },
-                      "id": 1249,
+                      "id": 1261,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "balance",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1097,
+                      "referencedDeclaration": 1109,
                       "src": "2841:30:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2257,11 +2257,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1250,
+                      "id": 1262,
                       "name": "funds",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1237,
+                      "referencedDeclaration": 1249,
                       "src": "2874:5:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2274,25 +2274,25 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1252,
+                  "id": 1264,
                   "nodeType": "ExpressionStatement",
                   "src": "2841:38:5"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1258,
+                    "id": 1270,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 1253,
+                      "id": 1265,
                       "name": "totalValidators",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1108,
+                      "referencedDeclaration": 1120,
                       "src": "2886:15:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2307,7 +2307,7 @@
                         {
                           "argumentTypes": null,
                           "hexValue": "31",
-                          "id": 1256,
+                          "id": 1268,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -2332,32 +2332,32 @@
                         ],
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1254,
+                          "id": 1266,
                           "name": "totalValidators",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1108,
+                          "referencedDeclaration": 1120,
                           "src": "2904:15:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
-                        "id": 1255,
+                        "id": 1267,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "add",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 1396,
+                        "referencedDeclaration": 1408,
                         "src": "2904:19:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
                           "typeString": "function (uint256,uint256) pure returns (uint256)"
                         }
                       },
-                      "id": 1257,
+                      "id": 1269,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -2377,14 +2377,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1259,
+                  "id": 1271,
                   "nodeType": "ExpressionStatement",
                   "src": "2886:40:5"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1264,
+                    "id": 1276,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2393,25 +2393,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 1260,
+                        "id": 1272,
                         "name": "validatorIds",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1112,
+                        "referencedDeclaration": 1124,
                         "src": "2933:12:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
                           "typeString": "mapping(uint256 => address)"
                         }
                       },
-                      "id": 1262,
+                      "id": 1274,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 1261,
+                        "id": 1273,
                         "name": "totalValidators",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1108,
+                        "referencedDeclaration": 1120,
                         "src": "2946:15:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2433,11 +2433,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1263,
+                      "id": 1275,
                       "name": "account",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1235,
+                      "referencedDeclaration": 1247,
                       "src": "2965:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -2450,7 +2450,7 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 1265,
+                  "id": 1277,
                   "nodeType": "ExpressionStatement",
                   "src": "2933:39:5"
                 },
@@ -2460,11 +2460,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1267,
+                        "id": 1279,
                         "name": "account",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1235,
+                        "referencedDeclaration": 1247,
                         "src": "2999:7:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2479,18 +2479,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 1266,
+                      "id": 1278,
                       "name": "ValidatorAdded",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1087,
+                      "referencedDeclaration": 1099,
                       "src": "2984:14:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
                         "typeString": "function (address)"
                       }
                     },
-                    "id": 1268,
+                    "id": 1280,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2504,29 +2504,29 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1269,
+                  "id": 1281,
                   "nodeType": "EmitStatement",
                   "src": "2979:28:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1271,
+            "id": 1283,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "_addValidator",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1238,
+              "id": 1250,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1235,
+                  "id": 1247,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1271,
+                  "scope": 1283,
                   "src": "2766:15:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2535,7 +2535,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1234,
+                    "id": 1246,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2766:7:5",
@@ -2550,10 +2550,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1237,
+                  "id": 1249,
                   "name": "funds",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1271,
+                  "scope": 1283,
                   "src": "2783:10:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2562,7 +2562,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1236,
+                    "id": 1248,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "2783:4:5",
@@ -2578,12 +2578,12 @@
               "src": "2765:29:5"
             },
             "returnParameters": {
-              "id": 1239,
+              "id": 1251,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2804:0:5"
             },
-            "scope": 1288,
+            "scope": 1300,
             "src": "2743:270:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2591,7 +2591,7 @@
           },
           {
             "body": {
-              "id": 1286,
+              "id": 1298,
               "nodeType": "Block",
               "src": "3173:76:5",
               "statements": [
@@ -2601,11 +2601,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1279,
+                        "id": 1291,
                         "name": "account",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1273,
+                        "referencedDeclaration": 1285,
                         "src": "3198:7:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2622,32 +2622,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1276,
+                        "id": 1288,
                         "name": "validators",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1093,
+                        "referencedDeclaration": 1105,
                         "src": "3180:10:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Role_$1295_storage",
+                          "typeIdentifier": "t_struct$_Role_$1307_storage",
                           "typeString": "struct Roles.Role storage ref"
                         }
                       },
-                      "id": 1278,
+                      "id": 1290,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "remove",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1344,
+                      "referencedDeclaration": 1356,
                       "src": "3180:17:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Role_$1295_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_Role_$1295_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Role_$1307_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_Role_$1307_storage_ptr_$",
                         "typeString": "function (struct Roles.Role storage pointer,address)"
                       }
                     },
-                    "id": 1280,
+                    "id": 1292,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2661,7 +2661,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1281,
+                  "id": 1293,
                   "nodeType": "ExpressionStatement",
                   "src": "3180:26:5"
                 },
@@ -2671,11 +2671,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1283,
+                        "id": 1295,
                         "name": "account",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1273,
+                        "referencedDeclaration": 1285,
                         "src": "3235:7:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2690,18 +2690,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 1282,
+                      "id": 1294,
                       "name": "ValidatorRemoved",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1091,
+                      "referencedDeclaration": 1103,
                       "src": "3218:16:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
                         "typeString": "function (address)"
                       }
                     },
-                    "id": 1284,
+                    "id": 1296,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2715,29 +2715,29 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1285,
+                  "id": 1297,
                   "nodeType": "EmitStatement",
                   "src": "3213:30:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1287,
+            "id": 1299,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "_removeValidator",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1274,
+              "id": 1286,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1273,
+                  "id": 1285,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1287,
+                  "scope": 1299,
                   "src": "3147:15:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2746,7 +2746,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1272,
+                    "id": 1284,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "3147:7:5",
@@ -2763,19 +2763,19 @@
               "src": "3146:17:5"
             },
             "returnParameters": {
-              "id": 1275,
+              "id": 1287,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "3173:0:5"
             },
-            "scope": 1288,
+            "scope": 1300,
             "src": "3121:128:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 1289,
+        "scope": 1301,
         "src": "320:2932:5"
       }
     ],
@@ -2785,14 +2785,14 @@
     "absolutePath": "/C/Users/avant/Desktop/honest_media/contracts/accessControl/ValidatorRole.sol",
     "exportedSymbols": {
       "ValidatorRole": [
-        1288
+        1300
       ]
     },
-    "id": 1289,
+    "id": 1301,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1075,
+        "id": 1087,
         "literals": [
           "solidity",
           ">=",
@@ -2808,10 +2808,10 @@
       {
         "absolutePath": "/C/Users/avant/Desktop/honest_media/node_modules/openzeppelin-solidity/contracts/access/Roles.sol",
         "file": "../../node_modules/openzeppelin-solidity/contracts/access/Roles.sol",
-        "id": 1076,
+        "id": 1088,
         "nodeType": "ImportDirective",
-        "scope": 1289,
-        "sourceUnit": 1370,
+        "scope": 1301,
+        "sourceUnit": 1382,
         "src": "80:77:5",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2819,10 +2819,10 @@
       {
         "absolutePath": "/C/Users/avant/Desktop/honest_media/node_modules/openzeppelin-solidity/contracts/math/SafeMath.sol",
         "file": "../../node_modules/openzeppelin-solidity/contracts/math/SafeMath.sol",
-        "id": 1077,
+        "id": 1089,
         "nodeType": "ImportDirective",
-        "scope": 1289,
-        "sourceUnit": 1503,
+        "scope": 1301,
+        "sourceUnit": 1515,
         "src": "159:78:5",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2833,24 +2833,24 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1288,
+        "id": 1300,
         "linearizedBaseContracts": [
-          1288
+          1300
         ],
         "name": "ValidatorRole",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "id": 1080,
+            "id": 1092,
             "libraryName": {
               "contractScope": null,
-              "id": 1078,
+              "id": 1090,
               "name": "Roles",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1369,
+              "referencedDeclaration": 1381,
               "src": "354:5:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Roles_$1369",
+                "typeIdentifier": "t_contract$_Roles_$1381",
                 "typeString": "library Roles"
               }
             },
@@ -2858,35 +2858,35 @@
             "src": "348:27:5",
             "typeName": {
               "contractScope": null,
-              "id": 1079,
+              "id": 1091,
               "name": "Roles.Role",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1295,
+              "referencedDeclaration": 1307,
               "src": "364:10:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_Role_$1295_storage_ptr",
+                "typeIdentifier": "t_struct$_Role_$1307_storage_ptr",
                 "typeString": "struct Roles.Role"
               }
             }
           },
           {
-            "id": 1083,
+            "id": 1095,
             "libraryName": {
               "contractScope": null,
-              "id": 1081,
+              "id": 1093,
               "name": "SafeMath",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1502,
+              "referencedDeclaration": 1514,
               "src": "385:8:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SafeMath_$1502",
+                "typeIdentifier": "t_contract$_SafeMath_$1514",
                 "typeString": "library SafeMath"
               }
             },
             "nodeType": "UsingForDirective",
             "src": "379:24:5",
             "typeName": {
-              "id": 1082,
+              "id": 1094,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
               "src": "398:4:5",
@@ -2899,20 +2899,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 1087,
+            "id": 1099,
             "name": "ValidatorAdded",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1086,
+              "id": 1098,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1085,
+                  "id": 1097,
                   "indexed": true,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1087,
+                  "scope": 1099,
                   "src": "492:23:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2921,7 +2921,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1084,
+                    "id": 1096,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "492:7:5",
@@ -2942,20 +2942,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 1091,
+            "id": 1103,
             "name": "ValidatorRemoved",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1090,
+              "id": 1102,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1089,
+                  "id": 1101,
                   "indexed": true,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1091,
+                  "scope": 1103,
                   "src": "544:23:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2964,7 +2964,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1088,
+                    "id": 1100,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "544:7:5",
@@ -2984,26 +2984,26 @@
           },
           {
             "constant": false,
-            "id": 1093,
+            "id": 1105,
             "name": "validators",
             "nodeType": "VariableDeclaration",
-            "scope": 1288,
+            "scope": 1300,
             "src": "658:29:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_struct$_Role_$1295_storage",
+              "typeIdentifier": "t_struct$_Role_$1307_storage",
               "typeString": "struct Roles.Role"
             },
             "typeName": {
               "contractScope": null,
-              "id": 1092,
+              "id": 1104,
               "name": "Roles.Role",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1295,
+              "referencedDeclaration": 1307,
               "src": "658:10:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_Role_$1295_storage_ptr",
+                "typeIdentifier": "t_struct$_Role_$1307_storage_ptr",
                 "typeString": "struct Roles.Role"
               }
             },
@@ -3012,14 +3012,14 @@
           },
           {
             "canonicalName": "ValidatorRole.validatorInfo",
-            "id": 1102,
+            "id": 1114,
             "members": [
               {
                 "constant": false,
-                "id": 1095,
+                "id": 1107,
                 "name": "rating",
                 "nodeType": "VariableDeclaration",
-                "scope": 1102,
+                "scope": 1114,
                 "src": "776:11:5",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -3028,7 +3028,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1094,
+                  "id": 1106,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "776:4:5",
@@ -3042,10 +3042,10 @@
               },
               {
                 "constant": false,
-                "id": 1097,
+                "id": 1109,
                 "name": "balance",
                 "nodeType": "VariableDeclaration",
-                "scope": 1102,
+                "scope": 1114,
                 "src": "796:12:5",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -3054,7 +3054,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1096,
+                  "id": 1108,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "796:4:5",
@@ -3068,10 +3068,10 @@
               },
               {
                 "constant": false,
-                "id": 1099,
+                "id": 1111,
                 "name": "numOfApprovals",
                 "nodeType": "VariableDeclaration",
-                "scope": 1102,
+                "scope": 1114,
                 "src": "817:19:5",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -3080,7 +3080,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1098,
+                  "id": 1110,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "817:4:5",
@@ -3094,10 +3094,10 @@
               },
               {
                 "constant": false,
-                "id": 1101,
+                "id": 1113,
                 "name": "numOfChallenges",
                 "nodeType": "VariableDeclaration",
-                "scope": 1102,
+                "scope": 1114,
                 "src": "845:20:5",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -3106,7 +3106,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1100,
+                  "id": 1112,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "845:4:5",
@@ -3121,27 +3121,27 @@
             ],
             "name": "validatorInfo",
             "nodeType": "StructDefinition",
-            "scope": 1288,
+            "scope": 1300,
             "src": "746:125:5",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 1106,
+            "id": 1118,
             "name": "allValidators",
             "nodeType": "VariableDeclaration",
-            "scope": 1288,
+            "scope": 1300,
             "src": "941:47:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1102_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1114_storage_$",
               "typeString": "mapping(address => struct ValidatorRole.validatorInfo)"
             },
             "typeName": {
-              "id": 1105,
+              "id": 1117,
               "keyType": {
-                "id": 1103,
+                "id": 1115,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "949:7:5",
@@ -3153,18 +3153,18 @@
               "nodeType": "Mapping",
               "src": "941:33:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1102_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1114_storage_$",
                 "typeString": "mapping(address => struct ValidatorRole.validatorInfo)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 1104,
+                "id": 1116,
                 "name": "validatorInfo",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 1102,
+                "referencedDeclaration": 1114,
                 "src": "960:13:5",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_validatorInfo_$1102_storage_ptr",
+                  "typeIdentifier": "t_struct$_validatorInfo_$1114_storage_ptr",
                   "typeString": "struct ValidatorRole.validatorInfo"
                 }
               }
@@ -3174,10 +3174,10 @@
           },
           {
             "constant": false,
-            "id": 1108,
+            "id": 1120,
             "name": "totalValidators",
             "nodeType": "VariableDeclaration",
-            "scope": 1288,
+            "scope": 1300,
             "src": "1054:27:5",
             "stateVariable": true,
             "storageLocation": "default",
@@ -3186,7 +3186,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 1107,
+              "id": 1119,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
               "src": "1054:4:5",
@@ -3200,10 +3200,10 @@
           },
           {
             "constant": false,
-            "id": 1112,
+            "id": 1124,
             "name": "validatorIds",
             "nodeType": "VariableDeclaration",
-            "scope": 1288,
+            "scope": 1300,
             "src": "1133:44:5",
             "stateVariable": true,
             "storageLocation": "default",
@@ -3212,9 +3212,9 @@
               "typeString": "mapping(uint256 => address)"
             },
             "typeName": {
-              "id": 1111,
+              "id": 1123,
               "keyType": {
-                "id": 1109,
+                "id": 1121,
                 "name": "uint",
                 "nodeType": "ElementaryTypeName",
                 "src": "1141:4:5",
@@ -3230,7 +3230,7 @@
                 "typeString": "mapping(uint256 => address)"
               },
               "valueType": {
-                "id": 1110,
+                "id": 1122,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "1149:7:5",
@@ -3246,7 +3246,7 @@
           },
           {
             "body": {
-              "id": 1121,
+              "id": 1133,
               "nodeType": "Block",
               "src": "1292:41:5",
               "statements": [
@@ -3258,18 +3258,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1116,
+                          "id": 1128,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1517,
+                          "referencedDeclaration": 1529,
                           "src": "1313:3:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 1117,
+                        "id": 1129,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -3286,7 +3286,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "30",
-                        "id": 1118,
+                        "id": 1130,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -3313,18 +3313,18 @@
                           "typeString": "int_const 0"
                         }
                       ],
-                      "id": 1115,
+                      "id": 1127,
                       "name": "_addValidator",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1271,
+                      "referencedDeclaration": 1283,
                       "src": "1299:13:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
                         "typeString": "function (address,uint256)"
                       }
                     },
-                    "id": 1119,
+                    "id": 1131,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3338,32 +3338,32 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1120,
+                  "id": 1132,
                   "nodeType": "ExpressionStatement",
                   "src": "1299:28:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1122,
+            "id": 1134,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1113,
+              "id": 1125,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1282:2:5"
             },
             "returnParameters": {
-              "id": 1114,
+              "id": 1126,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1292:0:5"
             },
-            "scope": 1288,
+            "scope": 1300,
             "src": "1271:62:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -3371,7 +3371,7 @@
           },
           {
             "body": {
-              "id": 1133,
+              "id": 1145,
               "nodeType": "Block",
               "src": "1446:82:5",
               "statements": [
@@ -3386,18 +3386,18 @@
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 1126,
+                              "id": 1138,
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1517,
+                              "referencedDeclaration": 1529,
                               "src": "1473:3:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
                                 "typeString": "msg"
                               }
                             },
-                            "id": 1127,
+                            "id": 1139,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -3419,18 +3419,18 @@
                               "typeString": "address payable"
                             }
                           ],
-                          "id": 1125,
+                          "id": 1137,
                           "name": "isValidator",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1147,
+                          "referencedDeclaration": 1159,
                           "src": "1461:11:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_bool_$",
                             "typeString": "function (address) view returns (bool)"
                           }
                         },
-                        "id": 1128,
+                        "id": 1140,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -3447,7 +3447,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "43616c6c6572206973206e6f7420612056616c696461746f72",
-                        "id": 1129,
+                        "id": 1141,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -3474,21 +3474,21 @@
                           "typeString": "literal_string \"Caller is not a Validator\""
                         }
                       ],
-                      "id": 1124,
+                      "id": 1136,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1520,
-                        1521
+                        1532,
+                        1533
                       ],
-                      "referencedDeclaration": 1521,
+                      "referencedDeclaration": 1533,
                       "src": "1453:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 1130,
+                    "id": 1142,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3502,23 +3502,23 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1131,
+                  "id": 1143,
                   "nodeType": "ExpressionStatement",
                   "src": "1453:61:5"
                 },
                 {
-                  "id": 1132,
+                  "id": 1144,
                   "nodeType": "PlaceholderStatement",
                   "src": "1521:1:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1134,
+            "id": 1146,
             "name": "onlyValidator",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 1123,
+              "id": 1135,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1443:2:5"
@@ -3528,7 +3528,7 @@
           },
           {
             "body": {
-              "id": 1146,
+              "id": 1158,
               "nodeType": "Block",
               "src": "1656:43:5",
               "statements": [
@@ -3538,11 +3538,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1143,
+                        "id": 1155,
                         "name": "account",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1136,
+                        "referencedDeclaration": 1148,
                         "src": "1685:7:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -3559,32 +3559,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1141,
+                        "id": 1153,
                         "name": "validators",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1093,
+                        "referencedDeclaration": 1105,
                         "src": "1670:10:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Role_$1295_storage",
+                          "typeIdentifier": "t_struct$_Role_$1307_storage",
                           "typeString": "struct Roles.Role storage ref"
                         }
                       },
-                      "id": 1142,
+                      "id": 1154,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "has",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1368,
+                      "referencedDeclaration": 1380,
                       "src": "1670:14:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_view$_t_struct$_Role_$1295_storage_ptr_$_t_address_$returns$_t_bool_$bound_to$_t_struct$_Role_$1295_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_view$_t_struct$_Role_$1307_storage_ptr_$_t_address_$returns$_t_bool_$bound_to$_t_struct$_Role_$1307_storage_ptr_$",
                         "typeString": "function (struct Roles.Role storage pointer,address) view returns (bool)"
                       }
                     },
-                    "id": 1144,
+                    "id": 1156,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3598,30 +3598,30 @@
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 1140,
-                  "id": 1145,
+                  "functionReturnParameters": 1152,
+                  "id": 1157,
                   "nodeType": "Return",
                   "src": "1663:30:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1147,
+            "id": 1159,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "isValidator",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1137,
+              "id": 1149,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1136,
+                  "id": 1148,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1147,
+                  "scope": 1159,
                   "src": "1612:15:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3630,7 +3630,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1135,
+                    "id": 1147,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1612:7:5",
@@ -3647,15 +3647,15 @@
               "src": "1611:17:5"
             },
             "returnParameters": {
-              "id": 1140,
+              "id": 1152,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1139,
+                  "id": 1151,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1147,
+                  "scope": 1159,
                   "src": "1650:4:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3664,7 +3664,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 1138,
+                    "id": 1150,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "1650:4:5",
@@ -3679,7 +3679,7 @@
               ],
               "src": "1649:6:5"
             },
-            "scope": 1288,
+            "scope": 1300,
             "src": "1591:108:5",
             "stateMutability": "view",
             "superFunction": null,
@@ -3687,7 +3687,7 @@
           },
           {
             "body": {
-              "id": 1161,
+              "id": 1173,
               "nodeType": "Block",
               "src": "1836:42:5",
               "statements": [
@@ -3697,11 +3697,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1157,
+                        "id": 1169,
                         "name": "account",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1149,
+                        "referencedDeclaration": 1161,
                         "src": "1857:7:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -3710,11 +3710,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1158,
+                        "id": 1170,
                         "name": "funds",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1151,
+                        "referencedDeclaration": 1163,
                         "src": "1866:5:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -3733,18 +3733,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 1156,
+                      "id": 1168,
                       "name": "_addValidator",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1271,
+                      "referencedDeclaration": 1283,
                       "src": "1843:13:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
                         "typeString": "function (address,uint256)"
                       }
                     },
-                    "id": 1159,
+                    "id": 1171,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3758,27 +3758,27 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1160,
+                  "id": 1172,
                   "nodeType": "ExpressionStatement",
                   "src": "1843:29:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1162,
+            "id": 1174,
             "implemented": true,
             "kind": "function",
             "modifiers": [
               {
                 "arguments": null,
-                "id": 1154,
+                "id": 1166,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 1153,
+                  "id": 1165,
                   "name": "onlyValidator",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1134,
+                  "referencedDeclaration": 1146,
                   "src": "1822:13:5",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -3792,15 +3792,15 @@
             "name": "addValidator",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1152,
+              "id": 1164,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1149,
+                  "id": 1161,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1162,
+                  "scope": 1174,
                   "src": "1786:15:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3809,7 +3809,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1148,
+                    "id": 1160,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1786:7:5",
@@ -3824,10 +3824,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1151,
+                  "id": 1163,
                   "name": "funds",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1162,
+                  "scope": 1174,
                   "src": "1803:10:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3836,7 +3836,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1150,
+                    "id": 1162,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1803:4:5",
@@ -3852,12 +3852,12 @@
               "src": "1785:29:5"
             },
             "returnParameters": {
-              "id": 1155,
+              "id": 1167,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1836:0:5"
             },
-            "scope": 1288,
+            "scope": 1300,
             "src": "1764:114:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -3865,7 +3865,7 @@
           },
           {
             "body": {
-              "id": 1170,
+              "id": 1182,
               "nodeType": "Block",
               "src": "1986:41:5",
               "statements": [
@@ -3877,18 +3877,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1166,
+                          "id": 1178,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1517,
+                          "referencedDeclaration": 1529,
                           "src": "2010:3:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 1167,
+                        "id": 1179,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -3910,18 +3910,18 @@
                           "typeString": "address payable"
                         }
                       ],
-                      "id": 1165,
+                      "id": 1177,
                       "name": "_removeValidator",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1287,
+                      "referencedDeclaration": 1299,
                       "src": "1993:16:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$__$",
                         "typeString": "function (address)"
                       }
                     },
-                    "id": 1168,
+                    "id": 1180,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3935,32 +3935,32 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1169,
+                  "id": 1181,
                   "nodeType": "ExpressionStatement",
                   "src": "1993:28:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1171,
+            "id": 1183,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "renounceValidator",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1163,
+              "id": 1175,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1976:2:5"
             },
             "returnParameters": {
-              "id": 1164,
+              "id": 1176,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1986:0:5"
             },
-            "scope": 1288,
+            "scope": 1300,
             "src": "1950:77:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -3968,14 +3968,14 @@
           },
           {
             "body": {
-              "id": 1191,
+              "id": 1203,
               "nodeType": "Block",
               "src": "2129:103:5",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1189,
+                    "id": 1201,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3986,34 +3986,34 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 1176,
+                          "id": 1188,
                           "name": "allValidators",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1106,
+                          "referencedDeclaration": 1118,
                           "src": "2136:13:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1102_storage_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1114_storage_$",
                             "typeString": "mapping(address => struct ValidatorRole.validatorInfo storage ref)"
                           }
                         },
-                        "id": 1179,
+                        "id": 1191,
                         "indexExpression": {
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 1177,
+                            "id": 1189,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1517,
+                            "referencedDeclaration": 1529,
                             "src": "2150:3:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 1178,
+                          "id": 1190,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -4034,18 +4034,18 @@
                         "nodeType": "IndexAccess",
                         "src": "2136:25:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_validatorInfo_$1102_storage",
+                          "typeIdentifier": "t_struct$_validatorInfo_$1114_storage",
                           "typeString": "struct ValidatorRole.validatorInfo storage ref"
                         }
                       },
-                      "id": 1180,
+                      "id": 1192,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "numOfApprovals",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1099,
+                      "referencedDeclaration": 1111,
                       "src": "2136:40:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4060,7 +4060,7 @@
                         {
                           "argumentTypes": null,
                           "hexValue": "31",
-                          "id": 1187,
+                          "id": 1199,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -4089,34 +4089,34 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 1181,
+                              "id": 1193,
                               "name": "allValidators",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1106,
+                              "referencedDeclaration": 1118,
                               "src": "2179:13:5",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1102_storage_$",
+                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1114_storage_$",
                                 "typeString": "mapping(address => struct ValidatorRole.validatorInfo storage ref)"
                               }
                             },
-                            "id": 1184,
+                            "id": 1196,
                             "indexExpression": {
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1182,
+                                "id": 1194,
                                 "name": "msg",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1517,
+                                "referencedDeclaration": 1529,
                                 "src": "2193:3:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_message",
                                   "typeString": "msg"
                                 }
                               },
-                              "id": 1183,
+                              "id": 1195,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -4137,39 +4137,39 @@
                             "nodeType": "IndexAccess",
                             "src": "2179:25:5",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_validatorInfo_$1102_storage",
+                              "typeIdentifier": "t_struct$_validatorInfo_$1114_storage",
                               "typeString": "struct ValidatorRole.validatorInfo storage ref"
                             }
                           },
-                          "id": 1185,
+                          "id": 1197,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "numOfApprovals",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 1099,
+                          "referencedDeclaration": 1111,
                           "src": "2179:40:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
-                        "id": 1186,
+                        "id": 1198,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "add",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 1396,
+                        "referencedDeclaration": 1408,
                         "src": "2179:44:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
                           "typeString": "function (uint256,uint256) pure returns (uint256)"
                         }
                       },
-                      "id": 1188,
+                      "id": 1200,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -4189,27 +4189,27 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1190,
+                  "id": 1202,
                   "nodeType": "ExpressionStatement",
                   "src": "2136:90:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1192,
+            "id": 1204,
             "implemented": true,
             "kind": "function",
             "modifiers": [
               {
                 "arguments": null,
-                "id": 1174,
+                "id": 1186,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 1173,
+                  "id": 1185,
                   "name": "onlyValidator",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1134,
+                  "referencedDeclaration": 1146,
                   "src": "2116:13:5",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -4223,18 +4223,18 @@
             "name": "approve",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1172,
+              "id": 1184,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2104:2:5"
             },
             "returnParameters": {
-              "id": 1175,
+              "id": 1187,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2129:0:5"
             },
-            "scope": 1288,
+            "scope": 1300,
             "src": "2088:144:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -4242,14 +4242,14 @@
           },
           {
             "body": {
-              "id": 1212,
+              "id": 1224,
               "nodeType": "Block",
               "src": "2343:105:5",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1210,
+                    "id": 1222,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4260,34 +4260,34 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 1197,
+                          "id": 1209,
                           "name": "allValidators",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1106,
+                          "referencedDeclaration": 1118,
                           "src": "2350:13:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1102_storage_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1114_storage_$",
                             "typeString": "mapping(address => struct ValidatorRole.validatorInfo storage ref)"
                           }
                         },
-                        "id": 1200,
+                        "id": 1212,
                         "indexExpression": {
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 1198,
+                            "id": 1210,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1517,
+                            "referencedDeclaration": 1529,
                             "src": "2364:3:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 1199,
+                          "id": 1211,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -4308,18 +4308,18 @@
                         "nodeType": "IndexAccess",
                         "src": "2350:25:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_validatorInfo_$1102_storage",
+                          "typeIdentifier": "t_struct$_validatorInfo_$1114_storage",
                           "typeString": "struct ValidatorRole.validatorInfo storage ref"
                         }
                       },
-                      "id": 1201,
+                      "id": 1213,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "numOfChallenges",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1101,
+                      "referencedDeclaration": 1113,
                       "src": "2350:41:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4334,7 +4334,7 @@
                         {
                           "argumentTypes": null,
                           "hexValue": "31",
-                          "id": 1208,
+                          "id": 1220,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -4363,34 +4363,34 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 1202,
+                              "id": 1214,
                               "name": "allValidators",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1106,
+                              "referencedDeclaration": 1118,
                               "src": "2394:13:5",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1102_storage_$",
+                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1114_storage_$",
                                 "typeString": "mapping(address => struct ValidatorRole.validatorInfo storage ref)"
                               }
                             },
-                            "id": 1205,
+                            "id": 1217,
                             "indexExpression": {
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 1203,
+                                "id": 1215,
                                 "name": "msg",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1517,
+                                "referencedDeclaration": 1529,
                                 "src": "2408:3:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_message",
                                   "typeString": "msg"
                                 }
                               },
-                              "id": 1204,
+                              "id": 1216,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -4411,39 +4411,39 @@
                             "nodeType": "IndexAccess",
                             "src": "2394:25:5",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_validatorInfo_$1102_storage",
+                              "typeIdentifier": "t_struct$_validatorInfo_$1114_storage",
                               "typeString": "struct ValidatorRole.validatorInfo storage ref"
                             }
                           },
-                          "id": 1206,
+                          "id": 1218,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "numOfChallenges",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 1101,
+                          "referencedDeclaration": 1113,
                           "src": "2394:41:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
-                        "id": 1207,
+                        "id": 1219,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "add",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 1396,
+                        "referencedDeclaration": 1408,
                         "src": "2394:45:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
                           "typeString": "function (uint256,uint256) pure returns (uint256)"
                         }
                       },
-                      "id": 1209,
+                      "id": 1221,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -4463,27 +4463,27 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1211,
+                  "id": 1223,
                   "nodeType": "ExpressionStatement",
                   "src": "2350:92:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1213,
+            "id": 1225,
             "implemented": true,
             "kind": "function",
             "modifiers": [
               {
                 "arguments": null,
-                "id": 1195,
+                "id": 1207,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 1194,
+                  "id": 1206,
                   "name": "onlyValidator",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1134,
+                  "referencedDeclaration": 1146,
                   "src": "2330:13:5",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -4497,18 +4497,18 @@
             "name": "ruleOnChallenge",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1193,
+              "id": 1205,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2318:2:5"
             },
             "returnParameters": {
-              "id": 1196,
+              "id": 1208,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2343:0:5"
             },
-            "scope": 1288,
+            "scope": 1300,
             "src": "2294:154:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -4516,37 +4516,37 @@
           },
           {
             "body": {
-              "id": 1232,
+              "id": 1244,
               "nodeType": "Block",
               "src": "2543:101:5",
               "statements": [
                 {
                   "assignments": [
-                    1221
+                    1233
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1221,
+                      "id": 1233,
                       "name": "validator",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1232,
+                      "scope": 1244,
                       "src": "2550:30:5",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_validatorInfo_$1102_memory_ptr",
+                        "typeIdentifier": "t_struct$_validatorInfo_$1114_memory_ptr",
                         "typeString": "struct ValidatorRole.validatorInfo"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 1220,
+                        "id": 1232,
                         "name": "validatorInfo",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 1102,
+                        "referencedDeclaration": 1114,
                         "src": "2550:13:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_validatorInfo_$1102_storage_ptr",
+                          "typeIdentifier": "t_struct$_validatorInfo_$1114_storage_ptr",
                           "typeString": "struct ValidatorRole.validatorInfo"
                         }
                       },
@@ -4554,30 +4554,30 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1225,
+                  "id": 1237,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 1222,
+                      "id": 1234,
                       "name": "allValidators",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1106,
+                      "referencedDeclaration": 1118,
                       "src": "2583:13:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1102_storage_$",
+                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1114_storage_$",
                         "typeString": "mapping(address => struct ValidatorRole.validatorInfo storage ref)"
                       }
                     },
-                    "id": 1224,
+                    "id": 1236,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 1223,
+                      "id": 1235,
                       "name": "account",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1215,
+                      "referencedDeclaration": 1227,
                       "src": "2597:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -4591,7 +4591,7 @@
                     "nodeType": "IndexAccess",
                     "src": "2583:22:5",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_validatorInfo_$1102_storage",
+                      "typeIdentifier": "t_struct$_validatorInfo_$1114_storage",
                       "typeString": "struct ValidatorRole.validatorInfo storage ref"
                     }
                   },
@@ -4601,7 +4601,7 @@
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1230,
+                    "id": 1242,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4610,25 +4610,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1226,
+                        "id": 1238,
                         "name": "validator",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1221,
+                        "referencedDeclaration": 1233,
                         "src": "2612:9:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_validatorInfo_$1102_memory_ptr",
+                          "typeIdentifier": "t_struct$_validatorInfo_$1114_memory_ptr",
                           "typeString": "struct ValidatorRole.validatorInfo memory"
                         }
                       },
-                      "id": 1228,
+                      "id": 1240,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "rating",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1095,
+                      "referencedDeclaration": 1107,
                       "src": "2612:16:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4639,11 +4639,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1229,
+                      "id": 1241,
                       "name": "ranking",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1217,
+                      "referencedDeclaration": 1229,
                       "src": "2631:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4656,29 +4656,29 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1231,
+                  "id": 1243,
                   "nodeType": "ExpressionStatement",
                   "src": "2612:26:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1233,
+            "id": 1245,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "setRating",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1218,
+              "id": 1230,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1215,
+                  "id": 1227,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1233,
+                  "scope": 1245,
                   "src": "2505:15:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4687,7 +4687,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1214,
+                    "id": 1226,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2505:7:5",
@@ -4702,10 +4702,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1217,
+                  "id": 1229,
                   "name": "ranking",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1233,
+                  "scope": 1245,
                   "src": "2522:12:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4714,7 +4714,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1216,
+                    "id": 1228,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "2522:4:5",
@@ -4730,20 +4730,20 @@
               "src": "2504:31:5"
             },
             "returnParameters": {
-              "id": 1219,
+              "id": 1231,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2543:0:5"
             },
-            "scope": 1288,
+            "scope": 1300,
             "src": "2486:158:5",
             "stateMutability": "nonpayable",
-            "superFunction": 1031,
+            "superFunction": 1043,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 1270,
+              "id": 1282,
               "nodeType": "Block",
               "src": "2804:209:5",
               "statements": [
@@ -4753,11 +4753,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1243,
+                        "id": 1255,
                         "name": "account",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1235,
+                        "referencedDeclaration": 1247,
                         "src": "2826:7:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -4774,32 +4774,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1240,
+                        "id": 1252,
                         "name": "validators",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1093,
+                        "referencedDeclaration": 1105,
                         "src": "2811:10:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Role_$1295_storage",
+                          "typeIdentifier": "t_struct$_Role_$1307_storage",
                           "typeString": "struct Roles.Role storage ref"
                         }
                       },
-                      "id": 1242,
+                      "id": 1254,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "add",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1320,
+                      "referencedDeclaration": 1332,
                       "src": "2811:14:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Role_$1295_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_Role_$1295_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Role_$1307_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_Role_$1307_storage_ptr_$",
                         "typeString": "function (struct Roles.Role storage pointer,address)"
                       }
                     },
-                    "id": 1244,
+                    "id": 1256,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4813,14 +4813,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1245,
+                  "id": 1257,
                   "nodeType": "ExpressionStatement",
                   "src": "2811:23:5"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1251,
+                    "id": 1263,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4831,25 +4831,25 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 1246,
+                          "id": 1258,
                           "name": "allValidators",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1106,
+                          "referencedDeclaration": 1118,
                           "src": "2841:13:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1102_storage_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_validatorInfo_$1114_storage_$",
                             "typeString": "mapping(address => struct ValidatorRole.validatorInfo storage ref)"
                           }
                         },
-                        "id": 1248,
+                        "id": 1260,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 1247,
+                          "id": 1259,
                           "name": "account",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1235,
+                          "referencedDeclaration": 1247,
                           "src": "2855:7:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -4863,18 +4863,18 @@
                         "nodeType": "IndexAccess",
                         "src": "2841:22:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_validatorInfo_$1102_storage",
+                          "typeIdentifier": "t_struct$_validatorInfo_$1114_storage",
                           "typeString": "struct ValidatorRole.validatorInfo storage ref"
                         }
                       },
-                      "id": 1249,
+                      "id": 1261,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "balance",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1097,
+                      "referencedDeclaration": 1109,
                       "src": "2841:30:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4885,11 +4885,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1250,
+                      "id": 1262,
                       "name": "funds",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1237,
+                      "referencedDeclaration": 1249,
                       "src": "2874:5:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4902,25 +4902,25 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1252,
+                  "id": 1264,
                   "nodeType": "ExpressionStatement",
                   "src": "2841:38:5"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1258,
+                    "id": 1270,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 1253,
+                      "id": 1265,
                       "name": "totalValidators",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1108,
+                      "referencedDeclaration": 1120,
                       "src": "2886:15:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4935,7 +4935,7 @@
                         {
                           "argumentTypes": null,
                           "hexValue": "31",
-                          "id": 1256,
+                          "id": 1268,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -4960,32 +4960,32 @@
                         ],
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1254,
+                          "id": 1266,
                           "name": "totalValidators",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1108,
+                          "referencedDeclaration": 1120,
                           "src": "2904:15:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
-                        "id": 1255,
+                        "id": 1267,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "add",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 1396,
+                        "referencedDeclaration": 1408,
                         "src": "2904:19:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
                           "typeString": "function (uint256,uint256) pure returns (uint256)"
                         }
                       },
-                      "id": 1257,
+                      "id": 1269,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -5005,14 +5005,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1259,
+                  "id": 1271,
                   "nodeType": "ExpressionStatement",
                   "src": "2886:40:5"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1264,
+                    "id": 1276,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -5021,25 +5021,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 1260,
+                        "id": 1272,
                         "name": "validatorIds",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1112,
+                        "referencedDeclaration": 1124,
                         "src": "2933:12:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
                           "typeString": "mapping(uint256 => address)"
                         }
                       },
-                      "id": 1262,
+                      "id": 1274,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 1261,
+                        "id": 1273,
                         "name": "totalValidators",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1108,
+                        "referencedDeclaration": 1120,
                         "src": "2946:15:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -5061,11 +5061,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1263,
+                      "id": 1275,
                       "name": "account",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1235,
+                      "referencedDeclaration": 1247,
                       "src": "2965:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -5078,7 +5078,7 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 1265,
+                  "id": 1277,
                   "nodeType": "ExpressionStatement",
                   "src": "2933:39:5"
                 },
@@ -5088,11 +5088,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1267,
+                        "id": 1279,
                         "name": "account",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1235,
+                        "referencedDeclaration": 1247,
                         "src": "2999:7:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -5107,18 +5107,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 1266,
+                      "id": 1278,
                       "name": "ValidatorAdded",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1087,
+                      "referencedDeclaration": 1099,
                       "src": "2984:14:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
                         "typeString": "function (address)"
                       }
                     },
-                    "id": 1268,
+                    "id": 1280,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -5132,29 +5132,29 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1269,
+                  "id": 1281,
                   "nodeType": "EmitStatement",
                   "src": "2979:28:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1271,
+            "id": 1283,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "_addValidator",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1238,
+              "id": 1250,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1235,
+                  "id": 1247,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1271,
+                  "scope": 1283,
                   "src": "2766:15:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5163,7 +5163,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1234,
+                    "id": 1246,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2766:7:5",
@@ -5178,10 +5178,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1237,
+                  "id": 1249,
                   "name": "funds",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1271,
+                  "scope": 1283,
                   "src": "2783:10:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5190,7 +5190,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1236,
+                    "id": 1248,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "2783:4:5",
@@ -5206,12 +5206,12 @@
               "src": "2765:29:5"
             },
             "returnParameters": {
-              "id": 1239,
+              "id": 1251,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2804:0:5"
             },
-            "scope": 1288,
+            "scope": 1300,
             "src": "2743:270:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -5219,7 +5219,7 @@
           },
           {
             "body": {
-              "id": 1286,
+              "id": 1298,
               "nodeType": "Block",
               "src": "3173:76:5",
               "statements": [
@@ -5229,11 +5229,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1279,
+                        "id": 1291,
                         "name": "account",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1273,
+                        "referencedDeclaration": 1285,
                         "src": "3198:7:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -5250,32 +5250,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1276,
+                        "id": 1288,
                         "name": "validators",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1093,
+                        "referencedDeclaration": 1105,
                         "src": "3180:10:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Role_$1295_storage",
+                          "typeIdentifier": "t_struct$_Role_$1307_storage",
                           "typeString": "struct Roles.Role storage ref"
                         }
                       },
-                      "id": 1278,
+                      "id": 1290,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "remove",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1344,
+                      "referencedDeclaration": 1356,
                       "src": "3180:17:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Role_$1295_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_Role_$1295_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Role_$1307_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_Role_$1307_storage_ptr_$",
                         "typeString": "function (struct Roles.Role storage pointer,address)"
                       }
                     },
-                    "id": 1280,
+                    "id": 1292,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -5289,7 +5289,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1281,
+                  "id": 1293,
                   "nodeType": "ExpressionStatement",
                   "src": "3180:26:5"
                 },
@@ -5299,11 +5299,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1283,
+                        "id": 1295,
                         "name": "account",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1273,
+                        "referencedDeclaration": 1285,
                         "src": "3235:7:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -5318,18 +5318,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 1282,
+                      "id": 1294,
                       "name": "ValidatorRemoved",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1091,
+                      "referencedDeclaration": 1103,
                       "src": "3218:16:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
                         "typeString": "function (address)"
                       }
                     },
-                    "id": 1284,
+                    "id": 1296,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -5343,29 +5343,29 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1285,
+                  "id": 1297,
                   "nodeType": "EmitStatement",
                   "src": "3213:30:5"
                 }
               ]
             },
             "documentation": null,
-            "id": 1287,
+            "id": 1299,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "_removeValidator",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1274,
+              "id": 1286,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1273,
+                  "id": 1285,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1287,
+                  "scope": 1299,
                   "src": "3147:15:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5374,7 +5374,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1272,
+                    "id": 1284,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "3147:7:5",
@@ -5391,19 +5391,19 @@
               "src": "3146:17:5"
             },
             "returnParameters": {
-              "id": 1275,
+              "id": 1287,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "3173:0:5"
             },
-            "scope": 1288,
+            "scope": 1300,
             "src": "3121:128:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 1289,
+        "scope": 1301,
         "src": "320:2932:5"
       }
     ],
@@ -5449,7 +5449,7 @@
     }
   },
   "schemaVersion": "3.0.5",
-  "updatedAt": "2019-07-01T13:36:06.831Z",
+  "updatedAt": "2019-07-01T15:20:41.569Z",
   "devdoc": {
     "methods": {}
   },
