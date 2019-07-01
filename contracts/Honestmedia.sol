@@ -67,7 +67,7 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
     }
 
     //seting ranking
-    function setContributorRating(address _address, uint rank) external {
+    function setContributorRating(address _address, uint rank) public {
     	ContributorRole.setRating(_address, rank);
     }
 
@@ -80,12 +80,45 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
     }
 
     //Function to store the article etc
-    function addArticle(bytes32 _ipfsArticleHash, bytes32 _ipfsReferenceHash, uint _stake, address _contributor) public onlyContributor {
+    function addArticle(bytes32 _ipfsArticleHash, bytes32 _ipfsReferenceHash, string memory _title,
+                        uint _datePublished, uint _stake, address _contributor) public onlyContributor
+    {
         //Check if Amount staked is greater than balance of contributor
-        require(_stake <= ContributorRole.allContributors[msg.sender].balance, "Insufficient funds to publish article. Amount staked should be less than account balance.");
-        uint articleNum = Article.addArticle(_ipfsArticleHash, _ipfsReferenceHash, _stake);
+        require(_stake <= ContributorRole.allContributors[msg.sender].balance,
+                         "Insufficient funds to publish article. Amount staked should be less than account balance.");
+        uint articleNum = Article.addArticle(_ipfsArticleHash, _ipfsReferenceHash, _title, _datePublished, _stake);
         ContributorRole.allContributors[_contributor].articles.push(articleNum);
         //Assign validator to approve article
+    }
+
+    //Function to update rating for Contributors
+    function updateContributorRating(bool vote, bool challengeLost, address _contributor, uint articleId) public {
+        if(challengeLost == true){
+            if(ContributorRole.allContributors[_contributor].rating > 0){
+                ContributorRole.allContributors[_contributor].rating = ContributorRole.allContributors[_contributor].rating.sub(1);
+            }
+            ContributorRole.allContributors[_contributor].challengesLost = ContributorRole.allContributors[_contributor].challengesLost.add(1);
+        }else {
+            if(vote == true){
+                Article.allArticles[articleId].upVotes = Article.allArticles[articleId].upVotes.add(1);
+            }else {
+                Article.allArticles[articleId].downVotes = Article.allArticles[articleId].downVotes.add(1);
+            }
+            uint newRating = contributorRatingCalculator(ContributorRole.allContributors[_contributor].rating, Article.allArticles[articleId].upVotes,
+                                                        Article.allArticles[articleId].downVotes, ContributorRole.allContributors[_contributor].articlesPublished);
+            setContributorRating(_contributor, newRating);
+        }
+    }
+
+    //Function to calculate rating for Contributors
+    function contributorRatingCalculator(uint currentRating, uint upVotes, uint downVotes, uint articles) internal pure returns(uint){
+        uint totalRatings = upVotes.add(downVotes);
+        uint recentRating = upVotes.div(totalRatings).mul(5);
+        uint newRating = articles.sub(1);
+        newRating = newRating.mul(currentRating);
+        newRating = newRating.add(recentRating);
+        newRating = newRating.div(articles);
+        return newRating;
     }
 
     //Function to challenge an article
@@ -127,6 +160,7 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
         }
         if(numOfYesVotes >= 2){
             ReaderRole.allChallenges[challengeId].success = true;
+            // update contributor's challenges lost
             // Distribute Amount staked by contributor to reader and validators
         }else
         {
