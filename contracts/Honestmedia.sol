@@ -80,7 +80,7 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
     }
 
     //Function to store the article etc
-    function addArticle(bytes32 _ipfsArticleHash, bytes32 _ipfsReferenceHash, uint _stake, address _contributor) public {
+    function addArticle(bytes32 _ipfsArticleHash, bytes32 _ipfsReferenceHash, uint _stake, address _contributor) public onlyContributor {
         uint articleNum = Article.addArticle(_ipfsArticleHash, _ipfsReferenceHash, _stake);
         ContributorRole.allContributors[_contributor].articles.push(articleNum);
         //Assign validator to approve article
