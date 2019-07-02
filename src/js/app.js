@@ -30,8 +30,13 @@ App = {
       App.contracts.Honestmedia.setProvider(App.web3Provider);
 
       // Use our contract to retieve and mark the adopted pets.
-      return App.showOperational();
+      return App.binding();
     });
+  },
+
+  binding: function(){
+    App.showOperational();
+    App.showArticles();
   },
 
   showOperational: function(){
@@ -58,6 +63,73 @@ App = {
       });
     });
 
+  },
+
+  showArticles: function(){
+    console.log('Listing articles ...');
+
+    var honestmediaInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+
+        return honestmediaInstance.getNumberOfArticles();
+      }).then(function(result) {
+        numberOfArticles = result;
+        console.log("showing articles..." + numberOfArticles);
+        for (i = 0; i < numberOfArticles; i++) { 
+          App.showArticle(i);
+        }
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
+  },
+
+  showArticle: function(index){
+    console.log("showing article no: " + index);
+    var honestmediaInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+
+        return honestmediaInstance.getArticle(index);
+      }).then(function(result) {
+        article = result;
+        console.log(article);
+        var ul = document.getElementById('articleList');
+        var li = document.createElement('li');
+        var titleText = document.createElement('h3');
+        titleText.innerHTML = article[0];
+        li.appendChild(titleText);
+
+        var dateText = document.createElement('span');
+        dateText.innerHTML = "Date: " + article[1];
+        li.appendChild(dateText);
+
+        var upvoteText = document.createElement('button');
+        upvoteText.innerHTML = "Upvotes: " + article[2];
+        li.appendChild(upvoteText);
+
+        var downvoteText = document.createElement('button');
+        downvoteText.innerHTML = "Downvotes: " + article[3];
+        li.appendChild(downvoteText);
+
+        ul.appendChild(li);
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
   }
 
 };
