@@ -44,7 +44,7 @@ contract Article {
  //   }
 
   // Define a function 'addArticle' that adds the article
-  function addArticle(address _contributor, bytes32 _ipfsArticleHash, bytes32 _ipfsReferenceHash,
+  function add(address _contributor, bytes32 _ipfsArticleHash, bytes32 _ipfsReferenceHash,
                         string memory _title, uint _datePublished, uint _stake) public returns(uint){
     totalArticles = totalArticles.add(1);
     allArticles[totalArticles] = articleInfo({contributor: _contributor, ipfsArticleHash: _ipfsArticleHash,

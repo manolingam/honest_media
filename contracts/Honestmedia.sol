@@ -88,7 +88,7 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
         //Check if Amount staked is greater than balance of contributor
         require(_stake <= ContributorRole.allContributors[msg.sender].balance,
                          "Insufficient funds to publish article. Amount staked should be less than account balance.");
-        uint articleNum = Article.addArticle(msg.sender, _ipfsArticleHash, _ipfsReferenceHash, _title, _datePublished, _stake);
+        uint articleNum = Article.add(msg.sender, _ipfsArticleHash, _ipfsReferenceHash, _title, _datePublished, _stake);
         ContributorRole.allContributors[msg.sender].articles.push(articleNum);
         assignValidator(articleNum, msg.sender);
     }
@@ -197,9 +197,37 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
         }
     }
 
-    //TODO: function that allows to withdraw funds. For Validators and Contributors their balance should not be less than the minimum funding amount.
+    //function that allows to withdraw funds. For Validators and Contributors their balance should not be less than the minimum funding amount.
+    function withdraw(uint amount) external payable {
+        require(amount <= availableWithdrawls[msg.sender], "Not enough balance");
+        bool allow;
+        uint balance;
+        if(ContributorRole.isContributor(msg.sender) == true){
+            balance = ContributorRole.allContributors[msg.sender].balance;
+            balance = balance.sub(amount);
+            require(balance >= MIN_FUNDING_CONTRIBUTOR, "Insufficient Balance");
+            allow = true;
+            ContributorRole.allContributors[msg.sender].balance = balance;
+        }
+        if(ValidatorRole.isValidator(msg.sender) == true){
+            balance = ValidatorRole.allValidators[msg.sender].balance;
+            balance = balance.sub(amount);
+            require(balance >= MIN_FUNDING_VALIDATOR, "Insufficient Balance");
+            allow = true;
+            ValidatorRole.allValidators[msg.sender].balance = balance;
+        }
+        if(ReaderRole.isReader(msg.sender) == true){
+            allow = true;
+        }
+        if(allow == true){
+            availableWithdrawls[msg.sender] = availableWithdrawls[msg.sender].sub(amount);
+            msg.sender.transfer(amount);
+        }
+    }
 
-    
+    //Fallback function
+    function () external payable {
+    }
 
 
 
