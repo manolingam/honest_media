@@ -90,7 +90,24 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
                          "Insufficient funds to publish article. Amount staked should be less than account balance.");
         uint articleNum = Article.addArticle(msg.sender, _ipfsArticleHash, _ipfsReferenceHash, _title, _datePublished, _stake);
         ContributorRole.allContributors[msg.sender].articles.push(articleNum);
-        //Assign validator to approve article
+        assignValidator(articleNum, msg.sender);
+    }
+
+    //Assign validator to approve article
+    function assignValidator(uint articleId, address contributor) internal {
+        //check to see if random validator is also contributor
+        address randomValidator = ValidatorRole.validatorIds[random(1)];
+        while (randomValidator == contributor){
+           randomValidator = ValidatorRole.validatorIds[random(1)];
+        }
+        Article.allArticles[articleId].validator = randomValidator;
+    }
+
+
+    //approve article
+    function approve(uint articleId) internal onlyValidator {
+        require(Article.allArticles[articleId].validator == msg.sender, "Validator not authorised");
+        Article.allArticles[articleId].approved = true;
     }
 
     //Function to update rating for Contributors
