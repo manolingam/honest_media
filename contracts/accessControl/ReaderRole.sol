@@ -30,6 +30,8 @@ contract ReaderRole {
 
   //Struct for challenges
   struct challengeInfo {
+    uint articleId;
+    address contributor;
     address reader;
     bytes32 proofHash;
     uint stake;
@@ -69,9 +71,10 @@ contract ReaderRole {
   }
 
   //Define a function to increase number of challenges
-  function challenge(bytes32 proofHash, uint stake, address account) public {
+  function challenge(uint articleId, address contributor, bytes32 proofHash, uint stake, address account) public {
     totalChallenges = totalChallenges.add(1);
-    allChallenges[totalChallenges] = challengeInfo({reader: account, proofHash: proofHash, stake: stake, success: false});
+    allChallenges[totalChallenges] = challengeInfo({articleId: articleId, contributor: contributor, reader: account,
+                                                   proofHash: proofHash, stake: stake, success: false});
     allReaders[account].numOfChallenges = allReaders[account].numOfChallenges.add(1);
     allReaders[account].challenges.push(totalChallenges);
     emit ChallengeAdded(account, totalChallenges);
