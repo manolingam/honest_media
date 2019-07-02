@@ -72,6 +72,9 @@ App = {
     //read address
     var addr = $('#txt-registerAddress').val();
 
+    //read amount
+    var fund = $('#txt-amountToRegister').val();
+
     //read account type value
     const accountType = $("#accountType :selected").text();
 
@@ -86,7 +89,7 @@ App = {
       App.contracts.Honestmedia.deployed().then(function(instance) {
         honestmediaInstance = instance;
 
-        return honestmediaInstance.registerContributor(addr);
+        return honestmediaInstance.registerContributor(addr, fund);
       }).then(function(result) {
         console.log(result);
         console.log("successfully added contributor");
@@ -106,7 +109,7 @@ App = {
       App.contracts.Honestmedia.deployed().then(function(instance) {
         honestmediaInstance = instance;
 
-        return honestmediaInstance.registerReader(addr);
+        return honestmediaInstance.registerReader(addr, fund);
       }).then(function(result) {
         console.log(result);
         console.log("successfully added reader");
@@ -126,7 +129,7 @@ App = {
       App.contracts.Honestmedia.deployed().then(function(instance) {
         honestmediaInstance = instance;
 
-        return honestmediaInstance.registerValidator(addr);
+        return honestmediaInstance.registerValidator(addr, fund);
       }).then(function(result) {
         console.log(result);
         console.log("successfully added validator");

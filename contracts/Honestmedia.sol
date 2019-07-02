@@ -67,18 +67,18 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
     }
 
     //add contributor
-    function registerContributor(address _address) external {
-        ContributorRole.addContributor(_address, 0);
+    function registerContributor(address _address, uint _fund) external {
+        ContributorRole.addContributor(_address, _fund);
     }
 
     //add reader
-    function registerReader(address _address) external {
-        ReaderRole.addReader(_address, 0);
+    function registerReader(address _address, uint _fund) external {
+        ReaderRole.addReader(_address, _fund);
     }
 
     //add validator
-    function registerValidator(address _address) external {
-        ValidatorRole.addValidator(_address, 0);
+    function registerValidator(address _address, uint _fund) external {
+        ValidatorRole.addValidator(_address, _fund);
     }
 
     //seting ranking
