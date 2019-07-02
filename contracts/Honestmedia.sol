@@ -93,6 +93,20 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
         assignValidator(articleNum, msg.sender);
     }
 
+    //function get the number of all articles
+    function getNumberOfArticles() public view returns (uint noOfArticles){
+        return Article.getNumberOfArticles();
+    }
+
+    //function to get the list of all the articles' titles
+    function getArticle(uint _articleNumber) public view returns (string memory title, uint datePublished, uint upvotes, uint downvotes){
+        string memory articleTitle = Article.getArticleTitle(_articleNumber);
+        uint articleDatePublished = Article.getArticleDatePublished(_articleNumber);
+        uint articleUpvotes = Article.getArticleUpvotes(_articleNumber);
+        uint articleDownvotes = Article.getArticleDownvotes(_articleNumber);
+        return (articleTitle, articleDatePublished, articleUpvotes, articleDownvotes);
+    }
+
     //Assign validator to approve article
     function assignValidator(uint articleId, address contributor) internal {
         //check to see if random validator is also contributor
