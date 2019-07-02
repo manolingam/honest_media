@@ -54,6 +54,39 @@ contract Article {
     return totalArticles;
   }
 
+  // Define a function to return article title
+  function getArticleTitle(uint articleNumber) public view returns (string memory title){
+    articleInfo storage article = allArticles[articleNumber];
+    string memory articleTitle = article.title;
+    return articleTitle;
+  }
+
+  // Define a function to return article date published
+  function getArticleDatePublished(uint articleNumber) public view returns (uint datePublished){
+    articleInfo storage article = allArticles[articleNumber];
+    uint articleDatePublished = article.datePublished;
+    return articleDatePublished;
+  }
+
+  // Define a function to return article upvotes
+  function getArticleUpvotes(uint articleNumber) public view returns (uint upVotes){
+    articleInfo storage article = allArticles[articleNumber];
+    uint articleUpvotes = article.upVotes;
+    return articleUpvotes;
+  }
+
+  // Define a function to return article downvotes
+  function getArticleDownvotes(uint articleNumber) public view returns (uint downVotes){
+    articleInfo storage article = allArticles[articleNumber];
+    uint articleDownvotes = article.downVotes;
+    return articleDownvotes;
+  }
+
+  //Define a function to return number of articles
+  function getNumberOfArticles() public view returns (uint noOfArticles) {
+    return totalArticles;
+  }
+
   // Define a function 'approved' that updates the approved flag
   function approved(uint articleNumber) public {
     allArticles[articleNumber].approved = true;
