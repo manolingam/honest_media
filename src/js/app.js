@@ -65,6 +65,7 @@ App = {
 
   },
 
+
   registerAccount: function (event) {
      event.preventDefault();
 
@@ -139,6 +140,31 @@ App = {
 
       }
     },
+showOperational: function(){
+
+    console.log('Getting operational ...');
+
+    var honestmediaInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+
+        return honestmediaInstance.isOperational();
+      }).then(function(result) {
+        isOperational = result;
+
+        $('#TTBalance').text(isOperational);
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
+
+  },
 
   showArticles: function(){
     console.log('Listing articles ...');
