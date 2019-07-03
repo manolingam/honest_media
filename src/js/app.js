@@ -178,13 +178,11 @@ showOperational: function(){
     event.preventDefault();
     var current = Date.now();
     var account = $("#txt-address").val()
-       
+    
+    //For IPFS hash
     App.articleHash = "Artcile Hash";
     App.referenceHash = "ReferenceHash";
-    console.log($("#txt-articleName").val());
-    console.log($("#txt-articleStake").val());
-    console.log(current);
-    console.log(account);
+    
     App.contracts.Honestmedia.deployed().then(function(instance) {
       return instance.addArticle(
            App.articleHash,
