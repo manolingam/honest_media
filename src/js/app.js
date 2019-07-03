@@ -276,21 +276,26 @@ showOperational: function(){
       }).then(function(result) {
         article = result;
         console.log(article);
-        var ul = document.getElementById('articleList');
+        var ul = document.getElementById('articleToApproveList');
         var li = document.createElement('li');
         var titleText = document.createElement('h3');
         titleText.innerHTML = article[0];
         li.appendChild(titleText);
 
-        var upvoteText = document.createElement('button');
-        upvoteText.innerHTML = "Append";
-        li.appendChild(upvoteText);
+        var approveButton = document.createElement('button');
+        approveButton.innerHTML = "Approve";
+        approveButton.onclick = function() {App.approveArticle(index);}
+        li.appendChild(approveButton);
 
         ul.appendChild(li);
       }).catch(function(err) {
         console.log(err.message);
       });
     });
+  },
+
+  approveArticle: function(index){
+    console.log("Approving...");
   }
 
 };
