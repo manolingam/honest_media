@@ -231,6 +231,28 @@ showOperational: function(){
         console.log(err.message);
       });
     });
+  },
+
+  updateRanking: function(vote, challengeLost, _contributor, articleId){
+    console.log('update ranking ...');
+
+    var honestmediaInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+
+        return honestmediaInstance.updateContributorRating(vote, challengeLost, _contributor, articleId);
+      }).then(function(result) {
+        console.log ("sucessfully updated ranking");
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
   }
 
 };
