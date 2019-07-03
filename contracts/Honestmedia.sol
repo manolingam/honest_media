@@ -84,15 +84,15 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
     }
 
     //seting ranking
-    function setContributorRating(address _address, uint rank) public {
+    function setContributorRating(address _address, uint rank) internal {
     	ContributorRole.setRating(_address, rank);
     }
 
-    function setReaderRating(address _address, uint rank) external {
+    function setReaderRating(address _address, uint rank) internal {
     	ReaderRole.setRating(_address, rank);
     }
 
-    function setValidatorRating(address _address, uint rank) external {
+    function setValidatorRating(address _address, uint rank) internal {
     	ValidatorRole.setRating(_address, rank);
     }
 
@@ -142,10 +142,13 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
 
     //Function to update rating for Contributors
     function updateContributorRating(bool vote, bool challengeLost, address _contributor, uint articleId) public {
+        uint newRating;
+
         //change rating after challenge lost
         if(challengeLost == true){
             if(ContributorRole.allContributors[_contributor].rating > 0){
-                ContributorRole.allContributors[_contributor].rating = ContributorRole.allContributors[_contributor].rating.sub(1);
+                newRating = ContributorRole.allContributors[_contributor].rating.sub(1);
+                setContributorRating(_contributor, newRating);
             }
             ContributorRole.allContributors[_contributor].challengesLost = ContributorRole.allContributors[_contributor].challengesLost.add(1);
         }else {
@@ -155,10 +158,42 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
             }else {
                 Article.allArticles[articleId].downVotes = Article.allArticles[articleId].downVotes.add(1);
             }
-            uint newRating = contributorRatingCalculator(ContributorRole.allContributors[_contributor].rating, Article.allArticles[articleId].upVotes,
+            newRating = contributorRatingCalculator(ContributorRole.allContributors[_contributor].rating, Article.allArticles[articleId].upVotes,
                                                         Article.allArticles[articleId].downVotes, ContributorRole.allContributors[_contributor].articlesPublished);
             setContributorRating(_contributor, newRating);
         }
+    }
+
+    //Function to update reader's rating
+    function updateReaderRating(address reader, uint challengeId) internal {
+        uint currentRating = ReaderRole.allReaders[reader].rating;
+        uint totalChallenges = ReaderRole.allReaders[reader].numOfChallenges;
+        uint successful;
+        for(uint i = 1; i <= totalChallenges; i++){
+            if(ReaderRole.allReaders[reader].challenges[challengeId] == true )
+                successful++;
+        }
+        uint newRating = readerRatingCalculator(currentRating, successful, totalChallenges);
+        setReaderRating(reader, newRating);
+    }
+
+    //Function to update validator's rating
+    function updateValidatorRating(address validator, bool result) internal {
+        uint newRating;
+        uint currentRating = ValidatorRole.allValidators[validator].rating;
+        uint prevDiff;
+        uint newDiff = ValidatorRole.allValidators[validator].challengesWon.sub(ValidatorRole.allValidators[validator].challengesLost);
+        if (newDiff > 0){
+            if(result == true) {
+                prevDiff = newDiff.sub(1);
+            }else {
+                prevDiff = newDiff.add(1);
+            }
+            newRating = validatorRatingCalculator(currentRating, prevDiff, newDiff);
+        }else {
+            newRating = 0;
+        }
+        setValidatorRating(validator, newRating);
     }
 
     //Function to calculate rating for Contributors
@@ -172,8 +207,26 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
         return newRating;
     }
 
+    //Function to calculate rating for Readers
+    function readerRatingCalculator(uint currentRating, uint successful, uint totalChallenges) internal pure returns(uint){
+        uint recentRating = successful.div(totalChallenges).mul(5);
+        uint newRating = totalChallenges.sub(1);
+        newRating = newRating.mul(currentRating);
+        newRating = newRating.add(recentRating);
+        newRating = newRating.div(totalChallenges);
+        return newRating;
+    }
+
+    //Function to calculate rating for Validators
+    function validatorRatingCalculator(uint currentRating, uint prevDiff, uint newDiff) internal pure returns(uint){
+        uint newRating = currentRating.mul(newDiff).div(prevDiff);
+        return newRating;
+    }
+
     //Function to challenge an article
     function challengeArticle(bytes32 proofHash, uint stake, uint articleId) external onlyReader {
+        //Check if Amount staked is greater than balance of Reader
+        require(stake <= ReaderRole.allReaders[msg.sender].balance, "Insufficient funds to challenge article.");
         address contributor = Article.allArticles[articleId].contributor;
         ReaderRole.challenge(articleId, contributor, proofHash, stake, msg.sender);
         assignValidators(articleId, ReaderRole.totalChallenges);
@@ -213,18 +266,94 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
                 numOfYesVotes++;
         }
         if(numOfYesVotes >= 2){
-            ReaderRole.allChallenges[challengeId].success = true;
-            // update contributor's challenges lost
-            address contributor = ReaderRole.allChallenges[challengeId].contributor;
-            ContributorRole.allContributors[contributor].challengesLost = ContributorRole.allContributors[contributor].challengesLost.add(1);
-            // Distribute Amount staked by contributor to reader and validators
+            //Challenge is successful if 2 out of 3 validators vote yes
+            challengeSuccessful(challengeId, rulingId);
         }else
         {
+            //Check to see if all 3 validators have voted
             if(allRulings[rulingId].voted == 3) {
-                ReaderRole.allChallenges[challengeId].success = false;
-                // Distribute Amount staked by reader to contributor and validators
+              challengeUnsuccessful(challengeId, rulingId);
             }
         }
+    }
+
+    //function called if challenge is sucessful
+    function challengeSuccessful(uint challengeId, uint rulingId) internal {
+        ReaderRole.allChallenges[challengeId].success = true;
+        // update contributor's challenges lost
+        address contributor = ReaderRole.allChallenges[challengeId].contributor;
+        ContributorRole.allContributors[contributor].challengesLost = ContributorRole.allContributors[contributor].challengesLost.add(1);
+        
+        address reader = ReaderRole.allChallenges[challengeId].reader;
+        ReaderRole.allReaders[reader].challenges[challengeId] = true;
+
+        uint articleId = ReaderRole.allChallenges[challengeId].articleId;
+        
+        // Distribute Amount staked by contributor to reader and validators
+        uint amount = Article.allArticles[articleId].stake;
+        divideStake(contributor, reader, rulingId, amount, true);
+
+        // Update Contributor ratings
+        updateContributorRating(false, true, contributor, articleId);
+
+        // Update Reader ratings
+        updateReaderRating(reader, challengeId);
+       
+       // Update Validator ratings
+       address validator = Article.allArticles[articleId].validator;
+       ValidatorRole.updateChallengesWon(validator);
+       updateValidatorRating(validator, true);
+    }
+
+    //function called if challenge is unsucessful
+    function challengeUnsuccessful(uint challengeId, uint rulingId) internal {
+        address reader = ReaderRole.allChallenges[challengeId].reader;
+        uint articleId = ReaderRole.allChallenges[challengeId].articleId;
+        address validator = Article.allArticles[articleId].validator;
+        address contributor = ReaderRole.allChallenges[challengeId].contributor;
+
+        ReaderRole.allChallenges[challengeId].success = false;
+        // Distribute Amount staked by reader to contributor and validators
+        uint amount = ReaderRole.allChallenges[challengeId].stake;
+        divideStake(contributor, reader, rulingId, amount, false);
+
+        // Update Reader ratings
+        updateReaderRating(reader, challengeId);
+       
+       // Update Validator ratings
+       ValidatorRole.updateChallengesLost(validator);
+       updateValidatorRating(validator, false);
+    }
+
+    //Function to divide stake
+    function divideStake(address contributor, address reader, uint rulingId, uint amount, bool success) internal {
+        address[3] memory validators = allRulings[rulingId].validators;
+        uint share = amount.div(4);
+
+        //Reimburse validators
+        for(uint i = 1; i <= 3; i++){
+            ValidatorRole.allValidators[validators[i]].balance = ValidatorRole.allValidators[validators[i]].balance.add(share);
+            availableWithdrawls[validators[i]] = availableWithdrawls[validators[i]].add(share);
+        }
+
+        if(success == true){
+            //Deduct from contributor balance
+            ContributorRole.allContributors[contributor].balance = ContributorRole.allContributors[contributor].balance.sub(amount);
+            availableWithdrawls[contributor] = availableWithdrawls[contributor].sub(amount);
+
+            //Reimburse Reader
+            availableWithdrawls[reader] = availableWithdrawls[reader].add(share);
+            ReaderRole.allReaders[reader].balance = ReaderRole.allReaders[reader].balance.add(share);
+        }else {
+            //Deduct from Reader
+            availableWithdrawls[reader] = availableWithdrawls[reader].sub(amount);
+            ReaderRole.allReaders[reader].balance = ReaderRole.allReaders[reader].balance.sub(amount);
+
+            //Deduct from contributor balance
+            ContributorRole.allContributors[contributor].balance = ContributorRole.allContributors[contributor].balance.add(share);
+            availableWithdrawls[contributor] = availableWithdrawls[contributor].add(share);
+        }
+
     }
 
     //function that allows to withdraw funds. For Validators and Contributors their balance should not be less than the minimum funding amount.
@@ -248,6 +377,7 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
         }
         if(ReaderRole.isReader(msg.sender) == true){
             allow = true;
+            ReaderRole.allReaders[msg.sender].balance = ReaderRole.allReaders[msg.sender].balance.sub(amount);
         }
         if(allow == true){
             availableWithdrawls[msg.sender] = availableWithdrawls[msg.sender].sub(amount);
