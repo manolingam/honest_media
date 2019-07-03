@@ -37,6 +37,7 @@ App = {
   bindEvents: function(){
     App.showOperational();
     App.showArticles();
+    App.showArticlesToBeApproved();
   },
 
   showOperational: function(){
@@ -261,7 +262,7 @@ showOperational: function(){
     });
   },
 
-  showArticleToBeApproved: function () {
+  showArticleToBeApproved: function (index) {
     var honestmediaInstance;
 
     web3.eth.getAccounts(function(error, accounts) {
@@ -279,7 +280,7 @@ showOperational: function(){
         var ul = document.getElementById('articleToApproveList');
         var li = document.createElement('li');
         var titleText = document.createElement('h3');
-        titleText.innerHTML = article[0];
+        titleText.innerHTML = "Title";
         li.appendChild(titleText);
 
         var approveButton = document.createElement('button');
