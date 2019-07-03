@@ -219,11 +219,13 @@ showOperational: function(){
         li.appendChild(dateText);
 
         var upvoteText = document.createElement('button');
-        upvoteText.innerHTML = "Upvotes: " + article[2];
+        upvoteText.innerHTML = "Upvotes: " + article[3];
+        upvoteText.onclick = App.upvoteArticle(index);
         li.appendChild(upvoteText);
 
         var downvoteText = document.createElement('button');
         downvoteText.innerHTML = "Downvotes: " + article[3];
+        downvoteText.onclick = App.downvoteArticle(index);
         li.appendChild(downvoteText);
 
         ul.appendChild(li);
@@ -231,6 +233,37 @@ showOperational: function(){
         console.log(err.message);
       });
     });
+  },
+
+  upvoteArticle: function(index){
+    console.log('Adding upvote ...');
+
+    var honestmediaInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+
+        return honestmediaInstance.getNumberOfArticles();
+      }).then(function(result) {
+        numberOfArticles = result;
+        console.log("showing articles..." + numberOfArticles);
+        for (i = 0; i < numberOfArticles; i++) { 
+          App.showArticle(i);
+        }
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
+
+  },
+
+  downvoteArticle: function(index){
+
   }
 
 };
