@@ -256,11 +256,20 @@ showOperational: function(){
         downvoteText.innerHTML = "Downvotes: " + article[3];
         li.appendChild(downvoteText);
 
+        var challengeButton = document.createElement('button');
+        challengeButton.innerHTML = "Challenge";
+        challengeButton.onclick = function() {App.challengeArticle(index);}
+        li.appendChild(challengeButton);
+
         ul.appendChild(li);
       }).catch(function(err) {
         console.log(err.message);
       });
     });
+  },
+
+  challengeArticle: function(index) {
+    console.log("challange article ...");
   }
 
 };
