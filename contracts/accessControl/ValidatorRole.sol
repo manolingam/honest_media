@@ -49,7 +49,7 @@ contract ValidatorRole {
   }
 
   // Define a function 'addValidator' that adds this role
-  function addValidator(address account, uint funds) public onlyValidator {
+  function addValidator(address account, uint funds) public {
     _addValidator(account, funds);
   }
 

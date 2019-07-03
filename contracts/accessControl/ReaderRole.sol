@@ -61,7 +61,7 @@ contract ReaderRole {
   }
 
   // Define a function 'addReader' that adds this role
-  function addReader(address account, uint funds) public onlyReader {
+  function addReader(address account, uint funds) public {
     _addReader(account, funds);
   }
 
