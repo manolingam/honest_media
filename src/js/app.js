@@ -13,7 +13,7 @@ App = {
       web3 = new Web3(web3.currentProvider);
     } else {
       // set the provider you want from Web3.providers
-      App.web3Provider = new Web3.providers.HttpProvider('http://127.0.0.1:9545');
+      App.web3Provider = new Web3.providers.HttpProvider('http://127.0.0.1:7545');
       web3 = new Web3(App.web3Provider);
     }
 
@@ -37,6 +37,9 @@ App = {
   bindEvents: function(){
     App.showOperational();
     App.showArticles();
+    console.log("In bindEvents");
+    $('#button-register').on('click', App.registerAccount);
+    $('#button-Add').on('click', App.addArticle);
   },
 
   showOperational: function(){
@@ -68,7 +71,7 @@ App = {
 
   registerAccount: function (event) {
      event.preventDefault();
-
+      console.log("Registering Account..");
       //read address
      var addr = $('#txt-registerAddress').val();
 
@@ -164,6 +167,33 @@ showOperational: function(){
       });
     });
 
+  },
+
+  //Function to add Article
+  addArticle: async function(){
+    event.preventDefault();
+    var current = Date.now();
+    var account = $("#txt-address").val()
+    
+    //For IPFS hash
+    App.articleHash = "Artcile Hash";
+    App.referenceHash = "ReferenceHash";
+    
+    App.contracts.Honestmedia.deployed().then(function(instance) {
+      return instance.addArticle(
+           App.articleHash,
+           App.referenceHash,
+           $("#txt-articleName").val(),
+           current,
+           $("#txt-articleStake").val(),
+           {from: account}
+      );
+      }).then(function(result) {
+          console.log('addArticle', result);
+          console.log("successfully added article.");
+      }).catch(function(err) {
+          console.log(err.message);
+      });
   },
 
   showArticles: function(){
