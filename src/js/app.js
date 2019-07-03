@@ -256,9 +256,15 @@ showOperational: function(){
         downvoteText.innerHTML = "Downvotes: " + article[3];
         li.appendChild(downvoteText);
 
+        var stakeAmount = document.createElement('input');
+        li.appendChild(stakeAmount);
+        var ethText = document.createElement('span');
+        ethText.innerHTML = "eth";
+        li.appendChild(ethText);
+
         var challengeButton = document.createElement('button');
         challengeButton.innerHTML = "Challenge";
-        challengeButton.onclick = function() {App.challengeArticle(index);}
+        challengeButton.onclick = function() {App.challengeArticle(index, stakeAmount.textContent);}
         li.appendChild(challengeButton);
 
         ul.appendChild(li);
@@ -268,8 +274,8 @@ showOperational: function(){
     });
   },
 
-  challengeArticle: function(index) {
-    console.log("challange article ...");
+  challengeArticle: function(index, stakeAmount) {
+    console.log("challange article ..." + stakeAmount);
   }
 
 };
