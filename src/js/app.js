@@ -231,6 +231,66 @@ showOperational: function(){
         console.log(err.message);
       });
     });
+  },
+
+  showArticlesToBeApproved: function(){
+    console.log('Listing articles ...');
+
+    var honestmediaInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+
+        return honestmediaInstance.getNumberOfArticles();
+      }).then(function(result) {
+        numberOfArticles = result;
+        console.log("showing articles..." + numberOfArticles);
+        for (i = 0; i < numberOfArticles; i++) {
+          if (honestmediaInstance.isArticleChallenged(i)){
+            App.showArticleToBeApproved(i);
+          }   
+        }
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
+  },
+
+  showArticleToBeApproved: function () {
+    var honestmediaInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+
+        return honestmediaInstance.getArticle(index);
+      }).then(function(result) {
+        article = result;
+        console.log(article);
+        var ul = document.getElementById('articleList');
+        var li = document.createElement('li');
+        var titleText = document.createElement('h3');
+        titleText.innerHTML = article[0];
+        li.appendChild(titleText);
+
+        var upvoteText = document.createElement('button');
+        upvoteText.innerHTML = "Append";
+        li.appendChild(upvoteText);
+
+        ul.appendChild(li);
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
   }
 
 };

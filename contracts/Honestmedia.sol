@@ -113,6 +113,16 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
         return Article.getNumberOfArticles();
     }
 
+    //function get the number of all articles
+    function getNumberOfArticlesToBeApproved() public view returns (uint noOfArticles){
+        return Article.getNumberOfArticlesToBeApproved();
+    }
+
+      //Define a function if article is challenged
+      function isArticleChallenged(uint articleNumber) public view returns (bool isChallenged){
+        return Article.isArticleChallenged(articleNumber);
+      }
+
     //function to get the list of all the articles' titles
     function getArticle(uint _articleNumber) public view returns (string memory title, uint datePublished, uint upvotes, uint downvotes){
         string memory articleTitle = Article.getArticleTitle(_articleNumber);
