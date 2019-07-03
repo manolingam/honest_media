@@ -182,8 +182,6 @@ showOperational: function(){
         return honestmediaInstance.getNumberOfArticles();
       }).then(function(result) {
         numberOfArticles = result;
-        App.showArticle(0);
-        App.showArticle(1);
         console.log("showing articles..." + numberOfArticles);
         for (i = 0; i < numberOfArticles; i++) { 
           App.showArticle(i);
@@ -220,15 +218,15 @@ showOperational: function(){
         dateText.innerHTML = "Date: " + article[1];
         li.appendChild(dateText);
 
-        var upvoteText = document.createElement('button');
-        upvoteText.innerHTML = "Upvotes: " + article[3];
-        upvoteText.onclick = App.upvoteArticle(index);
-        li.appendChild(upvoteText);
+        var upvoteButton = document.createElement('button');
+        upvoteButton.innerHTML = "Upvotes: " + article[3];
+        upvoteButton.onclick = function() {App.upvoteArticle(index);}
+        li.appendChild(upvoteButton);
 
-        var downvoteText = document.createElement('button');
-        downvoteText.innerHTML = "Downvotes: " + article[3];
-        downvoteText.onclick = App.downvoteArticle(index);
-        li.appendChild(downvoteText);
+        var downvoteButton = document.createElement('button');
+        downvoteButton.innerHTML = "Downvotes: " + article[3];
+        downvoteButton.onclick = function() {App.downvoteArticle(index);}
+        li.appendChild(downvoteButton);
 
         ul.appendChild(li);
       }).catch(function(err) {
@@ -238,7 +236,7 @@ showOperational: function(){
   },
 
   upvoteArticle: function(index){
-    console.log('Adding upvote ...');
+    console.log('Adding upvote ...' + index);
 
     var honestmediaInstance;
 
@@ -250,22 +248,35 @@ showOperational: function(){
       App.contracts.Honestmedia.deployed().then(function(instance) {
         honestmediaInstance = instance;
 
-        return honestmediaInstance.getNumberOfArticles();
+        return honestmediaInstance.upVoteArticle(index);
       }).then(function(result) {
-        numberOfArticles = result;
-        console.log("showing articles..." + numberOfArticles);
-        for (i = 0; i < numberOfArticles; i++) { 
-          App.showArticle(i);
-        }
+        App.showArticles();
       }).catch(function(err) {
         console.log(err.message);
       });
     });
-
   },
 
   downvoteArticle: function(index){
+    console.log("Downvoting.. " + index);
 
+    var honestmediaInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+
+        return honestmediaInstance.downVoteArticle(index);
+      }).then(function(result) {
+        App.showArticles();
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
   }
 
 };
