@@ -34,7 +34,7 @@ App = {
     });
   },
 
-  bindEvents: function () {
+  bindEvents: function(){
     App.showOperational();
     App.showArticles();
     console.log("In bindEvents");
