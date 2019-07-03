@@ -35,15 +35,11 @@ App = {
   },
 
   bindEvents: function () {
-    App.binding();
+    App.showOperational();
+    App.showArticles();
     console.log("In bindEvents");
     $('#button-register').on('click', App.registerAccount);
     $('#button-Add').on('click', App.addArticle);
-  },
-
-  binding: function(){
-    App.showOperational();
-    App.showArticles();
   },
 
   showOperational: function(){
