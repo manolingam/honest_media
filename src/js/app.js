@@ -34,7 +34,7 @@ App = {
     });
   },
 
-  binding: function(){
+  bindEvents: function(){
     App.showOperational();
     App.showArticles();
   },
@@ -182,6 +182,8 @@ showOperational: function(){
         return honestmediaInstance.getNumberOfArticles();
       }).then(function(result) {
         numberOfArticles = result;
+        App.showArticle(0);
+        App.showArticle(1);
         console.log("showing articles..." + numberOfArticles);
         for (i = 0; i < numberOfArticles; i++) { 
           App.showArticle(i);
