@@ -22,7 +22,8 @@ contract ReaderRole {
       uint rating;
       uint balance;
       uint numOfChallenges;
-      uint[] challenges; //array of challenge ids raised by the reader
+      //uint[] challenges; //array of challenge ids raised by the reader
+      mapping(uint => bool) challenges;
   }
 
   //Define a mapping to map reader address and reader info
@@ -76,7 +77,7 @@ contract ReaderRole {
     allChallenges[totalChallenges] = challengeInfo({articleId: articleId, contributor: contributor, reader: account,
                                                    proofHash: proofHash, stake: stake, success: false});
     allReaders[account].numOfChallenges = allReaders[account].numOfChallenges.add(1);
-    allReaders[account].challenges.push(totalChallenges);
+    allReaders[account].challenges[totalChallenges] = false;
     emit ChallengeAdded(account, totalChallenges);
   }
 
