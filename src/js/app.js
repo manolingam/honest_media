@@ -247,8 +247,9 @@ showOperational: function(){
 
       App.contracts.Honestmedia.deployed().then(function(instance) {
         honestmediaInstance = instance;
-
-        return honestmediaInstance.upVoteArticle(index);
+        
+        var articleContributor = instance.getArticleContributor(index);
+        return honestmediaInstance.updateContributorRating(false, false, articleContributor, index);
       }).then(function(result) {
         App.showArticles();
       }).catch(function(err) {
@@ -270,7 +271,8 @@ showOperational: function(){
       App.contracts.Honestmedia.deployed().then(function(instance) {
         honestmediaInstance = instance;
 
-        return honestmediaInstance.downVoteArticle(index);
+        var articleContributor = instance.getArticleContributor(index);
+        return honestmediaInstance.updateContributorRating(false, false, articleContributor, index);
       }).then(function(result) {
         App.showArticles();
       }).catch(function(err) {
