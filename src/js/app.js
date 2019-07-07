@@ -254,13 +254,15 @@ App = {
         dateText.innerHTML = "Date: " + article[1];
         li.appendChild(dateText);
 
-        var upvoteText = document.createElement('button');
-        upvoteText.innerHTML = "Upvotes: " + article[2];
-        li.appendChild(upvoteText);
+        var upvoteButton = document.createElement('button');
+        upvoteButton.innerHTML = "Upvotes: " + article[3];
+        upvoteButton.onclick = function() {App.upvoteArticle(index);}
+        li.appendChild(upvoteButton);
 
-        var downvoteText = document.createElement('button');
-        downvoteText.innerHTML = "Downvotes: " + article[3];
-        li.appendChild(downvoteText);
+        var downvoteButton = document.createElement('button');
+        downvoteButton.innerHTML = "Downvotes: " + article[3];
+        downvoteButton.onclick = function() {App.downvoteArticle(index);}
+        li.appendChild(downvoteButton);
 
         var stakeAmount = document.createElement('input');
         li.appendChild(stakeAmount);
@@ -335,6 +337,52 @@ App = {
         li.appendChild(approveButton);
 
         ul.appendChild(li);
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
+  },
+
+  upvoteArticle: function(index){
+    console.log('Adding upvote ...' + index);
+
+    var honestmediaInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+        
+        var articleContributor = instance.getArticleContributor(index);
+        return honestmediaInstance.updateContributorRating(true, false, articleContributor, index);
+      }).then(function(result) {
+        App.showArticles();
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
+  },
+
+  downvoteArticle: function(index){
+    console.log("Downvoting.. " + index);
+
+    var honestmediaInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+
+        var articleContributor = instance.getArticleContributor(index);
+        return honestmediaInstance.updateContributorRating(false, false, articleContributor, index);
+      }).then(function(result) {
+        App.showArticles();
       }).catch(function(err) {
         console.log(err.message);
       });

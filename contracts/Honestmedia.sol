@@ -96,6 +96,11 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
     	ValidatorRole.setRating(_address, rank);
     }
 
+    //function get article contributor
+    function getArticleContributor(uint _articleNumber) public view returns (address _contributor) {
+        return Article.getArticleContributor(_articleNumber);
+    }
+
     function getContributorRating(address _address) public view returns (uint rating) {
         ContributorRole.getRating(_address);
     }
@@ -147,6 +152,16 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
     function approve(uint articleId) internal onlyValidator {
         require(Article.allArticles[articleId].validator == msg.sender, "Validator not authorised");
         Article.allArticles[articleId].approved = true;
+    }
+
+    //upvote article
+    function upVoteArticle(uint articleId) public {
+        Article.upVoted(articleId);
+    }
+
+    //downvote article
+    function downVoteArticle(uint articleId) public {
+        Article.downVoted(articleId);
     }
 
     //Function to update rating for Contributors

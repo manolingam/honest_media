@@ -57,6 +57,13 @@ contract Article {
     return totalArticles;
   }
 
+  // Define a function to return article contributor
+  function getArticleContributor(uint articleNumber) public view returns (address _contributor){
+    articleInfo storage article = allArticles[articleNumber];
+    address articleContributor = article.contributor;
+    return articleContributor;
+  }
+
   // Define a function to return article title
   function getArticleTitle(uint articleNumber) public view returns (string memory title){
     articleInfo storage article = allArticles[articleNumber];
