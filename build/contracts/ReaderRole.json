@@ -6093,14 +6093,59 @@
   },
   "networks": {
     "5777": {
-      "events": {},
+      "events": {
+        "0xb7724d890d2888af5a3fc456edb667e2c82c4441449ebcac301c618759e4f86d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "ReaderAdded",
+          "type": "event",
+          "signature": "0xb7724d890d2888af5a3fc456edb667e2c82c4441449ebcac301c618759e4f86d"
+        },
+        "0xe933431644458f1217f9e93d3e000e03c9bbbe55761046d0985c2e4d157bcbaa": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "ReaderRemoved",
+          "type": "event",
+          "signature": "0xe933431644458f1217f9e93d3e000e03c9bbbe55761046d0985c2e4d157bcbaa"
+        },
+        "0x71658dcd30af2516252b609c834023d8729aab62422a55f9559c3c854f3a8803": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "challengeId",
+              "type": "uint256"
+            }
+          ],
+          "name": "ChallengeAdded",
+          "type": "event",
+          "signature": "0x71658dcd30af2516252b609c834023d8729aab62422a55f9559c3c854f3a8803"
+        }
+      },
       "links": {},
       "address": "0x122db85974CED69EFD8dC68B57478197028c921A",
       "transactionHash": "0x6da0b0591d9ade70272b8a41a4adea809b4fa1b3d38d055dda748d869aada6b9"
     }
   },
   "schemaVersion": "3.0.5",
-  "updatedAt": "2019-07-07T09:46:40.250Z",
+  "updatedAt": "2019-07-07T11:56:29.989Z",
   "devdoc": {
     "methods": {}
   },

@@ -5662,14 +5662,41 @@
   },
   "networks": {
     "5777": {
-      "events": {},
+      "events": {
+        "0x07681ffd9d424587412481b41d2ee582bb7bca757f626b0477051f3029470272": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "ContributorAdded",
+          "type": "event",
+          "signature": "0x07681ffd9d424587412481b41d2ee582bb7bca757f626b0477051f3029470272"
+        },
+        "0x665b9b7911d6a3e5a789e2be1ed4f9ffa84c1259e3b896752347195211122191": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "ContributorRemoved",
+          "type": "event",
+          "signature": "0x665b9b7911d6a3e5a789e2be1ed4f9ffa84c1259e3b896752347195211122191"
+        }
+      },
       "links": {},
       "address": "0xF3746b2A324C5Cd7D750DCD73E822105B8B35B5E",
       "transactionHash": "0x85090f2d75af61f6c9d249d101d6a82bec14cd45bd346773651bccb10bb234af"
     }
   },
   "schemaVersion": "3.0.5",
-  "updatedAt": "2019-07-07T09:46:40.245Z",
+  "updatedAt": "2019-07-07T11:56:29.983Z",
   "devdoc": {
     "methods": {}
   },

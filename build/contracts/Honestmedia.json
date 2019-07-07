@@ -27252,14 +27252,189 @@
   },
   "networks": {
     "5777": {
-      "events": {},
+      "events": {
+        "0x9ed508f9dd7c730fd307b1ca38355cf4d9c00f58a2acfa5167b497c51a859e4c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "aticleNum",
+              "type": "uint256"
+            }
+          ],
+          "name": "ArticleAdded",
+          "type": "event",
+          "signature": "0x9ed508f9dd7c730fd307b1ca38355cf4d9c00f58a2acfa5167b497c51a859e4c"
+        },
+        "0xe95591b999a8fa4c23f2d0b426271960c193b5eb71cef3bc673ac5be6cb60df4": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "aticleNum",
+              "type": "uint256"
+            }
+          ],
+          "name": "ArticleRemoved",
+          "type": "event",
+          "signature": "0xe95591b999a8fa4c23f2d0b426271960c193b5eb71cef3bc673ac5be6cb60df4"
+        },
+        "0x60bd4c6e468dd35d1c78b03ddc704f2f270ad2ed13b45bf571438f433db9b8f7": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "aticleNum",
+              "type": "uint256"
+            }
+          ],
+          "name": "ArticleApproved",
+          "type": "event",
+          "signature": "0x60bd4c6e468dd35d1c78b03ddc704f2f270ad2ed13b45bf571438f433db9b8f7"
+        },
+        "0x7794351528fe7be520769ebfe19d7275d2a0ecb197e1bbc23afa224134887ba2": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "aticleNum",
+              "type": "uint256"
+            }
+          ],
+          "name": "ArticleChallenged",
+          "type": "event",
+          "signature": "0x7794351528fe7be520769ebfe19d7275d2a0ecb197e1bbc23afa224134887ba2"
+        },
+        "0xeb5a35545b0a45240a67898d2f6187c764da2eaca5c11a0e75e615dd80d9458d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "aticleNum",
+              "type": "uint256"
+            }
+          ],
+          "name": "ArticleUpVoted",
+          "type": "event",
+          "signature": "0xeb5a35545b0a45240a67898d2f6187c764da2eaca5c11a0e75e615dd80d9458d"
+        },
+        "0xd1ff0de57853f81f969355a26960199cd8211f9d274c6c552a148053125b4611": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "aticleNum",
+              "type": "uint256"
+            }
+          ],
+          "name": "ArticleDownVoted",
+          "type": "event",
+          "signature": "0xd1ff0de57853f81f969355a26960199cd8211f9d274c6c552a148053125b4611"
+        },
+        "0xe366c1c0452ed8eec96861e9e54141ebff23c9ec89fe27b996b45f5ec3884987": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "ValidatorAdded",
+          "type": "event",
+          "signature": "0xe366c1c0452ed8eec96861e9e54141ebff23c9ec89fe27b996b45f5ec3884987"
+        },
+        "0xe1434e25d6611e0db941968fdc97811c982ac1602e951637d206f5fdda9dd8f1": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "ValidatorRemoved",
+          "type": "event",
+          "signature": "0xe1434e25d6611e0db941968fdc97811c982ac1602e951637d206f5fdda9dd8f1"
+        },
+        "0xb7724d890d2888af5a3fc456edb667e2c82c4441449ebcac301c618759e4f86d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "ReaderAdded",
+          "type": "event",
+          "signature": "0xb7724d890d2888af5a3fc456edb667e2c82c4441449ebcac301c618759e4f86d"
+        },
+        "0xe933431644458f1217f9e93d3e000e03c9bbbe55761046d0985c2e4d157bcbaa": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "ReaderRemoved",
+          "type": "event",
+          "signature": "0xe933431644458f1217f9e93d3e000e03c9bbbe55761046d0985c2e4d157bcbaa"
+        },
+        "0x71658dcd30af2516252b609c834023d8729aab62422a55f9559c3c854f3a8803": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "challengeId",
+              "type": "uint256"
+            }
+          ],
+          "name": "ChallengeAdded",
+          "type": "event",
+          "signature": "0x71658dcd30af2516252b609c834023d8729aab62422a55f9559c3c854f3a8803"
+        },
+        "0x07681ffd9d424587412481b41d2ee582bb7bca757f626b0477051f3029470272": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "ContributorAdded",
+          "type": "event",
+          "signature": "0x07681ffd9d424587412481b41d2ee582bb7bca757f626b0477051f3029470272"
+        },
+        "0x665b9b7911d6a3e5a789e2be1ed4f9ffa84c1259e3b896752347195211122191": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "ContributorRemoved",
+          "type": "event",
+          "signature": "0x665b9b7911d6a3e5a789e2be1ed4f9ffa84c1259e3b896752347195211122191"
+        }
+      },
       "links": {},
       "address": "0xCe0635F8978E25755191F6733C1dC558997d35AB",
       "transactionHash": "0x7ad7dbd0ef51fb7c56a5bbad1744cc21c47d0e4adc71c8f4fdc96a410a0e9eba"
     }
   },
   "schemaVersion": "3.0.5",
-  "updatedAt": "2019-07-07T09:46:40.278Z",
+  "updatedAt": "2019-07-07T11:56:30.021Z",
   "devdoc": {
     "methods": {}
   },

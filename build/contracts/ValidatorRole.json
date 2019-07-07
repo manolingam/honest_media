@@ -5386,14 +5386,41 @@
   },
   "networks": {
     "5777": {
-      "events": {},
+      "events": {
+        "0xe366c1c0452ed8eec96861e9e54141ebff23c9ec89fe27b996b45f5ec3884987": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "ValidatorAdded",
+          "type": "event",
+          "signature": "0xe366c1c0452ed8eec96861e9e54141ebff23c9ec89fe27b996b45f5ec3884987"
+        },
+        "0xe1434e25d6611e0db941968fdc97811c982ac1602e951637d206f5fdda9dd8f1": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "ValidatorRemoved",
+          "type": "event",
+          "signature": "0xe1434e25d6611e0db941968fdc97811c982ac1602e951637d206f5fdda9dd8f1"
+        }
+      },
       "links": {},
       "address": "0x4C35E4A5CB730B377C7dA06Ffd7B45f0CA914d03",
       "transactionHash": "0x7fee5ae7f4efc57cfab362b18d5d79f5302cfd102a01b59f0624c2ce54a1b9b6"
     }
   },
   "schemaVersion": "3.0.5",
-  "updatedAt": "2019-07-07T09:46:40.242Z",
+  "updatedAt": "2019-07-07T11:56:29.979Z",
   "devdoc": {
     "methods": {}
   },
