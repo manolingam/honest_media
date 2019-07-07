@@ -101,6 +101,10 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
         return Article.getArticleContributor(_articleNumber);
     }
 
+    function getContributorRating(address _address) public view returns (uint rating) {
+        ContributorRole.getRating(_address);
+    }
+
     //Function to store the article etc
     function addArticle(bytes32 _ipfsArticleHash, bytes32 _ipfsReferenceHash, string memory _title,
                         uint _datePublished, uint _stake) public onlyContributor
