@@ -249,7 +249,7 @@ showOperational: function(){
         honestmediaInstance = instance;
         
         var articleContributor = instance.getArticleContributor(index);
-        return honestmediaInstance.updateContributorRating(false, false, articleContributor, index);
+        return honestmediaInstance.updateContributorRating(true, false, articleContributor, index);
       }).then(function(result) {
         App.showArticles();
       }).catch(function(err) {
