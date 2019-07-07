@@ -37,9 +37,13 @@ App = {
   bindEvents: function(){
     App.showOperational();
     App.showArticles();
+<<<<<<< HEAD
+    App.showArticlesToBeApproved();
+=======
     console.log("In bindEvents");
     $('#button-register').on('click', App.registerAccount);
     $('#button-Add').on('click', App.addArticle);
+>>>>>>> master
   },
 
   showOperational: function(){
@@ -274,8 +278,74 @@ showOperational: function(){
     });
   },
 
+<<<<<<< HEAD
+  showArticlesToBeApproved: function(){
+    console.log('Listing articles ...');
+
+    var honestmediaInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+
+        return honestmediaInstance.getNumberOfArticles();
+      }).then(function(result) {
+        numberOfArticles = result;
+        console.log("showing articles..." + numberOfArticles);
+        for (i = 0; i < numberOfArticles; i++) {
+          if (honestmediaInstance.isArticleChallenged(i)){
+            App.showArticleToBeApproved(i);
+          }   
+        }
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
+  },
+
+  showArticleToBeApproved: function (index) {
+    var honestmediaInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+
+        return honestmediaInstance.getArticle(index);
+      }).then(function(result) {
+        article = result;
+        console.log(article);
+        var ul = document.getElementById('articleToApproveList');
+        var li = document.createElement('li');
+        var titleText = document.createElement('h3');
+        titleText.innerHTML = "Title";
+        li.appendChild(titleText);
+
+        var approveButton = document.createElement('button');
+        approveButton.innerHTML = "Approve";
+        approveButton.onclick = function() {App.approveArticle(index);}
+        li.appendChild(approveButton);
+
+        ul.appendChild(li);
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
+  },
+
+  approveArticle: function(index){
+    console.log("Approving...");
+=======
   challengeArticle: function(index, stakeAmount) {
     console.log("challange article ..." + stakeAmount);
+>>>>>>> master
   }
 
 };
