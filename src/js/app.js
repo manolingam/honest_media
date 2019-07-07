@@ -217,6 +217,8 @@ App = {
       }).then(function(result) {
         numberOfArticles = result;
         console.log("showing articles..." + numberOfArticles);
+        App.showArticle(0);
+        App.showArticle(1);
         for (i = 0; i < numberOfArticles; i++) { 
           App.showArticle(i);
         }
@@ -324,7 +326,7 @@ App = {
         var ul = document.getElementById('articleToApproveList');
         var li = document.createElement('li');
         var titleText = document.createElement('h3');
-        titleText.innerHTML = "Title";
+        titleText.innerHTML = article[0];
         li.appendChild(titleText);
 
         var approveButton = document.createElement('button');
