@@ -44,7 +44,7 @@ contract ContributorRole {
   }
 
   // Define a function 'addContributor' that adds this role
-  function addContributor(address account, uint fund) public onlyContributor {
+  function addContributor(address account, uint fund) public {
     _addContributor(account, fund);
   }
 

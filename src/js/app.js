@@ -13,7 +13,7 @@ App = {
       web3 = new Web3(web3.currentProvider);
     } else {
       // set the provider you want from Web3.providers
-      App.web3Provider = new Web3.providers.HttpProvider('http://127.0.0.1:9545');
+      App.web3Provider = new Web3.providers.HttpProvider('http://127.0.0.1:7545');
       web3 = new Web3(App.web3Provider);
     }
 
@@ -37,6 +37,10 @@ App = {
   bindEvents: function(){
     App.showOperational();
     App.showArticles();
+    App.showArticlesToBeApproved();
+    console.log("In bindEvents");
+    $('#button-register').on('click', App.registerAccount);
+    $('#button-Add').on('click', App.addArticle);
   },
 
   showOperational: function(){
@@ -68,7 +72,7 @@ App = {
 
   registerAccount: function (event) {
      event.preventDefault();
-
+      console.log("Registering Account..");
       //read address
      var addr = $('#txt-registerAddress').val();
 
@@ -166,6 +170,33 @@ showOperational: function(){
 
   },
 
+  //Function to add Article
+  addArticle: async function(){
+    event.preventDefault();
+    var current = Date.now();
+    var account = $("#txt-address").val()
+    
+    //For IPFS hash
+    App.articleHash = "Artcile Hash";
+    App.referenceHash = "ReferenceHash";
+    
+    App.contracts.Honestmedia.deployed().then(function(instance) {
+      return instance.addArticle(
+           App.articleHash,
+           App.referenceHash,
+           $("#txt-articleName").val(),
+           current,
+           $("#txt-articleStake").val(),
+           {from: account}
+      );
+      }).then(function(result) {
+          console.log('addArticle', result);
+          console.log("successfully added article.");
+      }).catch(function(err) {
+          console.log(err.message);
+      });
+  },
+
   showArticles: function(){
     console.log('Listing articles ...');
 
@@ -183,6 +214,8 @@ showOperational: function(){
       }).then(function(result) {
         numberOfArticles = result;
         console.log("showing articles..." + numberOfArticles);
+        App.showArticle(0);
+        App.showArticle(1);
         for (i = 0; i < numberOfArticles; i++) { 
           App.showArticle(i);
         }
@@ -227,6 +260,78 @@ showOperational: function(){
         downvoteButton.innerHTML = "Downvotes: " + article[3];
         downvoteButton.onclick = function() {App.downvoteArticle(index);}
         li.appendChild(downvoteButton);
+
+        var stakeAmount = document.createElement('input');
+        li.appendChild(stakeAmount);
+        var ethText = document.createElement('span');
+        ethText.innerHTML = "eth";
+        li.appendChild(ethText);
+
+        var challengeButton = document.createElement('button');
+        challengeButton.innerHTML = "Challenge";
+        challengeButton.onclick = function() {App.challengeArticle(index, stakeAmount.textContent);}
+        li.appendChild(challengeButton);
+
+        ul.appendChild(li);
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
+  },
+
+  showArticlesToBeApproved: function(){
+    console.log('Listing articles ...');
+
+    var honestmediaInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+
+        return honestmediaInstance.getNumberOfArticles();
+      }).then(function(result) {
+        numberOfArticles = result;
+        console.log("showing articles..." + numberOfArticles);
+        for (i = 0; i < numberOfArticles; i++) {
+          if (honestmediaInstance.isArticleChallenged(i)){
+            App.showArticleToBeApproved(i);
+          }   
+        }
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
+  },
+
+  showArticleToBeApproved: function (index) {
+    var honestmediaInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+
+        return honestmediaInstance.getArticle(index);
+      }).then(function(result) {
+        article = result;
+        console.log(article);
+        var ul = document.getElementById('articleToApproveList');
+        var li = document.createElement('li');
+        var titleText = document.createElement('h3');
+        titleText.innerHTML = article[0];
+        li.appendChild(titleText);
+
+        var approveButton = document.createElement('button');
+        approveButton.innerHTML = "Approve";
+        approveButton.onclick = function() {App.approveArticle(index);}
+        li.appendChild(approveButton);
 
         ul.appendChild(li);
       }).catch(function(err) {

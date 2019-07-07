@@ -22,6 +22,8 @@ contract ValidatorRole {
       uint balance;
       uint numOfApprovals;
       uint numOfChallenges;
+      uint challengesLost;
+      uint challengesWon;
   }
   //Define a mapping to map validator address and validator info
   mapping(address => validatorInfo) allValidators;
@@ -49,7 +51,7 @@ contract ValidatorRole {
   }
 
   // Define a function 'addValidator' that adds this role
-  function addValidator(address account, uint funds) public onlyValidator {
+  function addValidator(address account, uint funds) public {
     _addValidator(account, funds);
   }
 
@@ -68,10 +70,20 @@ contract ValidatorRole {
     allValidators[msg.sender].numOfChallenges = allValidators[msg.sender].numOfChallenges.add(1);
   }
 
-  //set ranking of contributor
+  //set ranking of validator
   function setRating(address account, uint ranking) public {
     validatorInfo memory validator = allValidators[account];
     validator.rating = ranking;
+  }
+
+  //Increase number of challenges won
+  function updateChallengesWon(address account) public {
+    allValidators[account].challengesWon = allValidators[account].challengesWon.add(1);
+  }
+
+  //Increase number of challenges Lost
+  function updateChallengesLost(address account) public {
+    allValidators[account].challengesLost = allValidators[account].challengesLost.add(1);
   }
 
   // Define an internal function '_addValidator' to add this role, called by 'addValidator'
@@ -80,6 +92,7 @@ contract ValidatorRole {
     allValidators[account].balance = funds;
     totalValidators = totalValidators.add(1);
     validatorIds[totalValidators] = account;
+    setRating(account, 2);
     emit ValidatorAdded(account);
   }
 

@@ -34,7 +34,10 @@ contract Article {
     }
 
   //Define a variable to count number of articles.
-    uint totalArticles;
+  uint totalArticles;
+
+  //Define a variable to count number of articles.
+  uint totalArticlesToBeApproved;
 
   //Define a mapping to map contributor address and contributor info
   mapping(uint => articleInfo) allArticles;
@@ -92,6 +95,11 @@ contract Article {
   //Define a function to return number of articles
   function getNumberOfArticles() public view returns (uint noOfArticles) {
     return totalArticles;
+  }
+
+  //Define a function if article is challenged
+  function isArticleChallenged(uint articleNumber) public view returns (bool isChallenged){
+    return allArticles[articleNumber].challenged == true;
   }
 
   // Define a function 'approved' that updates the approved flag

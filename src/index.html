@@ -74,16 +74,21 @@
                 <h3 class="panel-title">Add Article</h3>
               </div>
               <div class="panel-body">
-                <form id="frm-add-article">
-                    Article Name
-                    <input type="text" id="txt-articleName" size=40><br><br>
-                    Upload Article
-                    <input type="file" name="articleToUpload" id="fileToUpload" data-id="1">
-                    <button class="btn-upload" id="button" type="button" data-id="2">Upload</button><br><br>
-                    Stake
-                    <input type="text" id="txt-articleStake" size=4><br><br>
-                    <input type="submit" id="btn-article" value="ADD" data-id="3">
-                </form>
+                  <div class="panel-body">
+                      <h4>Contibutor's Address:</h4>
+                      <input type="text" id="txt-address" size=40><br><br>
+                      <h4>Article Name: </h4>
+                      <input type="text" id="txt-articleName" size=40><br><br>
+                      <!--<h4>Upload Article: </h4>
+                      <input type="file" name="articleToUpload" id="fileToUpload" data-id="1"><br>
+                      <button class="btn-upload" id="buttonArticle" type="button" data-id="2">Upload</button><br><br>
+                      <h4>Upload Article References: </h4>
+                      <input type="file" name="referencesToUpload" id="fileToUpload" data-id="3"><br>
+                      <button class="btn-upload" id="buttonRef" type="button" data-id="4">Upload</button><br><br>-->
+                      <h4>Stake: </h4>
+                      <input type="text" id="txt-articleStake" size=4><br><br>
+                      <button class="btn-Add" id="button-Add" type="button" data-id="5">Add Article</button>
+                </div>
               </div>
             </div>
           </div>
@@ -107,6 +112,24 @@
           </div>
         </div>
       <!-- Start Article List Div-->
+
+      <!-- Start Article Waiting To Be Approved List Div-->
+      <div class="row">
+          <div class="col-xs-12 col-sm-8 col-sm-push-2">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Show all articles waiting for approval</h3>
+              </div>
+              <div class="panel-body">
+                <section>
+                  <ul class="list" id='articleToApproveList' style="list-style: none;">
+                  </ul>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- Start Article Waiting To Be Approved List Div-->
 
     </div>
 
