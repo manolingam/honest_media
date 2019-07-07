@@ -37,13 +37,10 @@ App = {
   bindEvents: function(){
     App.showOperational();
     App.showArticles();
-<<<<<<< HEAD
     App.showArticlesToBeApproved();
-=======
     console.log("In bindEvents");
     $('#button-register').on('click', App.registerAccount);
     $('#button-Add').on('click', App.addArticle);
->>>>>>> master
   },
 
   showOperational: function(){
@@ -217,6 +214,8 @@ showOperational: function(){
       }).then(function(result) {
         numberOfArticles = result;
         console.log("showing articles..." + numberOfArticles);
+        App.showArticle(0);
+        App.showArticle(1);
         for (i = 0; i < numberOfArticles; i++) { 
           App.showArticle(i);
         }
@@ -278,7 +277,6 @@ showOperational: function(){
     });
   },
 
-<<<<<<< HEAD
   showArticlesToBeApproved: function(){
     console.log('Listing articles ...');
 
@@ -325,7 +323,7 @@ showOperational: function(){
         var ul = document.getElementById('articleToApproveList');
         var li = document.createElement('li');
         var titleText = document.createElement('h3');
-        titleText.innerHTML = "Title";
+        titleText.innerHTML = article[0];
         li.appendChild(titleText);
 
         var approveButton = document.createElement('button');
@@ -338,14 +336,6 @@ showOperational: function(){
         console.log(err.message);
       });
     });
-  },
-
-  approveArticle: function(index){
-    console.log("Approving...");
-=======
-  challengeArticle: function(index, stakeAmount) {
-    console.log("challange article ..." + stakeAmount);
->>>>>>> master
   }
 
 };
