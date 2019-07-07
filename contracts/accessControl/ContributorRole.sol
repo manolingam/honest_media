@@ -69,6 +69,12 @@ contract ContributorRole {
     contributor.rating = ranking;
   }
 
+  //get ranking of contributor
+  function getRating(address account) public view returns (uint rating){
+    contributorInfo memory contributor = allContributors[account];
+    return contributor.rating;
+  }
+
   //Add articleId to articles array
   function addArticle(uint articleId) public {
     allContributors[msg.sender].articles.push(articleId);

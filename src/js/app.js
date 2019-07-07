@@ -37,13 +37,11 @@ App = {
   bindEvents: function(){
     App.showOperational();
     App.showArticles();
-<<<<<<< HEAD
     App.showArticlesToBeApproved();
-=======
     console.log("In bindEvents");
     $('#button-register').on('click', App.registerAccount);
     $('#button-Add').on('click', App.addArticle);
->>>>>>> master
+    $('#button-display').on('click', App.displayRating);
   },
 
   showOperational: function(){
@@ -147,31 +145,33 @@ App = {
 
       }
     },
-showOperational: function(){
 
-    console.log('Getting operational ...');
+    displayRating: function(){
+      console.log('showing rating ...');
 
-    var honestmediaInstance;
+      var honestmediaInstance;
 
-    web3.eth.getAccounts(function(error, accounts) {
-      if (error) {
-        console.log(error);
-      }
+      web3.eth.getAccounts(function(error, accounts) {
+        if (error) {
+          console.log(error);
+        }
 
-      App.contracts.Honestmedia.deployed().then(function(instance) {
-        honestmediaInstance = instance;
+        var addr = $('#txt-displayAddress').val();
 
-        return honestmediaInstance.isOperational();
-      }).then(function(result) {
-        isOperational = result;
+        App.contracts.Honestmedia.deployed().then(function(instance) {
+          honestmediaInstance = instance;
 
-        $('#TTBalance').text(isOperational);
-      }).catch(function(err) {
-        console.log(err.message);
+          return honestmediaInstance.getContributorRating(addr);
+        }).then(function(result) {
+          rank = result;
+
+          $('#SpanRating').text(rank);
+        }).catch(function(err) {
+          console.log(err.message);
+        });
       });
-    });
 
-  },
+    },
 
   //Function to add Article
   addArticle: async function(){
@@ -278,7 +278,6 @@ showOperational: function(){
     });
   },
 
-<<<<<<< HEAD
   showArticlesToBeApproved: function(){
     console.log('Listing articles ...');
 
@@ -338,14 +337,6 @@ showOperational: function(){
         console.log(err.message);
       });
     });
-  },
-
-  approveArticle: function(index){
-    console.log("Approving...");
-=======
-  challengeArticle: function(index, stakeAmount) {
-    console.log("challange article ..." + stakeAmount);
->>>>>>> master
   }
 
 };
