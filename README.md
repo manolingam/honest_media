@@ -1,7 +1,7 @@
 # honest_media
 
 
-# Functionalities
+# Features
 
 The app shows that contract is operational:
 ![alt text](img/operational.png "Contract is operational")
