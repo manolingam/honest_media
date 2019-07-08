@@ -42,6 +42,20 @@ App = {
     $('#button-register').on('click', App.registerAccount);
     $('#button-Add').on('click', App.addArticle);
     $('#button-display').on('click', App.displayRating);
+    $(document).on('change', App.handleChangeEvent);
+    $('#button-Article').on('click', App.uploadFile);
+  },
+
+  handleChangeEvent: async function(event) {
+    event.preventDefault();
+
+    App.processId = parseInt($(event.target).data('id'));
+    
+    if (App.processId == 1 || App.processId == 2 || App.processId == 3) {
+        return await App.captureFile(event);
+    }
+
+    console.log('processId',App.processId);
   },
 
   showOperational: function(){
@@ -177,10 +191,10 @@ App = {
   addArticle: async function(){
     event.preventDefault();
     var current = Date.now();
-    var account = $("#txt-address").val()
+    var account = $("#txt-address").val();
     
     //For IPFS hash
-    App.articleHash = "Artcile Hash";
+    //App.articleHash = "Artcile Hash";
     App.referenceHash = "ReferenceHash";
     
     App.contracts.Honestmedia.deployed().then(function(instance) {
@@ -255,26 +269,68 @@ App = {
         li.appendChild(dateText);
 
         var upvoteButton = document.createElement('button');
-        upvoteButton.innerHTML = "Upvotes: " + article[3];
+        upvoteButton.innerHTML = "Upvotes: " + article[2];
         upvoteButton.onclick = function() {App.upvoteArticle(index);}
         li.appendChild(upvoteButton);
 
         var downvoteButton = document.createElement('button');
-        downvoteButton.innerHTML = "Downvotes: " + article[3];
+        downvoteButton.innerHTML = "Downvotes: " + article[3] ;
         downvoteButton.onclick = function() {App.downvoteArticle(index);}
         li.appendChild(downvoteButton);
+        
+        var div = document.createElement('div');
+        div.id = "div-challenge";
+        var challengeLbl = document.createElement('h4');
+        challengeLbl.innerHTML = "Challenge";
+        div.appendChild(challengeLbl);
+        var addresslbl = document.createElement('span');
+        addresslbl.innerHTML = "Reader's Address";
+        div.appendChild(addresslbl);
 
+        var addressTxt = document.createElement('input');
+        addressTxt.id = "txt-readerAddress";
+        div.appendChild(addressTxt);
+        
+        var br = document.createElement('br');
+        div.appendChild(br);
+
+        var prooflbl = document.createElement('span');
+        prooflbl.innerHTML = "Proof";
+        div.appendChild(prooflbl);
+
+        var proofFile = document.createElement('input');
+        proofFile.type = 'file';
+        proofFile.id = "file-proof";
+        proofFile.setAttribute('data-id', '3');
+        div.appendChild(proofFile);
+
+        var proofButton = document.createElement('button');
+        proofButton.id= "btn-proof" + index;
+        proofButton.innerHTML = "Upload";
+        proofButton.onclick = function() {App.uploadFile};
+        div.appendChild(proofButton);
+
+        var br = document.createElement('br');
+        div.appendChild(br);
+
+        var stakelbl = document.createElement('span');
+        stakelbl.innerHTML = "Stake";
+        div.appendChild(stakelbl);
         var stakeAmount = document.createElement('input');
-        li.appendChild(stakeAmount);
+        stakeAmount.size = 4;
+        //li.appendChild(stakeAmount);
+        div.appendChild(stakeAmount);
         var ethText = document.createElement('span');
         ethText.innerHTML = "eth";
-        li.appendChild(ethText);
+        //li.appendChild(ethText);
+        div.appendChild(ethText);
 
         var challengeButton = document.createElement('button');
         challengeButton.innerHTML = "Challenge";
         challengeButton.onclick = function() {App.challengeArticle(index, stakeAmount.textContent);}
-        li.appendChild(challengeButton);
-
+        //li.appendChild(challengeButton);
+        div.appendChild(challengeButton);
+        li.appendChild(div)
         ul.appendChild(li);
       }).catch(function(err) {
         console.log(err.message);
@@ -380,15 +436,96 @@ App = {
         honestmediaInstance = instance;
 
         var articleContributor = instance.getArticleContributor(index);
-        return honestmediaInstance.updateContributorRating(false, false, articleContributor, index);
+        return honestmediaInstance.updateContributorRating(false, false, articleContributor, index, {from: account});
       }).then(function(result) {
         App.showArticles();
       }).catch(function(err) {
         console.log(err.message);
       });
     });
-  }
+  },
 
+  challengeArticle: function(index, stake){
+    console.log('Challenge article ..' + index);
+
+    var honestmediaInstance;
+    var account = $("#txt-readerAddress").val();
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+        
+        return honestmediaInstance.challengeArticle(App.proofHash, stake, index);
+      }).then(function(result) {
+        console.log("Challenge registered.");
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
+  },
+
+  //Take file input from user
+  captureFile: function (event) {
+    event.stopPropagation()
+    event.preventDefault()
+      
+    App.fileName = event.target.files[0];    
+
+    console.log(App.fileName);
+  }, 
+
+  //Uploads file to IPFS.
+  //TODO: need to figure out how to store metadata with Pinata
+   uploadFile: async function(event){
+    event.preventDefault();
+            
+    /* const reader = new FileReader();
+    console.log(App.fileName.name);
+    
+    reader.readAsBinaryString(App.fileName); */
+    
+    //let testBuffer = new Buffer(App.fileName);
+    
+    //reader.onloadend = async function() {
+    try{
+            
+      const ipfs = new Ipfs({ repo: String(Math.random() + Date.now()) } );
+            
+      ipfs.on('ready', () => {
+        console.log('Online status: ', ipfs.isOnline() ? 'online' : 'offline')
+        const files = [
+        {
+          path: App.fileName.name,
+          //content: ipfs.Buffer.from(btoa(reader.result),"base64")
+          content: App.fileName
+        }
+        ] 
+        //const buf = buffer.Buffer(btoa(reader.result));
+        ipfs.add(files, function (err, files) {
+          //let url = "https://ipfs.io/ipfs/"+files[0].hash;
+          console.log("Storing file on IPFS using Javascript. HASH: https://ipfs.io/ipfs/"+files[0].hash);
+          if(App.processId == 1){
+            App.articleHash = files[0].hash;
+            console.log(App.articleHash);
+            ipfs.cat(files[0].hash, function(err,fileContent){ console.log("cat (display) returned: "+err+" " + fileContent); })
+          }else {
+            if(App.processId == 2){
+              App.referenceHash = files[0].hash;
+            }else {
+              App.proofHash = files[0].hash;
+            }
+          }
+        });
+      });
+    } catch(err){
+      console.log('ipfs issue : ' + err);
+    }
+    //}
+  } 
 };
 
 $(function() {
@@ -396,3 +533,5 @@ $(function() {
     App.init();
   });
 });
+
+     

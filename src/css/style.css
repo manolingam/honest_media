@@ -1,0 +1,26 @@
+li {
+    margin-right: 5px;
+    margin-bottom: 35px;
+    border-bottom: 1px, solid, black;
+}
+
+button {
+    margin: 0px 5px;
+}
+
+#div-challenge{
+    margin-top:5px;
+    padding: 5px 0px 5px 0px;
+}
+
+#txt-readerAddress{
+    margin-right:5px;
+    margin-left:5px;
+    margin-bottom:10px;
+}
+
+input[type=file] {
+    display: inline;
+    margin-left: 5px;
+    margin-bottom:10px;
+}
