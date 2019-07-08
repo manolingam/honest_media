@@ -296,8 +296,8 @@ App = {
         proofFile.type = 'file';
         proofFile.id = "file-proof";
         proofFile.setAttribute('data-id', '3');
-        //proofFile.data = "3";
         div.appendChild(proofFile);
+        
         var proofButton = document.createElement('button');
         proofButton.id= "btn-proof" + index;
         proofButton.innerHTML = "Upload";
