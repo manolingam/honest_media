@@ -22,4 +22,5 @@ button {
 input[type=file] {
     display: inline;
     margin-left: 5px;
+    margin-bottom:10px;
 }

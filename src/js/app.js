@@ -280,6 +280,9 @@ App = {
         
         var div = document.createElement('div');
         div.id = "div-challenge";
+        var challengeLbl = document.createElement('h4');
+        challengeLbl.innerHTML = "Challenge";
+        div.appendChild(challengeLbl);
         var addresslbl = document.createElement('span');
         addresslbl.innerHTML = "Reader's Address";
         div.appendChild(addresslbl);
@@ -287,6 +290,9 @@ App = {
         var addressTxt = document.createElement('input');
         addressTxt.id = "txt-readerAddress";
         div.appendChild(addressTxt);
+        
+        var br = document.createElement('br');
+        div.appendChild(br);
 
         var prooflbl = document.createElement('span');
         prooflbl.innerHTML = "Proof";
@@ -297,12 +303,15 @@ App = {
         proofFile.id = "file-proof";
         proofFile.setAttribute('data-id', '3');
         div.appendChild(proofFile);
-        
+
         var proofButton = document.createElement('button');
         proofButton.id= "btn-proof" + index;
         proofButton.innerHTML = "Upload";
         proofButton.onclick = function() {App.uploadFile};
         div.appendChild(proofButton);
+
+        var br = document.createElement('br');
+        div.appendChild(br);
 
         var stakelbl = document.createElement('span');
         stakelbl.innerHTML = "Stake";
@@ -473,7 +482,7 @@ App = {
   //TODO: need to figure out how to store metadata with Pinata
    uploadFile: async function(event){
     event.preventDefault();
-              
+            
     /* const reader = new FileReader();
     console.log(App.fileName.name);
     
@@ -502,6 +511,7 @@ App = {
           if(App.processId == 1){
             App.articleHash = files[0].hash;
             console.log(App.articleHash);
+            ipfs.cat(files[0].hash, function(err,fileContent){ console.log("cat (display) returned: "+err+" " + fileContent); })
           }else {
             if(App.processId == 2){
               App.referenceHash = files[0].hash;
