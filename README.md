@@ -30,11 +30,10 @@ There are three types of users on the app.
 
 ## Validator:
 
-A validator can perform 3 actions:
+A validator can perform 2 actions:
 
 	1. Register: A validator can register after providing a minimum amount of funding.
-	2. Approve Content: When a contributor adds some content, a validator is selected at random to approve the content. The validator then assesses the content and approves it.
-	3. Rule on Challenges: When a reader challenges some content, three random validators are selected to rule on the challenge. The validator refers to the proof provided by the reader and decides if the challenge is successful or not. Two of the three positive votes are required for the challenge to be successful.
+	2. Rule on Challenges: When a reader challenges some content, three random validators are selected to rule on the challenge. The validator refers to the proof provided by the reader and decides if the challenge is successful or not. Two of the three positive votes are required for the challenge to be successful.
 
 A validator needs to maintain a minimum balance (minimum funding amount).
 
@@ -101,9 +100,6 @@ A Contributor can add an article:
 
 Everyone can see the list of articles:
 ![alt text](img/allArticles.png "All Articles")
-
-Validators can validate an article from the list of Articles waiting to be approved:
-![alt text](img/allApproval.png "All Articles waiting to be approved")
 
 Validators can rule on challenges that are awaiting ruling:
 ![alt text](img/ruleArticles.png "All Articles waiting to be ruled")
