@@ -37,6 +37,7 @@ App = {
   bindEvents: function(){
     App.showOperational();
     App.showArticles();
+    App.showArticlesToBeApproved();
     App.showChallengesToBeRuled();
     console.log("In bindEvents");
     $('#button-register').on('click', App.registerAccount);
@@ -332,6 +333,94 @@ App = {
         div.appendChild(challengeButton);
         li.appendChild(div)
         ul.appendChild(li);
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
+  },
+
+  showArticlesToBeApproved: function(){
+    console.log('Listing articles ...');
+
+    var honestmediaInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+
+        return honestmediaInstance.getNumberOfArticles();
+      }).then(function(result) {
+        numberOfArticles = result;
+        console.log("showing articles..." + numberOfArticles);
+        for (i = 0; i < numberOfArticles; i++) {
+          if (honestmediaInstance.isArticleApproved(i)){
+            App.showArticleToBeApproved(i);
+          }   
+        }
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
+  },
+
+  showArticleToBeApproved: function (index) {
+    var honestmediaInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+
+        return honestmediaInstance.getArticle(index);
+      }).then(function(result) {
+        article = result;
+        console.log(article);
+        var ul = document.getElementById('articleToApproveList');
+        if(App.refreshArticles == true) {
+          ul.innerHTML = "";
+          App.refreshArticles = false;
+        }
+        var li = document.createElement('li');
+        var titleText = document.createElement('h3');
+        titleText.innerHTML = article[0];
+        li.appendChild(titleText);
+
+        var approveButton = document.createElement('button');
+        approveButton.innerHTML = "Approve";
+        approveButton.onclick = function() {App.approveArticle(index);}
+        li.appendChild(approveButton);
+
+        ul.appendChild(li);
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
+  },
+
+  approveArticle: function(index){
+    console.log("Approving article ...");
+    
+    var honestmediaInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+      var account = accounts[1];
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+        
+        return honestmediaInstance.approve(index, {from: account});
+      }).then(function(result) {
+        App.refreshArticles = true;
+        App.showArticlesToBeApproved();
       }).catch(function(err) {
         console.log(err.message);
       });
