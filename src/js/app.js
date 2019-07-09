@@ -607,24 +607,16 @@ App = {
    uploadFile: async function(event){
     event.preventDefault();
             
-    /* const reader = new FileReader();
-    console.log(App.fileName.name);
-    
-    reader.readAsBinaryString(App.fileName); */
-    
-    //let testBuffer = new Buffer(App.fileName);
-    
-    //reader.onloadend = async function() {
     try{
             
       const ipfs = new Ipfs({ repo: String(Math.random() + Date.now()) } );
+      //const ipfs = new Ipfs({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' }); 
             
       ipfs.on('ready', () => {
         console.log('Online status: ', ipfs.isOnline() ? 'online' : 'offline')
         const files = [
         {
           path: App.fileName.name,
-          //content: ipfs.Buffer.from(btoa(reader.result),"base64")
           content: App.fileName
         }
         ] 
@@ -646,7 +638,6 @@ App = {
     } catch(err){
       console.log('ipfs issue : ' + err);
     }
-    //}
   } 
 };
 
