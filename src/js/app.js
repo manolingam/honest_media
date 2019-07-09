@@ -487,7 +487,7 @@ App = {
         li.appendChild(agreeButton);
 
         var disagreeButton = document.createElement('button');
-        disagreeButton.innerHTML = "Agree";
+        disagreeButton.innerHTML = "Disagree";
         disagreeButton.onclick = function() {App.voteOnChallenge(index, false);}
         li.appendChild(disagreeButton);
 
@@ -606,7 +606,16 @@ App = {
   //TODO: need to figure out how to store metadata with Pinata
    uploadFile: async function(event){
     event.preventDefault();
-            
+    
+     const reader = new FileReader();
+    console.log(App.fileName.name);
+    
+    reader.readAsBinaryString(App.fileName); 
+    
+    //let testBuffer = new Buffer(App.fileName);
+    
+    
+    reader.onloadend = async function() {
     try{
             
       const ipfs = new Ipfs({ repo: String(Math.random() + Date.now()) } );
@@ -617,7 +626,8 @@ App = {
         const files = [
         {
           path: App.fileName.name,
-          content: App.fileName
+          content: Ipfs.Buffer.from(btoa(reader.result),"base64")
+          //content: App.fileName
         }
         ] 
         
@@ -638,6 +648,7 @@ App = {
     } catch(err){
       console.log('ipfs issue : ' + err);
     }
+  }
   } 
 };
 
