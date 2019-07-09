@@ -99,13 +99,18 @@ contract Article {
 
   //Define a function if article is challenged
   function isArticleChallenged(uint articleNumber) public view returns (bool isChallenged){
-    return allArticles[articleNumber].challenged == true;
+    return allArticles[articleNumber].challenged;
   }
 
   // Define a function 'approved' that updates the approved flag
   function approved(uint articleNumber) public {
     allArticles[articleNumber].approved = true;
     emit ArticleApproved(totalArticles);
+  }
+
+  //Define a function if article is challenged
+  function isArticleApproved(uint articleNumber) public view returns (bool isApproved){
+    return allArticles[articleNumber].approved;
   }
 
   // Define a function 'challenged' that updates the challenged flag

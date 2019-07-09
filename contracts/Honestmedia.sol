@@ -123,9 +123,19 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
         return Article.getNumberOfArticles();
     }
 
-      //Define a function if article is challenged
+    //Define a function if article is challenged
       function isArticleChallenged(uint articleNumber) public view returns (bool isChallenged){
         return Article.isArticleChallenged(articleNumber);
+      }
+
+    //Define a function if article is challenged
+      function isChallengeRuled(uint challengeId) public view returns (bool isRuled){
+          uint _rulingId = ReaderRole.allChallenges[challengeId].rulingId;
+          if(allRulings[_rulingId].voted == 3) return true;
+      }
+
+      function getArticleId(uint challengeId) public view returns(uint articleId){
+          return ReaderRole.allChallenges[challengeId].articleId;
       }
 
     //function to get the list of all the articles' titles
@@ -267,6 +277,7 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
         allRulings[totalRulings].validators = validators;
         allRulings[totalRulings].articleId = _articleId;
         allRulings[totalRulings].challengeId = _challengeId;
+        ReaderRole.allChallenges[_challengeId].rulingId = totalRulings;
     }
 
     //Random number generator
@@ -276,6 +287,10 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
         uint scaled = seed.div(MAX);
         uint adjusted = scaled;
         return adjusted;
+    }
+
+    function getRulingId(uint _challengeId) public view returns(uint rulingId){
+        return ReaderRole.allChallenges[_challengeId].rulingId;
     }
 
     //function to register validator votes on challenge. Will also check if 2 of 3 consensus is reached
