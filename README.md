@@ -105,7 +105,7 @@ Everyone can see the list of articles:
 Validators can validate an article from the list of Articles waiting to be approved:
 ![alt text](img/allApproval.png "All Articles waiting to be approved")
 
-Validators can rule an article from the list of Articles waiting to be ruled:
+Validators can rule on challenges that are awaiting ruling:
 ![alt text](img/ruleArticles.png "All Articles waiting to be ruled")
 
 ## Resources 
@@ -129,8 +129,8 @@ Validators can rule an article from the list of Articles waiting to be ruled:
 
 ## Contact Developers:
 
-	* Avanti: avanti.machado@gmail.com
-	* Ringaile: ringaile@gmail.com
+	* Avanti: email: avanti.machado@gmail.com , github: https://github.com/ajmachado
+	* Ringaile: email: ringaile@gmail.com , github: https://github.com/ringaile
 
 
 
