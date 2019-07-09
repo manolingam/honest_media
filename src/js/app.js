@@ -382,6 +382,10 @@ App = {
         article = result;
         console.log(article);
         var ul = document.getElementById('articleToApproveList');
+        if(App.refreshArticles == true) {
+          ul.innerHTML = "";
+          App.refreshArticles = false;
+        }
         var li = document.createElement('li');
         var titleText = document.createElement('h3');
         titleText.innerHTML = article[0];
@@ -393,6 +397,29 @@ App = {
         li.appendChild(approveButton);
 
         ul.appendChild(li);
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
+  },
+
+  approveArticle: function(index){
+    console.log("Approving article ...");
+    
+    var honestmediaInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+      var account = accounts[1];
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+        
+        return honestmediaInstance.approve(index, {from: account});
+      }).then(function(result) {
+        App.refreshArticles = true;
+        App.showArticlesToBeApproved();
       }).catch(function(err) {
         console.log(err.message);
       });
@@ -415,6 +442,7 @@ App = {
         return honestmediaInstance.totalChallenges();
       }).then(function(result) {
         numberOfChallenges = result;
+        
         console.log("showing challenges..." + numberOfArticles);
         for (i = 0; i < numberOfChallenges; i++) {
           if (honestmediaInstance.isChallengeRuled(i)){
@@ -479,13 +507,14 @@ App = {
       if (error) {
         console.log(error);
       }
-
+      var account = accounts[1];
       App.contracts.Honestmedia.deployed().then(function(instance) {
         honestmediaInstance = instance;
-        
-        var rulingId = instance.getRulingId(index);
-        return honestmediaInstance.voteOnChallenge(rulingId, vote, index);
+        return honestmediaInstance.instance.getRulingId(index);
       }).then(function(result) {
+        var rulingId = result;
+        return honestmediaInstance.voteOnChallenge(rulingId, vote, index, {from: account});
+      }).then(function(result1) {
         App.refreshChallenges = true;
         App.showChallengesToBeRuled();
       }).catch(function(err) {
