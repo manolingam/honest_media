@@ -290,7 +290,7 @@ App = {
         var addressTxt = document.createElement('input');
         addressTxt.id = "txt-readerAddress";
         div.appendChild(addressTxt);
-        
+
         var br = document.createElement('br');
         div.appendChild(br);
 
@@ -356,7 +356,7 @@ App = {
         numberOfArticles = result;
         console.log("showing articles..." + numberOfArticles);
         for (i = 0; i < numberOfArticles; i++) {
-          if (honestmediaInstance.isArticleChallenged(i)){
+          if (honestmediaInstance.isArticleApproved(i)){
             App.showArticleToBeApproved(i);
           }   
         }
@@ -393,6 +393,101 @@ App = {
         li.appendChild(approveButton);
 
         ul.appendChild(li);
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
+  },
+
+  showChallengesToBeRuled: function(){
+    console.log('Listing challenges ...');
+
+    var honestmediaInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+
+        return honestmediaInstance.totalChallenges();
+      }).then(function(result) {
+        numberOfChallenges = result;
+        console.log("showing challenges..." + numberOfArticles);
+        for (i = 0; i < numberOfChallenges; i++) {
+          if (honestmediaInstance.isChallengeRuled(i)){
+            App.showChallengeToBeRuled(i);
+          }   
+        }
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
+  },
+
+  showChallengeToBeRuled: function (index) {
+    var honestmediaInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+        return honestmediaInstance.getArticleId(index);
+      }).then(function(result) {
+        return honestmediaInstance.getArticle(result);
+      }).then(function(result2) {
+        article = result2;
+        console.log(article);
+        var ul = document.getElementById('challengesToRuleList');
+        if(App.refreshChallenges == true) {
+          ul.innerHTML = "";
+          App.refreshChallenges = false;
+        }
+        var li = document.createElement('li');
+        var titleText = document.createElement('h3');
+        titleText.innerHTML = article[0];
+        li.appendChild(titleText);
+
+        var agreeButton = document.createElement('button');
+        agreeButton.innerHTML = "Agree";
+        agreeButton.onclick = function() {App.voteOnChallenge(index, true);}
+        li.appendChild(agreeButton);
+
+        var disagreeButton = document.createElement('button');
+        disagreeButton.innerHTML = "Agree";
+        disagreeButton.onclick = function() {App.voteOnChallenge(index, false);}
+        li.appendChild(disagreeButton);
+
+        ul.appendChild(li);
+      }).catch(function(err) {
+        console.log(err.message);
+      });
+    });
+  },
+
+  voteOnChallenge: function(index, vote){
+    console.log("Saving vote");
+    
+    var honestmediaInstance;
+
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.log(error);
+      }
+
+      App.contracts.Honestmedia.deployed().then(function(instance) {
+        honestmediaInstance = instance;
+        
+        var rulingId = instance.getRulingId(index);
+        return honestmediaInstance.voteOnChallenge(rulingId, vote, index);
+      }).then(function(result) {
+        App.refreshChallenges = true;
+        App.showChallengesToBeRuled();
       }).catch(function(err) {
         console.log(err.message);
       });
@@ -504,13 +599,11 @@ App = {
           content: App.fileName
         }
         ] 
-        //const buf = buffer.Buffer(btoa(reader.result));
+        
         ipfs.add(files, function (err, files) {
-          //let url = "https://ipfs.io/ipfs/"+files[0].hash;
           console.log("Storing file on IPFS using Javascript. HASH: https://ipfs.io/ipfs/"+files[0].hash);
           if(App.processId == 1){
             App.articleHash = files[0].hash;
-            console.log(App.articleHash);
             ipfs.cat(files[0].hash, function(err,fileContent){ console.log("cat (display) returned: "+err+" " + fileContent); })
           }else {
             if(App.processId == 2){

@@ -37,6 +37,7 @@ contract ReaderRole {
     bytes32 proofHash;
     uint stake;
     bool success;
+    uint rulingId;
     }
 
   //Save number of total challenges
@@ -75,7 +76,7 @@ contract ReaderRole {
   function challenge(uint articleId, address contributor, bytes32 proofHash, uint stake, address account) public {
     totalChallenges = totalChallenges.add(1);
     allChallenges[totalChallenges] = challengeInfo({articleId: articleId, contributor: contributor, reader: account,
-                                                   proofHash: proofHash, stake: stake, success: false});
+                                                   proofHash: proofHash, stake: stake, success: false, rulingId:0});
     allReaders[account].numOfChallenges = allReaders[account].numOfChallenges.add(1);
     allReaders[account].challenges[totalChallenges] = false;
     emit ChallengeAdded(account, totalChallenges);
