@@ -31,26 +31,29 @@ There are three types of users on the app.
 ## Validator:
 
 A validator can perform 3 actions:
-	1. __Register__: A validator can register after providing a minimum amount of funding.
-	2. __Approve Content__: When a contributor adds some content, a validator is selected at random to approve the content. The validator then assesses the content and approves it.
-	3. __Rule on Challenges__: When a reader challenges some content, three random validators are selected to rule on the challenge. The validator refers to the proof provided by the reader and decides if the challenge is successful or not. Two of the three positive votes are required for the challenge to be successful.
+
+	1. Register: A validator can register after providing a minimum amount of funding.
+	2. Approve Content: When a contributor adds some content, a validator is selected at random to approve the content. The validator then assesses the content and approves it.
+	3. Rule on Challenges: When a reader challenges some content, three random validators are selected to rule on the challenge. The validator refers to the proof provided by the reader and decides if the challenge is successful or not. Two of the three positive votes are required for the challenge to be successful.
 
 A validator needs to maintain a minimum balance (minimum funding amount).
 
 ## Contributor 
 
 A Contributor  can perform 2 actions :
-	1. __Register__: A contributor can register after providing a minimum amount of funding.
-	2. __Add Content__: A contributor can upload the content that they want to publish and also the amount they are willing to stake on the content.
+
+	1. Register: A contributor can register after providing a minimum amount of funding.
+	2. Add Content: A contributor can upload the content that they want to publish and also the amount they are willing to stake on the content.
 
 A contributor needs to maintain a minimum balance (minimum funding amount).
 
 ## Reader
 
 A reader can perform 3 actions:
-	1. __Register__: A reader can register.
-	2. __Up Vote/ Down Vote Content__: A reader can ‘up vote’ or ‘down vote’ any content that is published.
-	3. __Rule on Challenges__: A reader can challenge any published content. They will upload proof and provide the amount they are willing to stake on the challenge. 
+
+	1. Register: A reader can register.
+	2. Up Vote/ Down Vote Content: A reader can ‘up vote’ or ‘down vote’ any content that is published.
+	3. Rule on Challenges: A reader can challenge any published content. They will upload proof and provide the amount they are willing to stake on the challenge. 
 
 ## The Challenge Process
 
@@ -70,17 +73,17 @@ We had trouble implementing the IPFS file upload. Adding files to IPFS does not 
 This repository contains Smart Contract code in Solidity (using Truffle) and dApp scaffolding (using HTML, CSS and JS).
 
 To install:
-	* download or clone the repo
-	* run `npm install`
-	* run `truffle compile`
+	- download or clone the repo
+	- run `npm install`
+	- run `truffle compile`
 
 ## Develop Client
 
 To use the dapp:
-	* npm run dev
+	- npm run dev
 
 To view dapp:
-	* http://localhost:3000
+	- http://localhost:3000
 
 # Features
 
@@ -112,15 +115,15 @@ Validators can validate an article from the list of Articles waiting to be Appro
 
 ## Feature App Features:
 
-	* Readers can reward contributors if they like the content.
-	* Tokenize the contract.
-	* Contributors can choose to reward previously stored/reported content if they use it.
-	* Provide functionality for Contributors to ‘Certify/Copyright’ their content.
+	- Readers can reward contributors if they like the content.
+	- Tokenize the contract.
+	- Contributors can choose to reward previously stored/reported content if they use it.
+	- Provide functionality for Contributors to ‘Certify/Copyright’ their content.
 
 ## Contact Developers:
 
-	* Avanti: avanti.machado@gmail.com
-	* Ringaile: ringaile@gmail.com
+	- Avanti: avanti.machado@gmail.com
+	- Ringaile: ringaile@gmail.com
 
 
 
