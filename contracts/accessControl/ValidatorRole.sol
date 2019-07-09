@@ -20,7 +20,6 @@ contract ValidatorRole {
   struct validatorInfo {
       uint rating;
       uint balance;
-      uint numOfApprovals;
       uint numOfChallenges;
       uint challengesLost;
       uint challengesWon;
