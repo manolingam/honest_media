@@ -607,15 +607,7 @@ App = {
    uploadFile: async function(event){
     event.preventDefault();
     
-     const reader = new FileReader();
-    console.log(App.fileName.name);
-    
-    reader.readAsBinaryString(App.fileName); 
-    
-    //let testBuffer = new Buffer(App.fileName);
-    
-    
-    reader.onloadend = async function() {
+   
     try{
             
       const ipfs = new Ipfs({ repo: String(Math.random() + Date.now()) } );
@@ -626,8 +618,8 @@ App = {
         const files = [
         {
           path: App.fileName.name,
-          content: Ipfs.Buffer.from(btoa(reader.result),"base64")
-          //content: App.fileName
+          //content: Ipfs.Buffer.from(btoa(reader.result),"base64")
+          content: App.fileName
         }
         ] 
         
@@ -649,7 +641,6 @@ App = {
       console.log('ipfs issue : ' + err);
     }
   }
-  } 
 };
 
 $(function() {
