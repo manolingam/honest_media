@@ -38,6 +38,7 @@ App = {
     App.showOperational();
     App.showArticles();
     App.showArticlesToBeApproved();
+    App.showChallengesToBeRuled();
     console.log("In bindEvents");
     $('#button-register').on('click', App.registerAccount);
     $('#button-Add').on('click', App.addArticle);
