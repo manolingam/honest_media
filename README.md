@@ -64,7 +64,7 @@ A reader can perform 3 actions:
 	5. In case of an unsuccessful challenge, the amount staked by the reader who issued the challenge is equally divided among the contributor and the validators that voted.
 
 __Functionality Issues__:
-We had trouble implementing the IPFS file upload. Adding files to IPFS does not result in any errors, but trying to access the file on IPFS using the hash, results in a timeout. We were successful in adding smaller sized text and image files.
+We had trouble retrieving the files uploaded to IPFS. Adding files to IPFS does not result in any errors, but trying to access the file on IPFS using the hash, results in a timeout. We were successful in adding and retrieving smaller sized text and image files.
 
 # How to use the app
 
@@ -102,8 +102,11 @@ A Contributor can add an article:
 Everyone can see the list of articles:
 ![alt text](img/allArticles.png "All Articles")
 
-Validators can validate an article from the list of Articles waiting to be Approved:
+Validators can validate an article from the list of Articles waiting to be approved:
 ![alt text](img/allApproval.png "All Articles waiting to be approved")
+
+Validators can rule an article from the list of Articles waiting to be ruled:
+![alt text](img/ruleArticles.png "All Articles waiting to be ruled")
 
 ## Resources 
 
@@ -115,6 +118,7 @@ Validators can validate an article from the list of Articles waiting to be Appro
 * [Solidity Language Reference](http://solidity.readthedocs.io/en/v0.4.24/)
 * [Ethereum Blockchain Explorer](https://etherscan.io/)
 * [Web3Js Reference](https://github.com/ethereum/wiki/wiki/JavaScript-API)
+* [JS IPFS Reference](https://github.com/ipfs/js-ipfs)
 
 ## Feature App Features:
 
