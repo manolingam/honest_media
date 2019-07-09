@@ -120,7 +120,7 @@ Validators can rule on challenges that are awaiting ruling:
 * [Web3Js Reference](https://github.com/ethereum/wiki/wiki/JavaScript-API)
 * [JS IPFS Reference](https://github.com/ipfs/js-ipfs)
 
-## Feature App Features:
+## Future App Features:
 
 	* Readers can reward contributors if they like the content.
 	* Tokenize the contract.
