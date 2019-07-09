@@ -73,17 +73,20 @@ We had trouble implementing the IPFS file upload. Adding files to IPFS does not 
 This repository contains Smart Contract code in Solidity (using Truffle) and dApp scaffolding (using HTML, CSS and JS).
 
 To install:
-	- download or clone the repo
-	- run `npm install`
-	- run `truffle compile`
+
+	* download or clone the repo
+	* run `npm install`
+	* run `truffle compile`
 
 ## Develop Client
 
 To use the dapp:
-	- npm run dev
+
+	* npm run dev
 
 To view dapp:
-	- http://localhost:3000
+
+	* http://localhost:3000
 
 # Features
 
@@ -115,15 +118,15 @@ Validators can validate an article from the list of Articles waiting to be Appro
 
 ## Feature App Features:
 
-	- Readers can reward contributors if they like the content.
-	- Tokenize the contract.
-	- Contributors can choose to reward previously stored/reported content if they use it.
-	- Provide functionality for Contributors to ‘Certify/Copyright’ their content.
+	* Readers can reward contributors if they like the content.
+	* Tokenize the contract.
+	* Contributors can choose to reward previously stored/reported content if they use it.
+	* Provide functionality for Contributors to ‘Certify/Copyright’ their content.
 
 ## Contact Developers:
 
-	- Avanti: avanti.machado@gmail.com
-	- Ringaile: ringaile@gmail.com
+	* Avanti: avanti.machado@gmail.com
+	* Ringaile: ringaile@gmail.com
 
 
 
