@@ -157,13 +157,6 @@ contract Honestmedia is ContributorRole, ReaderRole, ValidatorRole, Article  {
         Article.allArticles[articleId].validator = randomValidator;
     }
 
-
-    //approve article
-    function approve(uint articleId) internal onlyValidator {
-        require(Article.allArticles[articleId].validator == msg.sender, "Validator not authorised");
-        Article.allArticles[articleId].approved = true;
-    }
-
     //Function to update rating for Contributors
     function updateContributorRating(bool vote, bool challengeLost, address _contributor, uint articleId) public {
         uint newRating;

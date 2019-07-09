@@ -11,7 +11,6 @@ contract Article {
   // Define events
   event ArticleAdded(uint aticleNum);
   event ArticleRemoved(uint aticleNum);
-  event ArticleApproved(uint aticleNum);
   event ArticleChallenged(uint aticleNum);
   //Not sure if we need these below
   event ArticleUpVoted(uint aticleNum);
@@ -25,7 +24,6 @@ contract Article {
       string title;
       uint datePublished;
       address validator;
-      bool approved;
       bool challenged;
       bool removed;
       uint upVotes;
@@ -35,9 +33,6 @@ contract Article {
 
   //Define a variable to count number of articles.
   uint totalArticles;
-
-  //Define a variable to count number of articles.
-  uint totalArticlesToBeApproved;
 
   //Define a mapping to map contributor address and contributor info
   mapping(uint => articleInfo) allArticles;
@@ -52,7 +47,7 @@ contract Article {
     totalArticles = totalArticles.add(1);
     allArticles[totalArticles] = articleInfo({contributor: _contributor, ipfsArticleHash: _ipfsArticleHash,
                                              ipfsReferenceHash: _ipfsReferenceHash, title: _title, datePublished: _datePublished,
-                                            validator: address(0), approved: false, challenged:false, removed: false, upVotes: 0, downVotes: 0, stake: _stake});
+                                            validator: address(0), challenged:false, removed: false, upVotes: 0, downVotes: 0, stake: _stake});
     emit ArticleAdded(totalArticles);
     return totalArticles;
   }
@@ -100,17 +95,6 @@ contract Article {
   //Define a function if article is challenged
   function isArticleChallenged(uint articleNumber) public view returns (bool isChallenged){
     return allArticles[articleNumber].challenged;
-  }
-
-  // Define a function 'approved' that updates the approved flag
-  function approved(uint articleNumber) public {
-    allArticles[articleNumber].approved = true;
-    emit ArticleApproved(totalArticles);
-  }
-
-  //Define a function if article is challenged
-  function isArticleApproved(uint articleNumber) public view returns (bool isApproved){
-    return allArticles[articleNumber].approved;
   }
 
   // Define a function 'challenged' that updates the challenged flag
