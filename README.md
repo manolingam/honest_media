@@ -96,6 +96,9 @@ The app shows that contract is operational:
 User can register as a Contributor, Validator or Reader:
 ![alt text](img/registerAccount.png "Register Account")
 
+Contributor can see one's rating:
+![alt text](img/displayRating.png "Contributor Rating")
+
 A Contributor can add an article:
 ![alt text](img/addArticle.png "Add Article")
 
@@ -105,8 +108,6 @@ Everyone can see the list of articles:
 Validators can validate an article from the list of Articles waiting to be approved:
 ![alt text](img/allApproval.png "All Articles waiting to be approved")
 
-Validators can rule on challenges that are awaiting ruling:
-![alt text](img/ruleArticles.png "All Articles waiting to be ruled")
 
 ## Resources 
 
