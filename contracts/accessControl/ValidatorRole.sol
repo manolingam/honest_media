@@ -59,11 +59,6 @@ contract ValidatorRole {
     _removeValidator(msg.sender);
   }
 
-  //Define a function to increase number of approvals
-  function approve() external onlyValidator{
-    allValidators[msg.sender].numOfApprovals = allValidators[msg.sender].numOfApprovals.add(1);
-  }
-
   //Define a function to increase number of challenges
   function ruleOnChallenge() external onlyValidator{
     allValidators[msg.sender].numOfChallenges = allValidators[msg.sender].numOfChallenges.add(1);
