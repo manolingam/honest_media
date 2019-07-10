@@ -50,9 +50,9 @@ A contributor needs to maintain a minimum balance (minimum funding amount).
 
 A reader can perform 3 actions:
 
-	1. Register: A reader can register.
+	1. Register: A reader can register. 
 	2. Up Vote/ Down Vote Content: A reader can ‘up vote’ or ‘down vote’ any content that is published.
-	3. Rule on Challenges: A reader can challenge any published content. They will upload proof and provide the amount they are willing to stake on the challenge. 
+	3. Challenge: A reader can challenge any published content. They will upload proof and provide the amount they are willing to stake on the challenge. 
 
 ## The Challenge Process
 
