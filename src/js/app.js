@@ -247,8 +247,6 @@ App = {
       }).then(function(result) {
         numberOfArticles = result;
         console.log("showing articles..." + numberOfArticles);
-        App.showArticle(0);
-        App.showArticle(1);
         for (i = 0; i < numberOfArticles; i++) { 
           App.showArticle(i);
         }
