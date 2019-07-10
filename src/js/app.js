@@ -16,9 +16,24 @@ App = {
       App.web3Provider = new Web3.providers.HttpProvider('http://127.0.0.1:7545');
       web3 = new Web3(App.web3Provider);
     }
-
+    console.log(App.web3Provider);
     return App.initContract();
   },
+
+  getMetaskAccountID: function () {
+    web3 = new Web3(App.web3Provider);
+
+    // Retrieving accounts
+    web3.eth.getAccounts(function(err, res) {
+        if (err) {
+            console.log('Error:',err);
+            return;
+        }
+        console.log('getMetaskID:',res);
+        App.metamaskAccountID = res[0];
+
+    })
+},
 
   initContract: function() {
     $.getJSON('Honestmedia.json', function(data) {
@@ -38,6 +53,7 @@ App = {
     App.showOperational();
     App.showArticles();
     App.showChallengesToBeRuled();
+    App.getMetaskAccountID();
     console.log("In bindEvents");
     $('#button-register').on('click', App.registerAccount);
     $('#button-Add').on('click', App.addArticle);
@@ -270,11 +286,13 @@ App = {
 
         var upvoteButton = document.createElement('button');
         upvoteButton.innerHTML = "Upvotes: " + article[2];
+        upvoteButton.className = "btn btn-primary";
         upvoteButton.onclick = function() {App.upvoteArticle(index);}
         li.appendChild(upvoteButton);
 
         var downvoteButton = document.createElement('button');
         downvoteButton.innerHTML = "Downvotes: " + article[3] ;
+        downvoteButton.className = "btn btn-primary";
         downvoteButton.onclick = function() {App.downvoteArticle(index);}
         li.appendChild(downvoteButton);
         
@@ -306,6 +324,7 @@ App = {
 
         var proofButton = document.createElement('button');
         proofButton.id= "btn-proof" + index;
+        proofButton.className = "btn btn-primary";
         proofButton.innerHTML = "Upload";
         proofButton.onclick = function() {App.uploadFile};
         div.appendChild(proofButton);
@@ -327,6 +346,7 @@ App = {
 
         var challengeButton = document.createElement('button');
         challengeButton.innerHTML = "Challenge";
+        challengeButton.className = "btn btn-primary";
         challengeButton.onclick = function() {App.challengeArticle(index, stakeAmount.textContent);}
         //li.appendChild(challengeButton);
         div.appendChild(challengeButton);
@@ -519,7 +539,7 @@ App = {
    uploadFile: async function(event){
     event.preventDefault();
     
-   
+    
     try{
             
       const ipfs = new Ipfs({ repo: String(Math.random() + Date.now()) } );
@@ -544,7 +564,9 @@ App = {
             if(App.processId == 2){
               App.referenceHash = files[0].hash;
             }else {
-              App.proofHash = files[0].hash;
+              if(App.processId == 3) {
+                App.proofHash = files[0].hash;
+              }
             }
           }
         });
