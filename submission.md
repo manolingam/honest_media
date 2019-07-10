@@ -9,12 +9,13 @@ An honest reporting platform to solve the 'Fake News' problem. Anyone can publis
 Credibility and reputation of the Contributor will be built by the number of upvotes and downvotes they receive and challenges lost. 
 
 ## Project Team
-* Ringaile
+Ringaile
 * ringaile@gmail.com
 * github: https://github.com/ringaile
 * OK to contact about future hackathons : Yes
 
-* Avanti Machado    
+
+Avanti Machado    
 * avanti.machado@gmail.com
 * github: https://github.com/ajmachado
 * OK to contact about future hackathons : Yes
