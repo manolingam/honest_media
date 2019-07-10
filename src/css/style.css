@@ -1,3 +1,13 @@
+body {
+    background-image: url('../newspaper3.png'); /* Source: iStockPhoto */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.col-xs-12, .panel-heading, .panel-body, .panel {
+    background: rgba(241, 239, 239, 0.5);
+}
+
 li {
     margin-right: 5px;
     margin-bottom: 35px;
