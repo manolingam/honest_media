@@ -4,9 +4,9 @@
 Honest Media
 
 ## Project Summary
-An honest reporting platform where Journalists/Reporters/Writers will stake on their content. The content will be uploaded to IPFS. A reader can challenge the authenticity of the content (with proof) and stake on it. If the reader wins the challenge the amount staked by the Journalist will be rewarded to him and the validators ruling on the challenge. The Journalist’s reputation rating will be affected. If the reader loses the challenge the amount staked by the reader will be rewarded to the Journalist and the validators.
+An honest reporting platform where anyone can publish their content and stake on it. The content will be uploaded to IPFS. A Reader can challenge the authenticity of the content (with proof) and also stake on it. If the Reader wins the challenge the amount staked by the Contributor will be rewarded to him and the Validators ruling on the challenge. The Contributor’s reputation rating will be affected. If the Reader loses the challenge the amount staked by the Reader will be rewarded to the Contributor and the Validators.
 
-Credibility and reputation of the Journalist will be built by the number of upvotes, downvotes they receive and challenges lost. 
+Credibility and reputation of the Contributor will be built by the number of upvotes, downvotes they receive and challenges lost. 
 
 ## Project Team
 * Ringaile
