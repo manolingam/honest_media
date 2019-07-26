@@ -6,34 +6,39 @@ App = {
     return App.initWeb3();
   },
 
-  initWeb3: function() {
-    // Initialize web3 and set the provider to the testRPC.
-    if (typeof web3 !== 'undefined') {
-      App.web3Provider = web3.currentProvider;
-      web3 = new Web3(web3.currentProvider);
-    } else {
-      // set the provider you want from Web3.providers
-      App.web3Provider = new Web3.providers.HttpProvider('http://127.0.0.1:7545');
-      web3 = new Web3(App.web3Provider);
+  initWeb3: async function() {
+
+    if (window.ethereum) {
+      Web3.providers.HttpProvider.prototype.sendAsync = Web3.providers.HttpProvider.prototype.send;
+      window.web3 = new Web3(ethereum);
+      try {
+          // Request account access if needed
+          await ethereum.enable();
+          // Acccounts now exposed
+          console.log("Success")
+      } catch (error) {
+          // User denied account access...
+          console.log(error)
+      }
     }
-    console.log(App.web3Provider);
+    // Legacy dapp browsers...
+    else if (window.web3) {
+        window.web3 = new Web3(web3.currentProvider);
+        console.log("Connected to Metamask..")
+    }
+    // Non-dapp browsers...
+    else {
+        console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
+        web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:7545'));
+    }
+
     return App.initContract();
+
   },
 
-  getMetaskAccountID: function () {
-    web3 = new Web3(App.web3Provider);
-
-    // Retrieving accounts
-    web3.eth.getAccounts(function(err, res) {
-        if (err) {
-            console.log('Error:',err);
-            return;
-        }
-        console.log('getMetaskID:',res);
-        App.metamaskAccountID = res[0];
-
-    })
-},
+  getMetaskAccountID: async function () {
+    App.account = web3.eth.accounts[0];
+  },
 
   initContract: function() {
     $.getJSON('Honestmedia.json', function(data) {
@@ -42,7 +47,7 @@ App = {
       App.contracts.Honestmedia = TruffleContract(HonestmediaArtifact);
 
       // Set the provider for our contract.
-      App.contracts.Honestmedia.setProvider(App.web3Provider);
+      App.contracts.Honestmedia.setProvider(web3.currentProvider);
 
       //return App.showOperational();
       return App.bindEvents();
@@ -164,7 +169,9 @@ App = {
         App.contracts.Honestmedia.deployed().then(function(instance) {
          honestmediaInstance = instance;
 
+          console.log(addr)
           return honestmediaInstance.registerValidator(addr, fund);
+          
        }).then(function(result) {
          console.log(result);
          console.log("successfully added validator");
